@@ -1,6 +1,6 @@
 from fabric.api import *
 import os,sys
-sys.path.append("../../build")
+sys.path.append("../joshfire-framework/build")
 from joshfabric import *
 
 

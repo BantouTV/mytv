@@ -10,7 +10,7 @@
  */
 
 
-Joshfire.define(['joshfire/app', 'joshfire/class', './ted/tree.data', './tree.ui', 'joshfire/vendor/underscore', 'joshfire/utils/splashscreen'],
+Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', 'joshfire/vendor/underscore', 'joshfire/utils/splashscreen'],
 function(App, Class, Data, UI, _, Splash) {
   Joshfire.debug = true;
 
