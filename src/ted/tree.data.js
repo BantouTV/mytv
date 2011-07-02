@@ -18,7 +18,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/utils/datasou
     getVideos:function(options, callback){
       var self=this;
       datasource.request({
-          url:self.api_url+'Talk?offset=1',
+          url:self.api_url+'Talk',
           dataType: 'jsonp'
         },
         function (error, videos){
