@@ -10,43 +10,25 @@
  */
 
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/utils/datasource', 'joshfire/vendor/underscore'], function(Class, DataTree, DataSource, _) {
-  var datasource = new DataSource();
-  
+Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './ted.api'], function(Class, DataTree, _, API) {
   return Class(DataTree, {
-    api_url: 'http://ted-api.appspot.com/rest/v1/json/',
-    getVideos:function(options, callback){
-      var self=this;
-      datasource.request({
-          url:self.api_url+'Talk',
-          dataType: 'jsonp'
-        },
-        function (error, videos){
-       
-          callback(error, videos);
-        }
-      );
-    },
     buildTree: function() {
       var self=this;
       return [{
         id: 'videos',
         children: function(query,childCallback) {
          
-         self.getVideos(null, function (error, videos){
+         API.getLatestTalks(20, function (error, videos){
+           console.warn('latest', error, videos )
             if (error){
               //Error retrieving talks
               return childCallback(error, null);
             }
-            if (!videos.list || !videos.list.Talk){
-              //Unexpected api result
-              return childCallback({msg:'Unexpected api result'}, null);
-            }
-            if (videos.list.Talk.length === 0){
+            if (videos.length === 0){
               //No videos
               return childCallback({msg:'No results'}, null);
             }
-            videos= _.map(videos.list.Talk, function (item){
+            videos= _.map(videos, function (item){
                 return {
                   id: item.tedid,
                   label:item.name, 

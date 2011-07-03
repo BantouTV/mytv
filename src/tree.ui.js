@@ -27,17 +27,32 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui'], function(Class, UITree) 
       // our UI definition
       var aUITree = [
         {
-          id: 'player',
-          type: 'video.mediaelement',
-          // path to the .swf player file, if needed
-          mediaElementDefaultsPluginPath: './swf/',
-          autoShow: false,
-          options:{
-            forceAspectRatio:false,
-            //width:window.innerWidth,
-            height:window.innerHeight
-          }
+          id:'videodetail',
+          type:'panel',
+          children:[
+            {
+               id: 'player',
+                type: 'video.mediaelement',
+                autoShow: false,
+                options:{
+                  forceAspectRatio:false,
+                  //width:window.innerWidth,
+                  height:window.innerHeight
+                }
+            },
+            {
+              id:'videoinfo',
+              type:'panel',
+              content:'Infos sur vidéo'
+            },
+            {
+              id:'talkerinfo',
+              type:'panel',
+              content:'Infos sur talker'
+            }
+          ]
         },
+        
         {
           id: 'videolist',
           type: 'list',
@@ -54,8 +69,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui'], function(Class, UITree) 
           autoScroll: true,
           hideDelay: 5000,
           onSelect: function(ui,evt,data) {
-            document.getElementById(app.ui.element('/player').htmlId).style.display = 'block';
-            app.ui.element('/player').play(ui.getDataById(data[0][0]));
+            document.getElementById(app.ui.element('/videodetail').htmlId).style.display = 'block';
+            console.warn(ui.getDataById(data[0][0]));
+            app.ui.element('/videodetail/player').play(ui.getDataById(data[0][0]));
           }
         }
       ];

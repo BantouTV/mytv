@@ -10,5 +10,5 @@
  */
 
 Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
-  return Class(App, {});
+  return Class(App, {id:'myTED'});
 });
