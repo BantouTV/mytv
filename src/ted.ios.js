@@ -11,12 +11,26 @@
 
 Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
   return Class(App, {
-    
+
     id:'myTED',
   
     setup:function(callback) {
+      var self = this;
       
-      this.fbInit(callback);
+      this.__super(function() {
+        
+        var videodetail = self.ui.element('/videodetail');
+        
+        videodetail.subscribe('afterRefresh', function(ev, id) {
+          self.ui.element('/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
+          self.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
+          self.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+        });
+
+        this.fbInit(callback);
+        
+      });
+      
       
     },
   

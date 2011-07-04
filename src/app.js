@@ -22,17 +22,17 @@ function(App, Class, Data, UI, _, Splash) {
       // Select first video as soon we get the data
       self.ui.element('/videolist').subscribe('data', _.once(function(ev, data) {
         self.ui.setState('focus', '/videolist');
-        // Behaviour specialization : some environments should not autoplay the video, as it is fullscreen
-        if ((Joshfire.adapter === 'samsungtv' || Joshfire.adapter === 'browser')) {
-          // retrieve the first element in the list and select it. 
-          // the onSelect method in tree.ui.js does the rest
-          self.ui.element('/videolist').selectByIndex(0);
-        }
-        // remove splash
+        // self.ui.element('/videolist').selectByIndex(0); => activate later
+        self.ui.element('/footer').selectByIndex(0);
+        /*
+          TODO Remove the splashscreen before lading all assets and lists
+        */
+
         splash.remove();
       }));
-      if (callback)
+      if (callback) {
         callback(null);
+      }
     }
   });
 });
