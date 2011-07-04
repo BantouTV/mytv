@@ -39,7 +39,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   duration:item.duration_postad
                 };
             });
-            return childCallback(null,videos); 
+            return childCallback(null,videos,{"cache":3600}); 
         
         });//end api
 
