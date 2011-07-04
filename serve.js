@@ -11,7 +11,7 @@
 
 
 Joshfire = {define: function(a,b) {_ = b();}};
-require('../framework/lib/vendor/underscore.js');
+  
 
 var express = require('express');
 var fs = require('fs');
@@ -22,4 +22,4 @@ expressApp.use(express.static(testPath));
 
 
 
-expressApp.listen(1981);
+expressApp.listen(40010);
