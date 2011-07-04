@@ -124,11 +124,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               content:'Lot of stuff'
             },
             {
-              id:'my',
+              id:'favorites',
               type:Panel,
               content:'Toutes mes vidéos'
             }
-              
           ]//fin children main
         },//main
         {
@@ -137,7 +136,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           hideOnBlur: false,
           content: '',
           onAfterInsert:function() {
-            document.getElementById("myTED__footer_myVideosButton").onclick=function() {
+            document.getElementById("myTED__footer_favorites").onclick=function() {
               
               if (!app.getState("auth")) {
                 app.fbLogin();
@@ -157,7 +156,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             label: 'Themes'
           },
           {
-            id: 'my',
+            id: 'favorites',
             //type: 'button',
             label: 'My videos'
           }]
