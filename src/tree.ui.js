@@ -10,7 +10,7 @@
  */
 
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List', 'joshfire/uielements/Panel'], function(Class, UITree, List, Panel) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel'], function(Class, UITree, List, Panel) {
   return Class(UITree, {
 
     buildTree: function() {
@@ -28,7 +28,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List'
       var aUITree = [
         {
           id:'toolbar',
-          type:'panel',
+          type: Panel,
           hideOnBlur:false,
           content:'<h1>This is our toolbar</h1>',
           children:[{
@@ -45,7 +45,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List'
         },
         {
           id: 'videolist',
-          type: 'list',
+          type: List,
           dataPath: '/latest/',
           
           hideOnBlur:true,
@@ -69,9 +69,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List'
         },
         {
           id:'videodetail',
-          type:'panel',
+          type: Panel,
           hideOnBlur:true,
-        //  uiDataMaster:'/videolist',
+          uiDataMaster:'/videolist',
           autoShow:true,
           onAfterFocus:function(){
             console.warn('detail focused', this.data)
@@ -89,12 +89,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List'
             },
             {
               id:'videoinfo',
-              type:'panel',
+              type: Panel,
               content:'Infos sur vidéo'
             },
             {
               id:'talkerinfo',
-              type:'panel',
+              type: Panel,
               content:'Infos sur talker'
             }
           ]
