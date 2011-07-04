@@ -75,6 +75,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           */
           children:[
             {
+              id: 'like',
+              type: 'Button',
+              label: 'Like'
+            },
+            {
               id: 'player',
               type: 'video.mediaelement',
               autoShow: false,
@@ -91,18 +96,24 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               '<h2>by <%= data.talker ? data.talker.name : "" %></h2>'
             },
             {
-              id: 'videoinfo',
+              id: 'info',
               type: Panel,
-              innerTemplate:
-              '<h1 class="label">Video title<%= data.label %></h1>'+
-              '<p class="description"><%= data.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
-            },
-            {
-              id: 'talkerinfo',
-              type: Panel,
-              innerTemplate:
-              '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
-              '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+              children:[
+                {
+                  id: 'videoinfo',
+                  type: Panel,
+                  innerTemplate:
+                  '<h1 class="label">Video title<%= data.label %></h1>'+
+                  '<p class="description"><%= data.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+                },
+                {
+                  id: 'talkerinfo',
+                  type: Panel,
+                  innerTemplate:
+                  '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
+                  '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+                }
+              ]
             }
           ]
         },
