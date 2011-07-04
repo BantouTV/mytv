@@ -117,15 +117,18 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 ]//fin children videodetail
               }//fin video detail
             ]//fin children home
-            }//fin home
-            /**
-            Bug panel manager : en ajoutant des items, erreur lors du resolve moves
+            },//fin home
             {
               id:'themes',
               type:Panel,
               content:'Lot of stuff'
+            },
+            {
+              id:'my',
+              type:Panel,
+              content:'Toutes mes vidéos'
             }
-            **/
+              
           ]//fin children main
         },//main
         {
@@ -144,17 +147,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             }
           },
           data: [{
-            id: 'videosButton',
+            id: 'home',
             //type: 'button',
             label: 'Videos'
           },
           {
-            id: 'themesButton',
+            id: 'themes',
             //type: 'button',
             label: 'Themes'
           },
           {
-            id: 'myVideosButton',
+            id: 'my',
             //type: 'button',
             label: 'My videos'
           }]
