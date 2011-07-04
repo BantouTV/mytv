@@ -41,7 +41,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           hideOnBlur: true,
           autoShow: true,
           // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%=item.label%></figcaption></figure>',
+          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
           scroller: true,
           scrollOptions: {
             // do scroll in only one direction
@@ -89,10 +89,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
         },
         {
           id: 'footer',
-          type: 'panel',
+          type: List,
           hideOnBlur: false,
           content: '',
-          children: [{
+          data: [{
             id: 'videosButton',
             type: 'button',
             label: 'Videos'

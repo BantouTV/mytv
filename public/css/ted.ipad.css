@@ -18,10 +18,9 @@ h1 {
 
 #splashscreen {
   position: absolute;
-  top: 42px; right: 0; bottom: 0; left: 0;
-  line-height: 5em;
+  top: 0; right: 0; bottom: 0; left: 0;
+  line-height: 3em;
   background: #000;
-  font-size: "Arial Narrow", Arial, Sans-serif;
   font-weight: bold;
   color: red;
   text-align: center;
@@ -41,7 +40,6 @@ li {
   height: 42px;
   color: white;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#686868), color-stop(0.5, #2F3130), color-stop(0.5, #212122), to(#212122));
-  background-image: -webkit-linear-gradient(top, #686868, #2F3130 50%, #212122 50%, #212122);
   box-shadow: #333434 0 1px 0;
 }
 
@@ -50,7 +48,6 @@ li {
   height: 29px;
   border-radius: 4px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#888786), color-stop(0.5, #4d4c4c), color-stop(0.5, #3b3c3c), to(#3b3c3c));
-  background-image: -webkit-linear-gradient(top, #888786, #4d4c4c 50%, #3b3c3c 50%, #3b3c3c);
   border: #323333 1px solid;
   color: #fff;
   box-shadow: #484949 0 1px 0;
@@ -58,17 +55,16 @@ li {
 
 #myTED__toolbar h1 {
   text-shadow: #000 0 -1px 1px;
-  text-transform: uppercase;
   text-align: center;
   line-height: 42px;
 }
 
-#myTED__toolbar__buttonone {
+#myTED__toolbar__backButton {
   top: 6px;
   left: 7px;
 }
 
-#myTED__toolbar__buttontwo {
+#myTED__toolbar__reloadButton {
   top: 6px;
   right: 7px;
 }
@@ -93,47 +89,48 @@ li {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 48px;
-  background: #222;
-  font-size: 0;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4F5052), to(#111));
+/*  font-size: 0;*/
   text-align: center;
 }
 
-#myTED__footer .josh-type-Button {
+#myTED__footer .josh-List {
   display: inline-block !important;
   width: 65px;
   height: 48px;
   border: 0;
   background: transparent;
   color: #fff;
+  line-height: 72px;
 }
 
-#myTED__footer .josh-type-Button:first-child {
+#myTED__footer .josh-List.selected {
   background: #323131;
 }
 
 .scrollbarV {
- background: transparent;
- border: none;
- position: absolute;
- z-index: 100;
- width: 7px;
- bottom: 2px;
- top: 2px;
- right: 1px
-}
-.scrollbarV > div {
- position: absolute;
- z-index: 100;
- background: rgba(255, 55, 55, 1);
- border: none;
- -webkit-background-clip: padding-box;
- -webkit-box-sizing: border-box;
- width: 100%;
- -webkit-border-radius: 1px;
- border-radius: 1px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  z-index: 100;
+  width: 7px;
+  bottom: 2px;
+  top: 2px;
+  right: 1px
 }
 
-.josh-List {
+.scrollbarV div {
+  position: absolute;
+  z-index: 100;
+  background: rgba(255, 55, 55, 1);
+  border: none;
+  -webkit-background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  border-radius: 7px;
+}
+
+#myTED__videolist .josh-List {
   float: left;
   -webkit-box-sizing: border-box;
   width: 33%;
@@ -141,7 +138,7 @@ li {
   padding: 5px;
 }
 
-.josh-List figcaption {
+#myTED__videolist .josh-List figcaption {
   overflow : hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -149,11 +146,11 @@ li {
   -webkit-box-orient: vertical;
 }
 
-.josh-List img {
+#myTED__videolist .josh-List img {
   width: 100%;
 }
 
-figcaption {
+#myTED__videolist figcaption {
   font-weight: bold;
 }
 
