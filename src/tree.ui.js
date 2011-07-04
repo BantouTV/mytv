@@ -10,7 +10,7 @@
  */
 
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List', 'joshfire/uielements/Panel'], function(Class, UITree, List, Panel) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel'], function(Class, UITree, List, Panel) {
   return Class(UITree, {
 
     buildTree: function() {
@@ -71,7 +71,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/List'
           id:'videodetail',
           type:'panel',
           hideOnBlur:true,
-        //  uiDataMaster:'/videolist',
+          uiDataMaster:'/videolist',
           autoShow:true,
           onAfterFocus:function(){
             console.warn('detail focused', this.data)
