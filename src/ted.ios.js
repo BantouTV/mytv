@@ -10,5 +10,31 @@
  */
 
 Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
-  return Class(App, {id:'myTED'});
+
+  return Class(App, {
+
+    id:'myTED',
+    
+    setup: function(callback) {
+      var self = this;
+      this.__super();
+
+      var videodetail = self.ui.element('/videodetail');
+
+      videodetail.subscribe('afterRefresh', function(ev, id) {
+      /*
+        console.warn('$$$$$$$$$$$$$ afterRefresh', videodetail.dataPath);
+        console.warn(self.ui.element('/videodetail/talkerinfo'))
+        console.warn(self.data.get(videodetail.dataPath));
+        */
+        self.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
+        self.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+      });
+
+      callback(null, true);
+    }
+    
+
+  });
+
 });

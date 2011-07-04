@@ -67,6 +67,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           onAfterFocus:function(){
             console.warn('detail focused', this.data)
           },
+          /*
+          onAfterRefresh:function() {
+            this.app.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
+            this.app.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+          },
+          */
           children:[
             {
                id: 'player',
@@ -82,7 +88,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               type: Panel,
               //content:'Infos sur vidéo',
               innerTemplate:
-                '<div class="info"><p class="title"><%= data.label %></p></div>'
+              '  <img src="<%= data.image %>" />'+
+              '  <p class="label"><%= data.label %></p>'+
+              '  <p class="id"><%= data.id %></p>' + 
+              '  <p class="duration"><%= data.duration %></p>'
             },
             {
               id:'talkerinfo',
@@ -90,7 +99,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               //content:'Infos sur talker',
 
               innerTemplate:
-              '<div class="info"><p class="talker"><%= data.talker %></p></div>'
+              '  <img src="<%= data.talker ? data.talker.image : \'\' %>" />'+
+              '  <p class="name"><%= data.talker ? data.talker.name : "" %></p>'+
+              '  <p class="key"><%= data.talker ? data.talker.key : "" %></p>'
             }
           ]
         },
