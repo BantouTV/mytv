@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager'], function(Class, UITree, List, Panel, PanelManager) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel'], function(Class, UITree, List, Panel) {
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -35,110 +35,93 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           }]
         },
         {
-          id:'main',
-          type:PanelManager,
-          uiMaster:'/menu',
-          children:[
-          {
-            id:'home',
-            type:Panel,
-            onAfterBlur:function(){console.warn('blur!!')},
-            children:[
-              {
-                id: 'videolist',
-                type: List,
-                dataPath: '/talks/latest/',
-                //hideOnBlur: true,
-                autoShow: true,
-                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
-                scroller: true,
-                scrollOptions: {
-                  // do scroll in only one direction
-                  vScroll: bVerticalList,
-                  hScroll: !bVerticalList
-                },
-                scrollBarClass: 'scrollbar',
-                autoScroll: true,
-                //hideDelay: 5000,
-                onSelect: function(ui,evt,data) {
-                  console.warn(ui.getDataById(data[0][0]));
-                  // app.ui.moveTo('focus', '/videodetail');
-                }
-              },
-              {
-                id: 'videodetail',
-                type: Panel,
-                hideOnBlur:true,
-                uiDataMaster:'/main/home/videolist',
-                autoShow:true,
-                forceDataPathRefresh: true,
-                onAfterFocus:function(){
-                  console.warn('detail focused', this.data);
-                },
-                children:[
-                  {
-                    id: 'player',
-                    type: 'video.mediaelement',
-                    autoShow: false,
-                    options:{
-                      forceAspectRatio: false,
-                      height: window.innerHeight
-                    }
-                  },
-                  {
-                    id:'videoinfo',
-                    type: Panel,
-                    //content:'Infos sur vidéo',
-                    innerTemplate:'<div class="info"><p class="title"><%= data.label %></p></div>'
-                  },
-                  {
-                    id:'talkerinfo',
-                    type: Panel,
-                    //content:'Infos sur talker',
-                    innerTemplate:'<div class="info"><p class="talker"><%= data.talker %></p></div>'
-                  }
-                ]// end videodetail children
-              } // end videodetail
-            ]//end home children
-            } // end home
-             
-            /**
-             insert here
-             
-                themes view
-                my content view 
-                
-                ,{
-                    id:'themes',
-                    type:Panel,
-                    content:'Themes themes themes'
-                  },
-                  {
-                    id:'my',
-                    type:Panel,
-                    content:'These are MY videos'
-                  }
-            **/
-          ]//end main children
-        }, //end main
+          id: 'videolist',
+          type: List,
+
+          dataPath: '/talks/latest/',
+          //hideOnBlur: true,
+          autoShow: true,
+          // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
+          scroller: true,
+          scrollOptions: {
+            // do scroll in only one direction
+            vScroll: bVerticalList,
+            hScroll: !bVerticalList
+          },
+          scrollBarClass: 'scrollbar',
+          autoScroll: true,
+          //hideDelay: 5000,
+          onSelect: function(ui,evt,data) {
+            console.warn(ui.getDataById(data[0][0]));
+            // app.ui.moveTo('focus', '/videodetail');
+          }
+        },
         {
-          id: 'menu',
+          id: 'videodetail',
+          type: Panel,
+          hideOnBlur:true,
+          uiDataMaster:'/videolist',
+          autoShow:true,
+          forceDataPathRefresh: true,
+          onAfterFocus:function(){
+            console.warn('detail focused', this.data)
+          },
+          /*
+          onAfterRefresh:function() {
+            this.app.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
+            this.app.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+          },
+          */
+          children:[
+            {
+               id: 'player',
+                type: 'video.mediaelement',
+                autoShow: false,
+                options:{
+                  forceAspectRatio: false,
+                  height: window.innerHeight
+                }
+            },
+            {
+              id:'videoinfo',
+              type: Panel,
+              //content:'Infos sur vidéo',
+              innerTemplate:
+              '  <img src="<%= data.image %>" />'+
+              '  <p class="label"><%= data.label %></p>'+
+              '  <p class="id"><%= data.id %></p>' + 
+              '  <p class="duration"><%= data.duration %></p>'
+            },
+            {
+              id:'talkerinfo',
+              type: Panel,
+              //content:'Infos sur talker',
+
+              innerTemplate:
+              '  <img src="<%= data.talker ? data.talker.image : \'\' %>" />'+
+              '  <p class="name"><%= data.talker ? data.talker.name : "" %></p>'+
+              '  <p class="key"><%= data.talker ? data.talker.key : "" %></p>'
+            }
+          ]
+        },
+        {
+          id: 'footer',
           type: List,
           hideOnBlur: false,
           content: '',
           data: [{
-            id: 'home',
+            id: 'videosButton',
             type: 'button',
             label: 'Videos'
           },
           {
-            id: 'themes',
+            id: 'themesButton',
             type: 'button',
             label: 'Themes'
           },
           {
-            id: 'my',
+            id: 'myVideosButton',
             type: 'button',
             label: 'My videos'
           }]
