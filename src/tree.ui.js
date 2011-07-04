@@ -37,12 +37,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
         {
           id: 'videolist',
           type: List,
-
           dataPath: '/talks/latest/',
           //hideOnBlur: true,
           autoShow: true,
           // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
+          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
           scroller: true,
           scrollOptions: {
             // do scroll in only one direction
@@ -53,19 +52,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           autoScroll: true,
           //hideDelay: 5000,
           onSelect: function(ui,evt,data) {
-            console.warn(ui.getDataById(data[0][0]));
+            // console.warn(ui.getDataById(data[0][0]));
             // app.ui.moveTo('focus', '/videodetail');
           }
         },
         {
           id: 'videodetail',
           type: Panel,
-          hideOnBlur:true,
-          uiDataMaster:'/videolist',
-          autoShow:true,
+          hideOnBlur: true,
+          template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
+          uiDataMaster: '/videolist',
+          autoShow: true,
           forceDataPathRefresh: true,
-          onAfterFocus:function(){
-            console.warn('detail focused', this.data)
+          onAfterFocus: function() {
+            // console.warn('detail focused', this.data);
           },
           /*
           onAfterRefresh:function() {
@@ -75,33 +75,34 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           */
           children:[
             {
-               id: 'player',
-                type: 'video.mediaelement',
-                autoShow: false,
-                options:{
-                  forceAspectRatio: false,
-                  height: window.innerHeight
-                }
+              id: 'player',
+              type: 'video.mediaelement',
+              autoShow: false,
+              options: {
+                forceAspectRatio: false,
+                height: window.innerHeight
+              }
             },
             {
-              id:'videoinfo',
+              id: 'videoshortdesc',
               type: Panel,
-              //content:'Infos sur vidéo',
               innerTemplate:
-              '  <img src="<%= data.image %>" />'+
-              '  <p class="label"><%= data.label %></p>'+
-              '  <p class="id"><%= data.id %></p>' + 
-              '  <p class="duration"><%= data.duration %></p>'
+              '<h1>Video title<%= data.label %></h1>'+
+              '<h2>by <%= data.talker ? data.talker.name : "" %></h2>'
             },
             {
-              id:'talkerinfo',
+              id: 'videoinfo',
               type: Panel,
-              //content:'Infos sur talker',
-
               innerTemplate:
-              '  <img src="<%= data.talker ? data.talker.image : \'\' %>" />'+
-              '  <p class="name"><%= data.talker ? data.talker.name : "" %></p>'+
-              '  <p class="key"><%= data.talker ? data.talker.key : "" %></p>'
+              '<h1 class="label">Video title<%= data.label %></h1>'+
+              '<p class="description"><%= data.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+            },
+            {
+              id: 'talkerinfo',
+              type: Panel,
+              innerTemplate:
+              '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
+              '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
             }
           ]
         },

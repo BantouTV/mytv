@@ -106,7 +106,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   callback(null, _.map(talks, function(item) {
                     return {
                       id: item.tedid,
-                      label: item.name, 
+                      title: item.name.substring(item.name.indexOf(': ') + 2),
                       summary: item.summary,
                       image: item.image,
                       talker: item.talker,
