@@ -40,14 +40,29 @@ ul, figure {
 li {
   list-style: none;
 }
-
-#myTED__videolist {
+#myTED__toolbar{
+  height:47px;
+  background-color:red;
+  color:white;
+}
+#myTED__toolbar .josh-type-Button{
+  position:absolute;
+  float:left;
+  top:8px;
+}
+#myTED__toolbar #myTED__toolbar__buttontwo{
+  left:800px;
+}
+#myTED__videolist, #myTED__videodetail {
   position: absolute;
   z-index: 1;
   background: black;
   top:50px;
   bottom:0px;
-  width:100%;
+  width:50%;
+}
+#myTED__videolist{
+  left:640px;
 }
 .myTED__videolist_scroller {
   width:100%;
@@ -79,7 +94,7 @@ li {
 .josh-List {
   float: left;
   -webkit-box-sizing: border-box;
-  width: 25%;
+  width: 33%;
   height: 225px;
   padding: 5px;
 }

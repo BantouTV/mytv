@@ -14,13 +14,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
   return Class(DataTree, {
     buildTree: function() {
       var self=this;
-      return [{
-        id: 'videos',
+      return [
+      //latest talks, displayed on home screen
+      {
+        id: 'latest',
         children: function(query,childCallback) {
          
          API.getLatestTalks(20, function (error, videos){
-           console.warn('latest', error, videos )
-            if (error){
+             if (error){
               //Error retrieving talks
               return childCallback(error, null);
             }
@@ -40,10 +41,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
             });
             return childCallback(null,videos); 
         
-        });
+        });//end api
 
-        }
-      }];
+        }//end latest children
+      },
+      //details on a specific video : video itself, talk info, speaker info
+      {
+        id:'video',
+        children:function(query, childCallback){
+          console.warn('query', query)
+        }//end video children
+        
+      }
+      
+      ];
     }
   });
 });
