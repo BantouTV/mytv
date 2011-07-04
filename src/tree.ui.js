@@ -49,6 +49,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 //hideOnBlur: true,
+                incrementalRefresh:true,
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                 itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',

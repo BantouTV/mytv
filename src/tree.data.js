@@ -36,7 +36,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                 'label': theme.name,
                 'children': function(q, cb) {
                   q['filter'] = {'theme': theme.key};
-                  me.fetch('/talks/all/', q, cb);
+                  me.fetch('/talks/all/', q, function(err,data) {
+                    cb(err,data,{"cache":3600});
+                  });
                 }
               };
             }), {'cache': 3600*24});
@@ -50,7 +52,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
             'id': 'latest',
             'children': function(query, cb) {
               query['sort'] = {'date': -1};
-              me.fetch('/talks/all/', query, cb);
+              me.fetch('/talks/all/', query, function(err,data) {
+                cb(err,data,{"cache":3600});
+              });
             }
           },
           {
@@ -112,7 +116,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                       talker: item.talker,
                       duration: item.duration_postad
                     };
-                  }, {'cache': 3600}));
+                  }));
                 });
               });
             }
