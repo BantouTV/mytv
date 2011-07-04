@@ -133,19 +133,29 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: List,
           hideOnBlur: false,
           content: '',
+          onAfterInsert:function() {
+            document.getElementById("myTED__footer_myVideosButton").onclick=function() {
+              
+              if (!app.getState("auth")) {
+                app.fbLogin();
+              } else {
+                alert("user id is "+app.facebookSession.uid);
+              }
+            }
+          },
           data: [{
-            id: 'videolist',
-            type: 'button',
+            id: 'videosButton',
+            //type: 'button',
             label: 'Videos'
           },
           {
-            id: 'themes',
-            type: 'button',
+            id: 'themesButton',
+            //type: 'button',
             label: 'Themes'
           },
           {
             id: 'myVideosButton',
-            type: 'button',
+            //type: 'button',
             label: 'My videos'
           }]
         }
