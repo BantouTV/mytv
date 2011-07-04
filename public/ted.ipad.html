@@ -18,6 +18,7 @@
     <!-- <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png"> -->
   </head>
   <body>
+    <div id="fb-root"></div>
    <!-- <header>
       <h1 class="article_title">My TED TV</h1>
     </header> -->
@@ -25,7 +26,9 @@
       <script>
       Joshfire.debug = true;
       Joshfire.require(['../src/ted.ios'], function(MyTedTV) {
-        window._app = new MyTedTV();
+        Joshfire.onReady(function() {
+          window._app = new MyTedTV();
+        });
       });
     </script>
     <script src="scripts/helper.js"></script>
