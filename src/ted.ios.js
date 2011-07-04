@@ -15,11 +15,11 @@ Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
     setup: function(callback) {
       var self = this;
       this.__super();
-      var videodetail = self.ui.element('/videodetail');
+      var videodetail = self.ui.element('/main/home/videodetail');
       videodetail.subscribe('afterRefresh', function(ev, id) {
-        self.ui.element('/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
-        self.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
-        self.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+        self.ui.element('/main/home/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
+        self.ui.element('/main/home/videodetail/videoinfo').setDataPath(videodetail.dataPath);
+        self.ui.element('/main/home/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
       });
       callback(null, true);
     }

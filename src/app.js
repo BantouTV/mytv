@@ -13,15 +13,15 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
 function(App, Class, Data, UI, _, Splash) {
   Joshfire.debug = true;
   return Class(App, {
-    id: 'exampleVideoList',
+    id: 'myTEDtv',
     uiClass: UI,
     dataClass: Data,
     setup: function(callback) {
       var self = this,
           splash = new Splash();
       // Select first video as soon we get the data
-      self.ui.element('/videolist').subscribe('data', _.once(function(ev, data) {
-        self.ui.setState('focus', '/videolist');
+      self.ui.element('/main/home/videolist').subscribe('data', _.once(function(ev, data) {
+//        self.ui.setState('focus', '/videolist');
         // self.ui.element('/videolist').selectByIndex(0); => activate later
         self.ui.element('/footer').selectByIndex(0);
         /*
