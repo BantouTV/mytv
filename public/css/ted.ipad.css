@@ -89,7 +89,7 @@ li {
 #myTED__videolist {
   left: 50%;
 }
-.myTED__main__home__videolist_scroller {
+.myTED__videolist_scroller {
   width: 100%;
   position: absolute;
 }
@@ -214,7 +214,7 @@ li {
   z-index: 100;
 }
 
-#myTED__menu .josh-List {
+#myTED__footer .josh-List {
   display: inline-block !important;
   width: 65px;
   height: 48px;
