@@ -143,7 +143,20 @@ li {
   width: 460px;
   margin: 20px auto 0;
   background: #383838;
-  overflow: hidden;
+  position: relative;
+}
+
+#myTED__videodetail__like {
+  border: 0;
+  background: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  color: #fff;
+  border: 2px solid #fff;
+  position: absolute;
+  right: -10px;
+  top: -10px;
 }
 
 #myTED__main__home__videodetail .josh-type-Video video {
@@ -175,8 +188,15 @@ li {
   color: #959595;
 }
 
+
 #myTED__main__home__videodetail__videoinfo,
 #myTED__main__home__videodetail__talkerinfo {
+  overflow: auto;
+  background: #383838;
+}
+
+#myTED__videodetail__info__videoinfo,
+#myTED__videodetail__info__talkerinfo {
   -webkit-box-sizing: border-box;
   float: left;
   width: 50%;
