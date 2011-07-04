@@ -46,7 +46,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
         {
           id: 'videolist',
           type: 'list',
-          dataPath: '/latest/',
+          dataPath: '/talks/latest/',
           
           hideOnBlur:true,
           autoShow:true,

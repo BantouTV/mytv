@@ -57,31 +57,6 @@ return {
 	    });
 	},
 
-  	getThemes:function(n,callback){
-  	    var API=this;
-  	    API.query("Theme?page_size="+n,function(error,json) {
-  	        if (error) return callback(error);
-  	        callback(null,json.list.Theme);
-  	    });
-  	},
-  	
-  	getLatestTalks:function(n,callback){
-          var API=this;
-          API.query("Talk?ordering=-tedid&page_size="+n,function(error,json) {
-              if (error) return callback(error);
-  	        API.completeTalks(json.list.Talk,callback);
-  	    });
-  	},
-  	
-  	getTalksByTheme:function(theme,n,callback){
-  	    var API=this;
-  	    API.query("TalkTheme?feq_theme="+theme+"&page_size="+n,function(error,json) {
-  	        API.query("Talk?fin_key="+encodeURIComponent(_.pluck(json.list.TalkTheme,"talk").join(","))+"&page_size="+n,function(error,json) {
-  	            if (error) return callback(error);
-      	        API.completeTalks(json.list.Talk,callback);
-  	        });
-  	    });
-  	}
   	
 };
 });
