@@ -26,7 +26,7 @@ Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
           self.ui.element('/videodetail/info/talkerinfo').setDataPath(videodetail.dataPath);
         });
 
-        this.fbInit(callback);
+        self.fbInit(callback);
       });
       
       
