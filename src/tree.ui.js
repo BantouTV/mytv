@@ -37,8 +37,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
         {
           id: 'videolist',
           type: List,
+
           dataPath: '/talks/latest/',
-          hideOnBlur: true,
+          //hideOnBlur: true,
           autoShow: true,
           // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
           itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
@@ -50,8 +51,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           },
           scrollBarClass: 'scrollbar',
           autoScroll: true,
-          hideDelay: 5000,
-          onSelect: function(ui, evt, data) {
+          //hideDelay: 5000,
+          onSelect: function(ui,evt,data) {
             console.warn(ui.getDataById(data[0][0]));
             // app.ui.moveTo('focus', '/videodetail');
           }
@@ -59,11 +60,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
         {
           id: 'videodetail',
           type: Panel,
-          hideOnBlur: true,
-          uiDataMaster: '/videolist',
-          autoShow: true,
-          onAfterFocus: function(){
-            console.warn('detail focused', this.data);
+          hideOnBlur:true,
+          uiDataMaster:'/videolist',
+          autoShow:true,
+          forceDataPathRefresh: true,
+          onAfterFocus:function(){
+            console.warn('detail focused', this.data)
           },
           children:[
             {
@@ -78,12 +80,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id:'videoinfo',
               type: Panel,
-              content:'Infos sur vidéo'
+              //content:'Infos sur vidéo',
+              innerTemplate:
+                '<div class="info"><p class="title"><%= data.label %></p></div>'
             },
             {
               id:'talkerinfo',
               type: Panel,
-              content:'Infos sur talker'
+              //content:'Infos sur talker',
+
+              innerTemplate:
+              '<div class="info"><p class="talker"><%= data.talker %></p></div>'
             }
           ]
         },
