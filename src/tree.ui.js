@@ -119,13 +119,16 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               }//fin video detail
             ]//fin children home
             },//fin home
-            
             {
               id:'themes',
               type:Panel,
               content:'Lot of stuff'
+            },
+            {
+              id:'favorites',
+              type:Panel,
+              content:'Toutes mes vidéos'
             }
-            
           ]//fin children main
         },//main
         {
