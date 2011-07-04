@@ -3,3 +3,4 @@
 export/
 joshfire
 .sass-cache
+node_modules/*
