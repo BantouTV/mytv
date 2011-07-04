@@ -53,7 +53,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           hideDelay: 5000,
           onSelect: function(ui, evt, data) {
             console.warn(ui.getDataById(data[0][0]));
-            app.ui.moveTo('focus', '/videodetail');
+            // app.ui.moveTo('focus', '/videodetail');
           }
         },
         {
