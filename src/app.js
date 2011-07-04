@@ -20,8 +20,10 @@ function(App, Class, Data, UI, _, Splash) {
       var self = this,
           splash = new Splash();
       // Select first video as soon we get the data
-      self.ui.element('/videolist').subscribe('data', _.once(function(ev, data) {
-        self.ui.setState('focus', '/videolist');
+      self.ui.element('/main/home/videolist').subscribe('data', _.once(function(ev, data) {
+//        self.ui.setState('focus', '/main/home/videolist');
+    self.ui.moveTo('focus', '/menu');
+    self.ui.element('/menu').selectByIndex(0);
         // Behaviour specialization : some environments should not autoplay the video, as it is fullscreen
         if ((Joshfire.adapter === 'samsungtv' || Joshfire.adapter === 'browser')) {
           // retrieve the first element in the list and select it. 

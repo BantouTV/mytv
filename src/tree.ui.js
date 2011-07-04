@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel'], function(Class, UITree, List, Panel) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager'], function(Class, UITree, List, Panel, PanelManager) {
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -35,82 +35,110 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           }]
         },
         {
-          id: 'videolist',
-          type: List,
-
-          dataPath: '/talks/latest/',
-          //hideOnBlur: true,
-          autoShow: true,
-          // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-          itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
-          scroller: true,
-          scrollOptions: {
-            // do scroll in only one direction
-            vScroll: bVerticalList,
-            hScroll: !bVerticalList
-          },
-          scrollBarClass: 'scrollbar',
-          autoScroll: true,
-          //hideDelay: 5000,
-          onSelect: function(ui,evt,data) {
-            console.warn(ui.getDataById(data[0][0]));
-            // app.ui.moveTo('focus', '/videodetail');
-          }
-        },
-        {
-          id: 'videodetail',
-          type: Panel,
-          hideOnBlur:true,
-          uiDataMaster:'/videolist',
-          autoShow:true,
-          forceDataPathRefresh: true,
-          onAfterFocus:function(){
-            console.warn('detail focused', this.data)
-          },
+          id:'main',
+          type:PanelManager,
+          uiMaster:'/menu',
           children:[
-            {
-               id: 'player',
-                type: 'video.mediaelement',
-                autoShow: false,
-                options:{
-                  forceAspectRatio: false,
-                  height: window.innerHeight
+          {
+            id:'home',
+            type:Panel,
+            onAfterBlur:function(){console.warn('blur!!')},
+            children:[
+              {
+                id: 'videolist',
+                type: List,
+                dataPath: '/talks/latest/',
+                //hideOnBlur: true,
+                autoShow: true,
+                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %></figcaption></figure>',
+                scroller: true,
+                scrollOptions: {
+                  // do scroll in only one direction
+                  vScroll: bVerticalList,
+                  hScroll: !bVerticalList
+                },
+                scrollBarClass: 'scrollbar',
+                autoScroll: true,
+                //hideDelay: 5000,
+                onSelect: function(ui,evt,data) {
+                  console.warn(ui.getDataById(data[0][0]));
+                  // app.ui.moveTo('focus', '/videodetail');
                 }
-            },
-            {
-              id:'videoinfo',
-              type: Panel,
-              //content:'Infos sur vidéo',
-              innerTemplate:
-                '<div class="info"><p class="title"><%= data.label %></p></div>'
-            },
-            {
-              id:'talkerinfo',
-              type: Panel,
-              //content:'Infos sur talker',
-
-              innerTemplate:
-              '<div class="info"><p class="talker"><%= data.talker %></p></div>'
-            }
-          ]
-        },
+              },
+              {
+                id: 'videodetail',
+                type: Panel,
+                hideOnBlur:true,
+                uiDataMaster:'/main/home/videolist',
+                autoShow:true,
+                forceDataPathRefresh: true,
+                onAfterFocus:function(){
+                  console.warn('detail focused', this.data);
+                },
+                children:[
+                  {
+                    id: 'player',
+                    type: 'video.mediaelement',
+                    autoShow: false,
+                    options:{
+                      forceAspectRatio: false,
+                      height: window.innerHeight
+                    }
+                  },
+                  {
+                    id:'videoinfo',
+                    type: Panel,
+                    //content:'Infos sur vidéo',
+                    innerTemplate:'<div class="info"><p class="title"><%= data.label %></p></div>'
+                  },
+                  {
+                    id:'talkerinfo',
+                    type: Panel,
+                    //content:'Infos sur talker',
+                    innerTemplate:'<div class="info"><p class="talker"><%= data.talker %></p></div>'
+                  }
+                ]// end videodetail children
+              } // end videodetail
+            ]//end home children
+            } // end home
+             
+            /**
+             insert here
+             
+                themes view
+                my content view 
+                
+                ,{
+                    id:'themes',
+                    type:Panel,
+                    content:'Themes themes themes'
+                  },
+                  {
+                    id:'my',
+                    type:Panel,
+                    content:'These are MY videos'
+                  }
+            **/
+          ]//end main children
+        }, //end main
         {
-          id: 'footer',
+          id: 'menu',
           type: List,
           hideOnBlur: false,
           content: '',
           data: [{
-            id: 'videosButton',
+            id: 'home',
             type: 'button',
             label: 'Videos'
           },
           {
-            id: 'themesButton',
+            id: 'themes',
             type: 'button',
             label: 'Themes'
           },
           {
-            id: 'myVideosButton',
+            id: 'my',
             type: 'button',
             label: 'My videos'
           }]
