@@ -9,79 +9,74 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-
 Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], function(DataSource,_) {
   var datasource = new DataSource(),
-    APIROOT_TED = "http://ted-api.appspot.com/rest/v1/json/";
+      APIROOT_TED = 'http://ted-api.appspot.com/rest/v1/json/';
 
+  return {
+    query: function(url,callback) {
+      datasource.request({
+        url: APIROOT_TED+url, 
+        dataType: 'jsonp',
+        cache: 'no',
+        jsonp: 'callback'
+      },
+      function (error, json) {
+        if (error) {
+          return callback(error, null);
+        }
+        return callback(null, json);
+      });
+    },
 
-return {
+    completeTalks: function(talks, callback) {
+      var API = this;
+      API.query('Talker?page_size=200&fin_key=' + encodeURIComponent(_.pluck(talks, 'talker').join(',')), function(error, json) {
+        if (error) return callback(error);
 
-	query:function(url,callback) {
-    datasource.request({
-  		    url:APIROOT_TED+url, 
-  		    dataType:"jsonp",
-  		    cache:"no",
-  		    jsonp:"callback"
-		    },
-  			  function (error, json){
-  			  if (error){
-  			    return callback(error, null);
-  			  }
-  			  return callback(null, json);
-  			}
-  		);
-	},
+        _.each(talks,function(talk) {
+          _.each(json.list.Talker, function(talker) {
+            if (talk.talker == talker.key) {
+              talk.talker = talker;
+            }
+          });
+        });
+        callback(null,talks);
+      });
+    },
 
-	completeTalks:function(talks,callback) {
-	    var API=this;
-	    API.query("Talker?page_size=200&fin_key="+encodeURIComponent(_.pluck(talks,"talker").join(",")),function(error,json) {
-	        if (error) return callback(error);
+    getVideo: function(talk, callback){
+      var API = this;
+      API.query('Video?feq_talk=' + talk, function(error, json) {
+        if (error) return callback(error);
+        callback(null, json.list.Video);
+      });
+    },
 
-	        _.each(talks,function(talk) {
-	            _.each(json.list.Talker,function(talker) {
-	                if (talk.talker==talker.key) {
-	                    talk.talker=talker;
-	                }
-	            });
-	        });
-	        callback(null,talks);
-	    });
-	},
+    getThemes: function(n, callback){
+      var API = this;
+      API.query('Theme?page_size=' + n, function(error, json) {
+        if (error) return callback(error);
+        callback(null, json.list.Theme);
+      });
+    },
+    
+    getLatestTalks: function(n, callback){
+      var API = this;
+      API.query('Talk?ordering=-tedid&page_size=' + n, function(error, json) {
+        if (error) return callback(error);
+        API.completeTalks(json.list.Talk,callback);
+      });
+    },
 
-	getVideo:function(talk,callback){
-	    var API=this;
-	    API.query("Video?feq_talk="+talk,function(error,json) {
-	        if (error) return callback(error);
-	        callback(null,json.list.Video);
-	    });
-	},
-
-  	getThemes:function(n,callback){
-  	    var API=this;
-  	    API.query("Theme?page_size="+n,function(error,json) {
-  	        if (error) return callback(error);
-  	        callback(null,json.list.Theme);
-  	    });
-  	},
-  	
-  	getLatestTalks:function(n,callback){
-          var API=this;
-          API.query("Talk?ordering=-tedid&page_size="+n,function(error,json) {
-              if (error) return callback(error);
-  	        API.completeTalks(json.list.Talk,callback);
-  	    });
-  	},
-  	
-  	getTalksByTheme:function(theme,n,callback){
-  	    var API=this;
-  	    API.query("TalkTheme?feq_theme="+theme+"&page_size="+n,function(error,json) {
-  	        API.query("Talk?fin_key="+encodeURIComponent(_.pluck(json.list.TalkTheme,"talk").join(","))+"&page_size="+n,function(error,json) {
-  	            if (error) return callback(error);
-      	        API.completeTalks(json.list.Talk,callback);
-  	        });
-  	    });
-  	}
-  	
-};
+    getTalksByTheme:function(theme,n,callback){
+      var API = this;
+      API.query('TalkTheme?feq_theme=' + theme + '&page_size=' + n, function(error, json) {
+        API.query('Talk?fin_key=' + encodeURIComponent(_.pluck(json.list.TalkTheme, 'talk').join(',')) + '&page_size=' + n, function(error, json) {
+          if (error) return callback(error);
+          API.completeTalks(json.list.Talk,callback);
+        });
+      });
+    }
+  };
 });

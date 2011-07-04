@@ -9,47 +9,37 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel'], function(Class, UITree, List, Panel) {
   return Class(UITree, {
-
     buildTree: function() {
-      
       // UI specialization : the video list scrolls from top to bottom only on iOS
-      if(Joshfire.adapter === 'ios') {
-        var bVerticalList = true;
-      } else {
-        var bVerticalList = false;
-      }
-      
+      var bVerticalList = (Joshfire.adapter === 'ios') ? true : false;
+
       var app = this.app;
-      
       // our UI definition
       var aUITree = [
         {
-          id:'toolbar',
+          id: 'toolbar',
           type: Panel,
-          hideOnBlur:false,
-          content:'<h1>This is our toolbar</h1>',
-          children:[{
-            id:'buttonone',
-            type:'button',
-            label:'button #1'
+          hideOnBlur: false,
+          content: '<h1>myTED.tv</h1>',
+          children: [{
+            id: 'backButton',
+            type: 'button',
+            label: 'Back'
           },
           {
-            id:'buttontwo',
-            type:'button',
-            label:'button #2'
+            id: 'reloadButton',
+            type: 'button',
+            label: 'Reload'
           }]
-          
         },
         {
           id: 'videolist',
           type: List,
           dataPath: '/latest/',
-          
-          hideOnBlur:true,
-          autoShow:true,
+          hideOnBlur: true,
+          autoShow: true,
           // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
           itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%=item.label%></figcaption></figure>',
           scroller: true,
@@ -61,20 +51,19 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           scrollBarClass: 'scrollbar',
           autoScroll: true,
           hideDelay: 5000,
-          onSelect: function(ui,evt,data) {
+          onSelect: function(ui, evt, data) {
             console.warn(ui.getDataById(data[0][0]));
             app.ui.moveTo('focus', '/videodetail');
-//            app.ui.element('/videodetail/player').play(ui.getDataById(data[0][0]));
           }
         },
         {
-          id:'videodetail',
+          id: 'videodetail',
           type: Panel,
-          hideOnBlur:true,
-          uiDataMaster:'/videolist',
-          autoShow:true,
-          onAfterFocus:function(){
-            console.warn('detail focused', this.data)
+          hideOnBlur: true,
+          uiDataMaster: '/videolist',
+          autoShow: true,
+          onAfterFocus: function(){
+            console.warn('detail focused', this.data);
           },
           children:[
             {
@@ -82,9 +71,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: 'video.mediaelement',
                 autoShow: false,
                 options:{
-                  forceAspectRatio:false,
-                  //width:window.innerWidth,
-                  height:window.innerHeight
+                  forceAspectRatio: false,
+                  height: window.innerHeight
                 }
             },
             {
@@ -98,20 +86,39 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               content:'Infos sur talker'
             }
           ]
+        },
+        {
+          id: 'footer',
+          type: 'panel',
+          hideOnBlur: false,
+          content: '',
+          children: [{
+            id: 'videosButton',
+            type: 'button',
+            label: 'Videos'
+          },
+          {
+            id: 'themesButton',
+            type: 'button',
+            label: 'Themes'
+          },
+          {
+            id: 'myVideosButton',
+            type: 'button',
+            label: 'My videos'
+          }]
         }
       ];
-      
       // UI specialization : the video control bar is useless on environments without a mouse
       //console.log(Joshfire.adapter);
       if(Joshfire.adapter === 'browser') {
-        aUITree.push(  {
-            id: 'controls',
-            type: 'mediacontrols',
-            media: '/player',
-            hideDelay: 5000
-          });
+        aUITree.push({
+          id: 'controls',
+          type: 'mediacontrols',
+          media: '/player',
+          hideDelay: 5000
+        });
       }
-      
       return aUITree;
     }
   });
