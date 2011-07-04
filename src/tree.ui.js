@@ -45,7 +45,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             onAfterBlur:function(){console.warn('blur!!')},
             children:[
             {
-<<<<<<< HEAD
                 id: 'videolist',
                 type: List,
                 dataPath: '/talks/latest/',
@@ -125,47 +124,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               id:'themes',
               type:Panel,
               content:'Lot of stuff'
-=======
-              id: 'like',
-              type: 'Button',
-              label: 'Like'
-            },
-            {
-              id: 'player',
-              type: 'video.mediaelement',
-              autoShow: false,
-              options: {
-                forceAspectRatio: false,
-                height: window.innerHeight
-              }
-            },
-            {
-              id: 'videoshortdesc',
-              type: Panel,
-              innerTemplate:
-              '<h1>Video title<%= data.label %></h1>'+
-              '<h2>by <%= data.talker ? data.talker.name : "" %></h2>'
-            },
-            {
-              id: 'info',
-              type: Panel,
-              children:[
-                {
-                  id: 'videoinfo',
-                  type: Panel,
-                  innerTemplate:
-                  '<h1 class="label">Video title<%= data.label %></h1>'+
-                  '<p class="description"><%= data.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
-                },
-                {
-                  id: 'talkerinfo',
-                  type: Panel,
-                  innerTemplate:
-                  '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
-                  '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
-                }
-              ]
->>>>>>> 17bee75b22f441a5f154e71642878a45bbe3cdac
             }
             **/
           ]//fin children main
