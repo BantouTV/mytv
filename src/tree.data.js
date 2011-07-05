@@ -105,13 +105,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               API.query('Talk?' + urlserialize(qs), function(error, json) {
                 if (error) return callback(error);
                 API.completeTalks(_.isArray(json.list.Talk) ? json.list.Talk : [json.list.Talk], function(error2, talks) {
+                 console.warn('got talks', talks)
                   if (error2) return callback(error);
                   //Format talks for the tree
                   callback(null, _.map(talks, function(item) {
                     return {
                       id: item.tedid,
                       title: item.name.substring(item.name.indexOf(': ') + 2),
-                      summary: item.summary,
+                      summary: item.shortsummary,
                       image: item.image,
                       talker: item.talker,
                       duration: item.duration_postad
