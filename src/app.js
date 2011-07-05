@@ -11,7 +11,7 @@
 
 Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', 'joshfire/vendor/underscore', 'joshfire/utils/splashscreen'],
 function(App, Class, Data, UI, _, Splash) {
-  Joshfire.debug = true;
+  
   return Class(App, {
     id: 'myTEDtv',
     uiClass: UI,
@@ -25,8 +25,11 @@ function(App, Class, Data, UI, _, Splash) {
         self.ui.setState('focus', '/main/home/videolist');
         self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
+        
+        splash.remove();
       }));
-            
+           
+      /* 
       var splashCount = 3;
       self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
         if (splashCount) {
@@ -35,6 +38,7 @@ function(App, Class, Data, UI, _, Splash) {
             splash.remove();
         }
       });
+      */
 
       if (callback) {
         callback(null);

@@ -21,11 +21,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
 
         var videodetail = self.ui.element('/main/home/videodetail');
 
-        videodetail.subscribe('afterRefresh', function(ev, id) {
-          
-          self.ui.element('/main/home/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
-          self.ui.element('/main/home/videodetail/info/videoinfo').setDataPath(videodetail.dataPath);
-          self.ui.element('/main/home/videodetail/info/talkerinfo').setDataPath(videodetail.dataPath);
+        videodetail.subscribe('data', function(ev, id) {
           
           var player = self.ui.element('/main/home/videodetail/player');
 
