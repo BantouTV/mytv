@@ -98,14 +98,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'videoshortdesc',
                     type: Panel,
                     innerTemplate:
-                      '<h1>Video title<%= data.label %></h1>'+
-                      '<h2>by <%= data.talker ? data.talker.name : "" %></h2>'
+                      '<h1><%= data.title %></h1>'+
+                      '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
                   },
                   {
                     id: 'videoinfo',
                     type: Panel,
                     innerTemplate:
-                      '<h1 class="label">Video title<%= data.label %></h1>'+
+                      '<h1 class="label"><%= data.title %></h1>'+
                       '<p class="description"><%= data.description %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
                   },
                   {
