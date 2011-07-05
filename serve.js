@@ -21,5 +21,5 @@ testPath = __dirname + '/';
 expressApp.use(express.static(testPath));
 
 
-
+console.log('Listening on 40010.')
 expressApp.listen(40010);

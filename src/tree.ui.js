@@ -42,7 +42,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id:'home',
             type:Panel,
-            onAfterBlur:function(){console.warn('blur!!')},
+            onAfterBlur:function(){console.warn('blur!!');},
             children:[
             {
                 id: 'videolist',
@@ -93,7 +93,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'player',
                     type: 'video.mediaelement',
-                    autoShow: false,
+                    autoShow: true,
                     options: {
                       forceAspectRatio: false,
                       height: window.innerHeight
@@ -114,7 +114,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         id: 'videoinfo',
                         type: Panel,
                         innerTemplate:
-                          '<h1 class="label"><%= data.title %></h1>'+
+                          '<h1 class="label">Summary</h1>'+
                           '<p class="description"><%= data.summary %></p>'
                       },
                       {
@@ -155,7 +155,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               } else {
                 alert('user id is ' + app.facebookSession.uid);
               }
-            }
+            };
           },
           data: [{
             id: 'home',

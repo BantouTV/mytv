@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
+Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/underscore'], function(App, Class, API, _) {
   return Class(App, {
 
     id:'myTED',
@@ -23,6 +23,19 @@ Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
           self.ui.element('/main/home/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
           self.ui.element('/main/home/videodetail/info/videoinfo').setDataPath(videodetail.dataPath);
           self.ui.element('/main/home/videodetail/info/talkerinfo').setDataPath(videodetail.dataPath);
+          var player = self.ui.element('/main/home/videodetail/player');
+          if (videodetail.data) {
+            if (videodetail.data.video) {
+              player.play(videodetail.data.video['240']);
+            } else {
+              var edata = videodetail.data;
+              API.getVideo(edata.key, function(error, vdata) {
+                edata.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
+                //console.error('gotVideo', edata.video)
+                player.play(edata.video['240']);
+              });
+            }
+          }
         });
 
         self.fbInit(callback);
