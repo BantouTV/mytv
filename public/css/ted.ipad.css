@@ -28,6 +28,7 @@ h1 {
   text-align: center;
   font-size: 10em;
   z-index: 200;
+  background: #000 url(../images/loading.gif) no-repeat 50% 50%;
 }
 
 ul, figure {
@@ -237,13 +238,14 @@ li {
 
 /* @group Themes */
 
+#myTED__main__favorites,
 #myTED__main__themes {
   position: absolute;
   z-index: 1;
   top: 42px;
   bottom: 48px;
   background: #333132;
-  width:100%;
+  width: 100%;
 }
 #myTED__main__themes__themeslist{
   width:100%;
