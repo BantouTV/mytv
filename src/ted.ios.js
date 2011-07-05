@@ -21,8 +21,8 @@ Joshfire.define(['./app', 'joshfire/class'], function(App, Class) {
         var videodetail = self.ui.element('/main/home/videodetail');
         videodetail.subscribe('afterRefresh', function(ev, id) {
           self.ui.element('/main/home/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
-          self.ui.element('/main/home/videodetail/videoinfo').setDataPath(videodetail.dataPath);
-          self.ui.element('/main/home/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
+          self.ui.element('/main/home/videodetail/info/videoinfo').setDataPath(videodetail.dataPath);
+          self.ui.element('/main/home/videodetail/info/talkerinfo').setDataPath(videodetail.dataPath);
         });
 
         self.fbInit(callback);

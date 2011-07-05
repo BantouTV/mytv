@@ -107,32 +107,38 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
                   },
                   {
-                    id: 'videoinfo',
+                    id: 'info',
                     type: Panel,
-                    innerTemplate:
-                      '<h1 class="label"><%= data.title %></h1>'+
-                      '<p class="description"><%= data.summary %></p>'
-                  },
-                  {
-                    id: 'talkerinfo',
-                    type: Panel,
-                    innerTemplate:
-                      '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
-                      '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+                    children: [
+                      {
+                        id: 'videoinfo',
+                        type: Panel,
+                        innerTemplate:
+                          '<h1 class="label"><%= data.title %></h1>'+
+                          '<p class="description"><%= data.summary %></p>'
+                      },
+                      {
+                        id: 'talkerinfo',
+                        type: Panel,
+                        innerTemplate:
+                          '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
+                          '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+                      }
+                    ]
                   }
                 ]//fin children videodetail
               }//fin video detail
             ]//fin children home
             },//fin home
             {
-              id:'themes',
-              type:Panel,
-              content:'Lot of stuff'
+              id: 'themes',
+              type: Panel,
+              content: 'Lot of stuff'
             },
             {
-              id:'favorites',
-              type:Panel,
-              content:'Toutes mes vidéos'
+              id: 'favorites',
+              type: Panel,
+              content: 'Toutes mes vidéos'
             }
           ]//fin children main
         },//main
@@ -142,12 +148,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           hideOnBlur: false,
           content: '',
           onAfterInsert:function() {
-            document.getElementById("myTED__footer_favorites").onclick=function() {
+            document.getElementById('myTED__footer_favorites').onclick = function() {
               
-              if (!app.getState("auth")) {
+              if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
-                alert("user id is "+app.facebookSession.uid);
+                alert('user id is ' + app.facebookSession.uid);
               }
             }
           },

@@ -188,15 +188,13 @@ li {
   color: #959595;
 }
 
-
-#myTED__main__home__videodetail__videoinfo,
-#myTED__main__home__videodetail__talkerinfo {
-  overflow: auto;
+#myTED__main__home__videodetail__info {
+  overflow: hidden;
   background: #383838;
 }
 
-#myTED__main__home__videodetail__videoinfo,
-#myTED__main__home__videodetail__talkerinfo {
+#myTED__main__home__videodetail__info__videoinfo,
+#myTED__main__home__videodetail__info__talkerinfo {
   -webkit-box-sizing: border-box;
   float: left;
   width: 50%;
@@ -204,8 +202,8 @@ li {
   font-size: 11px;
 }
 
-#myTED__main__home__videodetail__videoinfo h1,
-#myTED__main__home__videodetail__talkerinfo h1 {
+#myTED__main__home__videodetail__info__videoinfo h1,
+#myTED__main__home__videodetail__info__talkerinfo h1 {
   padding-left: 21px;
   color: #fff;
   font-weight: normal;
@@ -214,8 +212,8 @@ li {
   padding-bottom: 4px;
 }
 
-#myTED__main__home__videodetail__videoinfo p,
-#myTED__main__home__videodetail__talkerinfo p {
+#myTED__main__home__videodetail__info__videoinfo p,
+#myTED__main__home__videodetail__info__talkerinfo p {
   line-height: 1.5em;
 }
 
@@ -229,9 +227,11 @@ li {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 48px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4F5052), to(#111));
   text-align: center;
   z-index: 100;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2D2D2D), to(#000));
+  border-top: 1px solid #434343;
+  box-shadow: 0 -1px 0 #0C1118;
 }
 
 #myTED__footer .josh-List {
@@ -240,13 +240,12 @@ li {
   height: 48px;
   border: 0;
   color: #fff;
-  line-height: 72px;
-  font-size: 11px;
+  line-height: 75px;
+  font-size: 10px;
   text-shadow: 0 1px 0 #000;
   background-color: transparent;
   background-repeat: no-repeat;
 }
-
 
 #myTED__footer .josh-List.selected {
   background-color: #323131;

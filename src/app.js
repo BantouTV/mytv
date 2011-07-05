@@ -19,17 +19,18 @@ function(App, Class, Data, UI, _, Splash) {
     setup: function(callback) {
       var self = this,
           splash = new Splash();
+
       // Select first video as soon we get the data
       self.ui.element('/main/home/videolist').subscribe('data', _.once(function(ev, data) {
-//        self.ui.setState('focus', '/videolist');
-        // self.ui.element('/videolist').selectByIndex(0); => activate later
+        self.ui.setState('focus', '/main/home/videolist');
+        self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
         /*
           TODO Remove the splashscreen before lading all assets and lists
         */
-
         splash.remove();
       }));
+
       if (callback) {
         callback(null);
       }
