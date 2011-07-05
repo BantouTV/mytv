@@ -14,16 +14,21 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
 
     id: 'myTED',
   
-    setup:function(callback) {
+    setup: function(callback) {
       var self = this;
 
       this.__super(function() {
+
         var videodetail = self.ui.element('/main/home/videodetail');
+
         videodetail.subscribe('afterRefresh', function(ev, id) {
+          
           self.ui.element('/main/home/videodetail/videoshortdesc').setDataPath(videodetail.dataPath);
           self.ui.element('/main/home/videodetail/info/videoinfo').setDataPath(videodetail.dataPath);
           self.ui.element('/main/home/videodetail/info/talkerinfo').setDataPath(videodetail.dataPath);
+          
           var player = self.ui.element('/main/home/videodetail/player');
+
           if (videodetail.data) {
             if (videodetail.data.video) {
               player.play(videodetail.data.video['240']);
@@ -43,7 +48,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
       });
     },
   
-    fbInit:function(callback) {
+    fbInit: function(callback) {
       var self = this;
       
       window.fbAsyncInit = function() {
@@ -66,11 +71,8 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           } else {
             // no user session available, someone you dont know
             self.setState("auth",false);
-            
           }
-          
         });
-        
       };
       
       var e = document.createElement('script'); e.async = true;
@@ -78,7 +80,6 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
       document.getElementById('fb-root').appendChild(e);
       
       callback();
-      
     },
   
     fbLogin:function() {
@@ -102,7 +103,6 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           // user is not logged in
         }
       }, {perms:'read_stream,publish_stream,offline_access'});
-    
     }
   });
 });

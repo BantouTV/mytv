@@ -23,11 +23,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: Panel,
           hideOnBlur: false,
           content: '<h1>myTED.tv</h1>',
-          children: [{
+          children: [/*{
             id: 'backButton',
             type: 'button',
             label: 'Back'
-          },
+          },*/
           {
             id: 'loginButton',
             type: 'button',
@@ -35,21 +35,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           }]
         },
         {
-          id:'main',
-          type:PanelManager,
-          uiMaster:'/footer',
-          children:[
+          id: 'main',
+          type: PanelManager,
+          uiMaster: '/footer',
+          children: [
           {
-            id:'home',
-            type:Panel,
-            onAfterBlur:function(){console.warn('blur!!');},
+            id: 'home',
+            type: Panel,
+            onAfterBlur: function() { console.warn('blur!!'); },
             children:[
             {
                 id: 'videolist',
                 type: List,
                 dataPath: '/talks/latest/',
-                //hideOnBlur: true,
-                incrementalRefresh:true,
+                incrementalRefresh: true,
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                 itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
@@ -61,8 +60,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 },
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
-                //hideDelay: 5000,
-                onSelect: function(ui,evt,data) {
+                onSelect: function(ui, evt, data) {
                   // console.warn(ui.getDataById(data[0][0]));
                   // app.ui.moveTo('focus', '/videodetail');
                 }
@@ -88,7 +86,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'like',
                     type: 'Button',
-                    label: 'Like'
+                    label: 'Like',
+                    onClick: function() {
+                      alert('You liked it ^_^');
+                    }
                   },
                   {
                     id: 'player',
@@ -154,8 +155,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onSelect: function(ui, evt, data) {
                   // console.warn(ui.getDataById(data[0][0]));
                   // console.warn('plop', ui, evt, data);
-                  alert('Launch category ' + ui.getDataById(data[0][0]).label + '. Id: ' + ui.getDataById(data[0][0]).id);
-                  // app.ui.moveTo('focus', '/videodetail');
+                  ui.app.ui.element('/footer').selectByIndex(0);
+                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
+                  // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
             },

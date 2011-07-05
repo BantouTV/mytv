@@ -26,7 +26,7 @@ function(App, Class, Data, UI, _, Splash) {
         self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
       }));
-
+            
       var splashCount = 3;
       self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
         if (splashCount) {
