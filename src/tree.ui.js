@@ -133,7 +133,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'themes',
               type: Panel,
-              content: 'Lot of stuff',
+              content: '',
               children: [{
                 id: 'themeslist',
                 type: List,
@@ -141,7 +141,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 incrementalRefresh: true,
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                itemInnerTemplate: '<p><%= item.label %>/<%= item.id %></p>',
+                itemInnerTemplate: '<figure data-id="<%= item.id %>"><img src="<%= item.image ? item.image : "http://placehold.it/208x142" %>"/><figcaption><%= item.label %></figcaption></figure>',
                 scroller: true,
                 scrollOptions: {
                   // do scroll in only one direction
@@ -149,8 +149,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   hScroll: !bVerticalList
                 },
                 scrollBarClass: 'scrollbar',
-                autoScroll: true
-                //hideDelay: 5000
+                autoScroll: true,
+                onSelect: function(ui, evt, data) {
+                  // console.warn(ui.getDataById(data[0][0]));
+                  // console.warn('plop', ui, evt, data);
+                  alert('Launch category ' + ui.getDataById(data[0][0]).label + '. Id: ' + ui.getDataById(data[0][0]).id);
+                  // app.ui.moveTo('focus', '/videodetail');
+                }
               }]
             },
             {
