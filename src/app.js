@@ -28,9 +28,17 @@ function(App, Class, Data, UI, _, Splash) {
         /*
           TODO Remove the splashscreen before lading all assets and lists
         */
-
-        splash.remove();
       }));
+
+      var splashCount = 3;
+      self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
+        if (splashCount) {
+          --splashCount;
+          if (!splashCount)
+            splash.remove();
+        }
+      });
+
       if (callback) {
         callback(null);
       }
