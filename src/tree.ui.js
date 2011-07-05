@@ -23,15 +23,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: Panel,
           hideOnBlur: false,
           content: '<h1>myTED.tv</h1>',
-          children: [/*{
-            id: 'backButton',
-            type: 'button',
-            label: 'Back'
-          },*/
+          children: [
           {
             id: 'loginButton',
-            type: 'button',
-            label: 'Login'
+            type: 'button'
           }]
         },
         {
@@ -89,8 +84,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'like',
                     type: 'Button',
                     label: 'Like',
-                    onClick: function() {
-                      alert('You liked it ^_^');
+                    onInput: function() {
+                      // alert('You liked it ^_^');
                     }
                   },
                   {
@@ -98,6 +93,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: 'video.mediaelement',
                     autoShow: true,
                     controls: true,
+                    noAutoPlay: false,
                     options: {
                       forceAspectRatio: false,
                       height: window.innerHeight
@@ -178,9 +174,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: List,
           hideOnBlur: false,
           content: '',
-          onAfterInsert:function() {
+          onAfterInsert: function() {
             document.getElementById('myTED__footer_favorites').onclick = function() {
-              
               if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
