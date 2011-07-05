@@ -115,6 +115,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                       summary: item.shortsummary,
                       image: item.image,
                       talker: item.talker,
+                      key: item.key,
                       duration: item.duration_postad
                     };
                   }));
