@@ -43,10 +43,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 id: 'videolist',
                 type: List,
                 dataPath: '/talks/latest/',
-                //incrementalRefresh: true,
+                incrementalRefresh: true,
                 lastItemInnerTemplate:"Show more!",
-                onLastItemSelect:function() {
-                  
+                onLastItemSelect:function(me) {
+                  app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
+                    
+                  });
                 },
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
