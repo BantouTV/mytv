@@ -43,6 +43,28 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
             }
           }
         });
+        
+        var likeButton = self.ui.element('/main/home/videodetail/like');
+        likeButton.subscribe('input', function(ev, id) {
+          likeButton.htmlEl.classList.toggle('liked');
+        });
+
+        var loginButton = self.ui.element('/toolbar/loginButton');
+        loginButton.subscribe('afterShow', function(ev, id) {
+          if (!self.getState('auth')) {
+            loginButton.htmlEl.setAttribute('value', 'Login');
+          } else {
+            // FIXME: Do not logout, do something else
+            loginButton.htmlEl.setAttribute('value', 'Logout');
+          }
+        });
+        loginButton.subscribe('input', function(ev, id) {
+          if (!self.getState('auth')) {
+            app.fbLogin();
+          } else {
+            alert('user id is ' + app.facebookSession.uid);
+          }
+        });
 
         self.fbInit(callback);
       });

@@ -101,8 +101,7 @@ li {
   -webkit-box-sizing: border-box;
   width: 208px;
   height: 195px;
-  margin-right: 20px;
-  margin-top: 20px;
+  margin: 20px;
   position: relative;
 }
 
@@ -145,6 +144,7 @@ li {
 
 #myTED__main__home__videodetail__player video {
   height: 260px;
+  z-index: 100;
 }
 
 #myTED__main__home__videodetail__like {
@@ -153,9 +153,14 @@ li {
   width: 51px;
   height: 51px;
   position: absolute;
-  right: -10px;
-  top: -10px;
+  right: -30px;
+  top: -15px;
   font-size: 0;
+  z-index: 1000;
+}
+
+#myTED__main__home__videodetail__like.liked {
+  background-image: url(data:image/png;base64,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);
 }
 
 #myTED__main__home__videodetail .josh-type-Video video {
@@ -247,9 +252,10 @@ li {
   background: #333132;
   width: 100%;
 }
-#myTED__main__themes__themeslist{
-  width:100%;
+#myTED__main__themes__themeslist {
+  width: 100%;
   position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
   z-index: 1;
   height:100%;
   background: #333132;
@@ -258,7 +264,7 @@ li {
   -webkit-box-sizing: border-box;
   float: left;
   width: 208px;
-  height: 195px;
+  height: 150px;
   margin: 20px;
   position: relative;
 }
@@ -328,24 +334,25 @@ li {
 
 /* @group Scrollbar */
 .scrollbarV {
-  background: transparent;
-  border: none;
   position: absolute;
   z-index: 100;
   width: 7px;
   bottom: 2px;
   top: 2px;
-  right: 1px
+  right: 10px;
+  background: center center repeat-y url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAABCAYAAAAb4BS0AAAAFUlEQVQImWOOiYlR4ebiuf/n7794ABvXBZLVk7rUAAAAAElFTkSuQmCC);
 }
 
+/*
+  FIXME Use multiple background featured
+*/
 .scrollbarV div {
   position: absolute;
+  left: 1px;
   z-index: 100;
-  background: rgba(255, 55, 55, 1);
-  border: none;
-  -webkit-background-clip: padding-box;
-  -webkit-box-sizing: border-box;
-  width: 100%;
-  border-radius: 7px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAABHCAYAAADP/42CAAAAn0lEQVR42u3QOwrCQBSF4SxDkzuTqTSFmEcdTJZiNWBro40gERG1icZmUoiCQd2dOzjeLllCimk/fjhwnGce6jqP9DWL9XGW6CJN5s4jm6KKRzhFY2yjAOsw+Dn3dILDwMPGJSyJsCCyaLFX2Hg+XlKhVKrFryfxEQpVF+uhwI0k9tJv8c1lw+WlW555aOcKrEjYky32DQ2jYTSMhrH8A6pMZjQI5/drAAAAAElFTkSuQmCC) no-repeat center center;
+  background-size: 100% 100%;
+  height: 71px;
+  width: 5px;
 }
 /* @end */
