@@ -28,6 +28,7 @@ h1 {
   text-align: center;
   font-size: 10em;
   z-index: 200;
+  background: #000 url(../images/loading.gif) no-repeat 50% 50%;
 }
 
 ul, figure {

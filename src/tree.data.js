@@ -31,12 +31,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           API.query('Theme?page_size=' + query.limit + '&offset=' + query.skip, function(error, json) {
             if (error) return callback(error);
             childCallback(null, _.map(json.list.Theme, function(theme) {
+            console.warn("THEEEEMMEEEE", theme);
               return {
                 'id': theme.key,
                 'label': theme.name,
+                'image': theme.image,
                 'children': function(q, cb) {
                   q['filter'] = {'theme': theme.key};
                   me.fetch('/talks/all/', q, function(err, data) {
+                  console.error('HERREEEEEE', data);
                     cb(err, data, {'cache': 3600});
                   });
                 }
@@ -105,7 +108,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               API.query('Talk?' + urlserialize(qs), function(error, json) {
                 if (error) return callback(error);
                 API.completeTalks(_.isArray(json.list.Talk) ? json.list.Talk : [json.list.Talk], function(error2, talks) {
-                 console.warn('got talks', talks);
+                  //console.warn('got talks', talks);
                   if (error2) return callback(error);
                   //Format talks for the tree
                   callback(null, _.map(talks, function(item) {

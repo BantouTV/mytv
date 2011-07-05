@@ -123,7 +123,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         type: Panel,
                         innerTemplate:
                           '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
-                          '<p class="description"><%= data.talker ? data.talker.description : "" %>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>'
+                          '<p class="description"><%= data.talker ? data.talker.shortsummary : "" %></p>'
                       }
                     ]
                   }
