@@ -159,7 +159,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   // console.warn(ui.getDataById(data[0][0]));
                   // console.warn('plop', ui, evt, data);
                   ui.app.ui.element('/footer').selectByIndex(0);
-                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
+                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
                   // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
@@ -188,7 +188,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           data: [{
             id: 'home',
             //type: 'button',
-            label: 'Videos'
+            label: 'Latest'
           },
           {
             id: 'themes',
@@ -198,7 +198,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'favorites',
             //type: 'button',
-            label: 'My videos'
+            label: 'My favorites'
           }]
         }
       ];
