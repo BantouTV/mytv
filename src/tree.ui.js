@@ -86,6 +86,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 */
                 children:[
                   {
+                    id: 'like',
+                    type: 'Button',
+                    label: 'Like'
+                  },
+                  {
                     id: 'player',
                     type: 'video.mediaelement',
                     autoShow: false,

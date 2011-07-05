@@ -146,7 +146,7 @@ li {
   position: relative;
 }
 
-#myTED__videodetail__like {
+#myTED__main__home__videodetail__like {
   border: 0;
   background: #000;
   width: 40px;
@@ -195,8 +195,8 @@ li {
   background: #383838;
 }
 
-#myTED__videodetail__info__videoinfo,
-#myTED__videodetail__info__talkerinfo {
+#myTED__main__home__videodetail__videoinfo,
+#myTED__main__home__videodetail__talkerinfo {
   -webkit-box-sizing: border-box;
   float: left;
   width: 50%;
