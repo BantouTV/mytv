@@ -110,7 +110,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'videoinfo',
                     type: Panel,
                     innerTemplate:
-                      '<h1 class="label"><%= data.title %></h1>'+
+                      '<h1 class="label">Summary</h1>'+
                       '<p class="description"><%= data.summary %></p>'
                   },
                   {

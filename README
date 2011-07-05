@@ -1,5 +1,3 @@
-The CSS
-The videolist example uses the SCSS option :
-- in "build.js", instead of "modules.css.include", there is a reference to the .scss entry point
-- then compile with "fab optimize"
-- the compiled CSS files are in /export/
+Run node serve.js
+You should map local.myted.tv on your localhost for facebook testing purposes
+To run iPad version: local.myted.tv:40100/public/ted.ipad.html or localhost:40010/public/ted.ipad.html
