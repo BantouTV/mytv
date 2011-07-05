@@ -29,9 +29,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             label: 'Back'
           },
           {
-            id: 'reloadButton',
+            id: 'loginButton',
             type: 'button',
-            label: 'Reload'
+            label: 'Login'
           }]
         },
         {
