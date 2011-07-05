@@ -27,6 +27,7 @@ h1 {
   color: red;
   text-align: center;
   font-size: 10em;
+  z-index: 200;
 }
 
 ul, figure {
@@ -159,7 +160,7 @@ li {
 
 #myTED__main__home__videodetail .josh-type-Video video {
   display: inline-block;
-  height: 100%;
+/*  height: 100%;*/
   width: 100%;
   z-index: 20;
 }
@@ -225,6 +226,11 @@ li {
 #myTED__main__home__videodetail__info__videoinfo p,
 #myTED__main__home__videodetail__info__talkerinfo p {
   line-height: 1.5em;
+  text-indent: justify;
+}
+
+#myTED__main__home__videodetail__player .close {
+  display: none;
 }
 
 /* @end */

@@ -25,11 +25,16 @@ function(App, Class, Data, UI, _, Splash) {
         self.ui.setState('focus', '/main/home/videolist');
         self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
-        /*
-          TODO Remove the splashscreen before lading all assets and lists
-        */
-        splash.remove();
       }));
+
+      var splashCount = 3;
+      self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
+        if (splashCount) {
+          --splashCount;
+          if (!splashCount)
+            splash.remove();
+        }
+      });
 
       if (callback) {
         callback(null);
