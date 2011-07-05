@@ -133,7 +133,25 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'themes',
               type: Panel,
-              content: 'Lot of stuff'
+              content: 'Lot of stuff',
+              children: [{
+                id: 'themeslist',
+                type: List,
+                dataPath: '/themes/',
+                incrementalRefresh: true,
+                autoShow: true,
+                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                itemInnerTemplate: '<p><%= item.label %>/<%= item.id %></p>',
+                scroller: true,
+                scrollOptions: {
+                  // do scroll in only one direction
+                  vScroll: bVerticalList,
+                  hScroll: !bVerticalList
+                },
+                scrollBarClass: 'scrollbar',
+                autoScroll: true
+                //hideDelay: 5000
+              }]
             },
             {
               id: 'favorites',

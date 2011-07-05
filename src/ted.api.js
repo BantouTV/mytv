@@ -51,7 +51,6 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
         if (error) return callback(error);
         callback(null, json.list.Video);
       });
-    }  	
-};
+    }
+  };
 });
-

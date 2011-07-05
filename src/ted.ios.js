@@ -12,7 +12,7 @@
 Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/underscore'], function(App, Class, API, _) {
   return Class(App, {
 
-    id:'myTED',
+    id: 'myTED',
   
     setup:function(callback) {
       var self = this;
@@ -40,8 +40,6 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
 
         self.fbInit(callback);
       });
-      
-      
     },
   
     fbInit:function(callback) {
