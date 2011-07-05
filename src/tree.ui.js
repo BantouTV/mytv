@@ -94,6 +94,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'player',
                     type: 'video.mediaelement',
                     autoShow: true,
+                    controls: true,
                     options: {
                       forceAspectRatio: false,
                       height: window.innerHeight
