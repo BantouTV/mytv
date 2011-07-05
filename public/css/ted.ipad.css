@@ -143,8 +143,12 @@ li {
   margin: auto;
   z-index: 10;
   width: 100%;
-  height: 280px;
+  height: 260px;
   background: #000;
+}
+
+#myTED__main__home__videodetail__player video {
+  height: 260px;
 }
 
 #myTED__main__home__videodetail__like {
