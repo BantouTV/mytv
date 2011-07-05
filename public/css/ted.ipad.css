@@ -217,6 +217,7 @@ li {
 #myTED__main__home__videodetail__videoinfo p,
 #myTED__main__home__videodetail__talkerinfo p {
   line-height: 1.5em;
+  text-indent: justify;
 }
 
 /* @end */

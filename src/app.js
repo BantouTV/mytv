@@ -23,6 +23,7 @@ function(App, Class, Data, UI, _, Splash) {
       self.ui.element('/main/home/videolist').subscribe('data', _.once(function(ev, data) {
 //        self.ui.setState('focus', '/videolist');
         // self.ui.element('/videolist').selectByIndex(0); => activate later
+        self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
         /*
           TODO Remove the splashscreen before lading all assets and lists
