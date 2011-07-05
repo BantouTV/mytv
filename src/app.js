@@ -24,8 +24,11 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         self.ui.setState('focus', '/main/home/videolist');
         self.ui.element('/main/home/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
+        
+        splash.remove();
       }));
-            
+           
+      /* 
       var splashCount = 3;
       self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
         if (splashCount) {
@@ -34,6 +37,7 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
             splash.remove();
         }
       });
+      */
 
       if (callback) {
         callback(null);

@@ -43,7 +43,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 id: 'videolist',
                 type: List,
                 dataPath: '/talks/latest/',
-                incrementalRefresh: true,
+                //incrementalRefresh: true,
+                innerTemplate: "<%= htmlInner %><div>Show more!</div>",
+                
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                 itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
@@ -107,10 +109,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'info',
                     type: Panel,
+                    uiDataSync:'/main/home/videodetail',
                     children: [
                       {
                         id: 'videoinfo',
                         type: Panel,
+                        uiDataSync:'/main/home/videodetail',
                         innerTemplate:
                           '<h1 class="label">Summary</h1>'+
                           '<p class="description"><%= data.summary %></p>'
@@ -118,6 +122,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       {
                         id: 'talkerinfo',
                         type: Panel,
+                        uiDataSync:'/main/home/videodetail',
                         innerTemplate:
                           '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
                           '<p class="description"><%= data.talker ? data.talker.shortsummary : "" %></p>'
