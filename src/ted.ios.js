@@ -27,12 +27,13 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           if (videodetail.data) {
             if (videodetail.data.video) {
               player.play(videodetail.data.video['240']);
+              player.pause();
             } else {
               var edata = videodetail.data;
               API.getVideo(edata.key, function(error, vdata) {
                 edata.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
-                //console.error('gotVideo', edata.video)
                 player.play(edata.video['240']);
+                player.pause();
               });
             }
           }

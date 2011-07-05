@@ -31,7 +31,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           API.query('Theme?page_size=' + query.limit + '&offset=' + query.skip, function(error, json) {
             if (error) return callback(error);
             childCallback(null, _.map(json.list.Theme, function(theme) {
-            console.warn("THEEEEMMEEEE", theme);
+            //console.warn("THEEEEMMEEEE", theme);
               return {
                 'id': theme.key,
                 'label': theme.name,
@@ -39,7 +39,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                 'children': function(q, cb) {
                   q['filter'] = {'theme': theme.key};
                   me.fetch('/talks/all/', q, function(err, data) {
-                  console.error('HERREEEEEE', data);
+                  //console.error('HERREEEEEE', data);
                     cb(err, data, {'cache': 3600});
                   });
                 }
