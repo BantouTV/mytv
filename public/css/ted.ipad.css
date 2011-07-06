@@ -46,7 +46,7 @@ li {
   height: 42px;
   color: white;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#686868), color-stop(0.5, #2F3130), color-stop(0.5, #212122), to(#212122));
-  box-shadow: #333434 0 1px 0;
+  -webkit-box-shadow: #333434 0 1px 0;
 }
 
 #myTED__toolbar .josh-type-Button {
@@ -56,7 +56,7 @@ li {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#888786), color-stop(0.5, #4d4c4c), color-stop(0.5, #3b3c3c), to(#3b3c3c));
   border: #323333 1px solid;
   color: #fff;
-  box-shadow: #484949 0 1px 0;
+  -webkit-box-shadow: #484949 0 1px 0;
 }
 
 #myTED__toolbar h1 {
@@ -77,13 +77,17 @@ li {
 /* @end */
 
 /* @group Panels */
+#myTED__main__home {
+  position: absolute;
+  top: 42px; right: 0; bottom: 48px; left: 0;
+}
 
 #myTED__main__home__videolist,
 #myTED__detailswrapper {
   position: absolute;
   z-index: 1;
-  top: 42px;
-  bottom: 48px;
+  top: 0;
+  bottom: 0;
   width: 50%;
   background: #333132;
 }
@@ -123,13 +127,13 @@ li {
   border-radius: 20px;
   padding: 5px 10px;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3c3d), to(#2e2e2f));
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 #myTED__main__home__videolist .josh-List img {
   width: 100%;
   border: 4px solid #1d1d1d;
-  box-shadow: 0 1px 0 #4b4a4b;
+  -webkit-box-shadow: 0 1px 0 #4b4a4b;
   height: 142px;
   overflow: hidden;
 }
@@ -149,7 +153,8 @@ li {
 
 /* @group Videodetail */
 #myTED__detailswrapper {
-  box-shadow: 1px 0 0 #383739, 2px 0 0 #181a1b;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 0 0 #383739, 2px 0 0 #181a1b;
 }
 
 #myTED__main__home__videodetail {
@@ -178,7 +183,7 @@ li {
   width: 51px;
   height: 51px;
   position: absolute;
-  right: -30px;
+  right: -25px;
   top: -15px;
   font-size: 0;
   z-index: 1000;
@@ -297,7 +302,7 @@ li {
 #myTED__main__themes .josh-List img {
   width: 100%;
   border: 4px solid #1d1d1d;
-  box-shadow: 0 1px 0 #4b4a4b;
+  -webkit-box-shadow: 0 1px 0 #4b4a4b;
   height: 142px;
   overflow: hidden;
 }
@@ -321,7 +326,7 @@ li {
   z-index: 100;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2D2D2D), to(#000));
   border-top: 1px solid #434343;
-  box-shadow: 0 -1px 0 #0C1118;
+  -webkit-box-shadow: 0 -1px 0 #0C1118;
 }
 
 #myTED__footer .josh-List {
