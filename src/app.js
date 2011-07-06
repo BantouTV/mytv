@@ -20,9 +20,9 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           splash = new Splash();
 
       // Select first video as soon we get the data
-      self.ui.element('/main/home/videolist').subscribe('data', _.once(function(ev, data) {
-        self.ui.setState('focus', '/main/home/videolist');
-        self.ui.element('/main/home/videolist').selectByIndex(0);
+      self.ui.element('/main/home/videolistpanel/videolist').subscribe('data', _.once(function(ev, data) {
+        self.ui.setState('focus', '/main/home/videolistpanel/videolist');
+        self.ui.element('/main/home/videolistpanel/videolist').selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
         
         splash.remove();

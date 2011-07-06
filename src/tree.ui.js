@@ -31,13 +31,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           onAfterInsert: function(ui) {
             //register onclick on login button
             //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
-              this.onclick = function() {
+              ui.htmlEl.onclick = function() {
                 if (!app.getState('auth')) {
                 ui.app.fbLogin();
               } else {
-
-                ui.app.fbLogout();  
-
+                ui.app.fbLogout();
               }
             };
           }
@@ -52,62 +50,57 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             type: Panel,
             onAfterBlur: function() { console.warn('blur!!'); },
             children:[
-            {
-                id: 'videolist',
-                type: List,
-                dataPath: '/talks/latest/',
-                incrementalRefresh: true,
-                lastItemInnerTemplate: "<button class='more'>Show more!</button>",
-                onLastItemSelect:function(me) {
-                  app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
-                      //me.iScroller.refresh();
-                      if (!newData || newData.length==0){
-                        $('#'+me.htmlId+'___lastItem', $('#'+me.htmlId)).remove();
-                      }
-                        
-                  });
-                },
-                autoShow: true,
-                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
-                scroller: true,
-                scrollOptions: {
-                  // do scroll in only one direction
-                  vScroll: bVerticalList,
-                  hScroll: !bVerticalList
-                },
-                scrollBarClass: 'scrollbar',
-                autoScroll: true,
-                onSelect: function(ui, evt, data) {
-                  // console.warn(ui.getDataById(data[0][0]));
-                  // app.ui.moveTo('focus', '/videodetail');
-                }
+              {
+                id: 'videolistpanel',
+                type: Panel,
+                children: [
+                  {
+                    id: 'videolisttitle',
+                    type: Panel,
+                    uiDataSync: '/main/home/videolistpanel/videolist',
+                    innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p>'
+                  },
+                  {
+                    id: 'videolist',
+                    type: List,
+                    dataPath: '/talks/latest/',
+                    incrementalRefresh: true,
+                    lastItemInnerTemplate: "<button class='more'>Show more!</button>",
+                    onLastItemSelect:function(me) {
+                      app.data.fetch(me.dataPath, {skip: me.data.length}, function(newData) {
+                          if (!newData || newData.length == 0){
+                            $('#' + me.htmlId + '___lastItem', $('#' + me.htmlId)).remove();
+                          }
+
+                      });
+                    },
+                    autoShow: true,
+                    // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
+                    scroller: true,
+                    scrollOptions: {
+                      // do scroll in only one direction
+                      vScroll: bVerticalList,
+                      hScroll: !bVerticalList
+                    },
+                    scrollBarClass: 'scrollbar',
+                    autoScroll: true
+                  }
+                ]
               },
               {
                 id: 'videodetail',
                 type: Panel,
                 hideOnBlur: true,
                 template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
-                uiDataMaster: '/main/home/videolist',
+                uiDataMaster: '/main/home/videolistpanel/videolist',
                 autoShow: true,
                 forceDataPathRefresh: true,
-                onAfterFocus: function() {
-                  // console.warn('detail focused', this.data);
-                },
-                /*
-                onAfterRefresh:function() {
-                  this.app.ui.element('/videodetail/videoinfo').setDataPath(videodetail.dataPath);
-                  this.app.ui.element('/videodetail/talkerinfo').setDataPath(videodetail.dataPath);
-                },
-                */
                 children:[
                   {
                     id: 'like',
                     type: 'Button',
-                    label: 'Like',
-                    onInput: function() {
-                      // alert('You liked it ^_^');
-                    }
+                    label: 'Like'
                   },
                   {
                     id: 'player',
@@ -123,7 +116,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videoshortdesc',
                     type: Panel,
-                    uiDataSync:'/main/home/videodetail',
+                    uiDataSync: '/main/home/videodetail',
                     innerTemplate:
                       '<h1><%= data.title %></h1>'+
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
@@ -176,15 +169,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  var videolist = ui.app.ui.element('/main/home/videolist');
+                  var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   var token = videolist.subscribe('afterRefresh', function() {
                     videolist.selectByIndex(0);
                     videolist.unsubscribe(token);
                   });
                   ui.app.ui.element('/footer').selectByIndex(0);
-
-                  //ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
             },
@@ -206,19 +197,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   themes: document.getElementById('myTED__footer_themes'),
                   favorites: document.getElementById('myTED__footer_favorites')
                 },
-                player  = ui.app.ui.element('/main/home/videodetail/player');
-
+            player  = ui.app.ui.element('/main/home/videodetail/player');
             btn.themes.onclick = function() { player.pause(); };
             btn.latest.onclick = function() { player.pause(); };
-
             btn.favorites.onclick = function() {
               player.pause();
               if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
-
                   //call api save prefs
-
               }
             };
           },
