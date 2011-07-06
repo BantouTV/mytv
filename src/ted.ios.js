@@ -21,20 +21,26 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
 
         var videodetail = self.ui.element('/main/home/videodetail');
 
-        videodetail.subscribe('data', function(ev, id) {
+        var token = videodetail.subscribe('data', function(ev, id) {
           
           var player = self.ui.element('/main/home/videodetail/player');
 
           if (videodetail.data) {
             if (videodetail.data.video) {
+              player.pause();
+              player.playWithStaticUrl(edata.video['240']);
+              /*
               player.play(videodetail.data.video['240']);
               player.pause();
+              */
+              videodetail.unsubscribe(token);
             } else {
               var edata = videodetail.data;
               API.getVideo(edata.key, function(error, vdata) {
                 edata.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
-                player.play(edata.video['240']);
                 player.pause();
+                player.playWithStaticUrl(edata.video['240']);
+                videodetail.unsubscribe(token);
               });
             }
           }
