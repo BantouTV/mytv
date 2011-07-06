@@ -44,10 +44,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 incrementalRefresh: true,
-                lastItemInnerTemplate:"Show more!",
+                lastItemInnerTemplate: "Show more!",
                 onLastItemSelect:function(me) {
                   app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
-                    
+                      //me.iScroller.refresh();
+                      if (!newData || newData.length==0){
+                        $('#'+me.htmlId+'___lastItem', $('#'+me.htmlId)).remove();
+                      }
+                        
                   });
                 },
                 autoShow: true,
@@ -210,17 +214,14 @@ console.error('JJJJJJJJJJ', player);
           },
           data: [{
             id: 'home',
-            //type: 'button',
-            label: 'Latest'
+            label: 'Videos'
           },
           {
             id: 'themes',
-            //type: 'button',
             label: 'Themes'
           },
           {
             id: 'favorites',
-            //type: 'button',
             label: 'My favorites'
           }]
         }
