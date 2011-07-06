@@ -44,7 +44,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 incrementalRefresh: true,
-                lastItemInnerTemplate:"Show more!",
+                lastItemInnerTemplate: "Show more!",
                 onLastItemSelect:function(me) {
                   app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
                       //me.iScroller.refresh();
@@ -110,6 +110,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videoshortdesc',
                     type: Panel,
+                    uiDataSync:'/main/home/videodetail',
                     innerTemplate:
                       '<h1><%= data.title %></h1>'+
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
@@ -162,11 +163,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  // console.warn(ui.getDataById(data[0][0]));
-                  // console.warn('plop', ui, evt, data);
+                  var videolist = ui.app.ui.element('/main/home/videolist');
+                  videolist.setDataPath('/themes/' + data[0]);
+                  var token = videolist.subscribe('afterRefresh', function() {
+                    videolist.selectByIndex(0);
+                    videolist.unsubscribe(token);
+                  });
                   ui.app.ui.element('/footer').selectByIndex(0);
-                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
-                  // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
+
+                  //ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
             },
@@ -193,17 +198,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           },
           data: [{
             id: 'home',
-            //type: 'button',
-            label: 'Latest'
+            label: 'Videos'
           },
           {
             id: 'themes',
-            //type: 'button',
             label: 'Themes'
           },
           {
             id: 'favorites',
-            //type: 'button',
             label: 'My favorites'
           }]
         }
