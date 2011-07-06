@@ -44,7 +44,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 incrementalRefresh: true,
-                lastItemInnerTemplate:"Show more!",
+                lastItemInnerTemplate: "Show more!",
                 onLastItemSelect:function(me) {
                   app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
                     
@@ -188,17 +188,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           },
           data: [{
             id: 'home',
-            //type: 'button',
-            label: 'Latest'
+            label: 'Videos'
           },
           {
             id: 'themes',
-            //type: 'button',
             label: 'Themes'
           },
           {
             id: 'favorites',
-            //type: 'button',
             label: 'My favorites'
           }]
         }

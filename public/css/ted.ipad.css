@@ -101,9 +101,10 @@ li {
   float: left;
   -webkit-box-sizing: border-box;
   width: 208px;
-  height: 195px;
+  height: 180px;
   margin: 20px;
   position: relative;
+  padding-bottom: 10px;
 }
 
 #myTED__main__home__videolist .josh-List img {
@@ -128,6 +129,10 @@ li {
 /* @end */
 
 /* @group Videodetail */
+#myTED__detailswrapper {
+  box-shadow: 1px 0 0 #181a1b;
+}
+
 #myTED__main__home__videodetail {
   width: 460px;
   margin: 20px auto 0;
@@ -264,8 +269,8 @@ li {
 #myTED__main__themes .josh-List {
   -webkit-box-sizing: border-box;
   float: left;
-  width: 208px;
-  height: 150px;
+  width: 210px;
+  height: 175px;
   margin: 20px;
   position: relative;
 }
