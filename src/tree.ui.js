@@ -158,17 +158,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  // console.warn(ui.getDataById(data[0][0]));
-                  // console.warn('plop', ui, evt, data);
-                  // console.warn("$$$$$$$$$$$$$$$$$$$", ui, data, '/themes/' + data[0][0], ui.app.data.get('/themes/' + data[0][0]))
-                  ui.app.ui.element('/footer').selectByIndex(0);
-                  // console.warn('$$$$$$$$$$$$$$$', ui.app);
-
-                  console.error('1', ui.app.data.get('/themes/' + data.id));
-                  console.error('2', ui.app.data.get('/themes/' + data[0]));
-
-                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
                   ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
+                  ui.app.ui.element('/footer').selectByIndex(0);
                   // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]

@@ -31,16 +31,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           API.query('Theme?page_size=' + query.limit + '&offset=' + query.skip, function(error, json) {
             if (error) return callback(error);
             childCallback(null, _.map(json.list.Theme, function(theme) {
-            console.error("THEME", theme);
               return {
                 'id': theme.key,
                 'label': theme.name,
                 'image': theme.image,
                 'children': function(query, cb) {
                   query['filter'] = {'theme': theme.key};
-                  console.error('WAZAAAAAAAAAAAAA', data);
                   me.fetch('/talks/all/', query, function(err, data) {
-                    console.error('HERREEEEEE', data);
                     cb(err, data, {'cache': 3600});
                   });
                 }

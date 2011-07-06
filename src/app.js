@@ -28,17 +28,6 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         splash.remove();
       }));
            
-      /* 
-      var splashCount = 3;
-      self.ui.element('/main/home/videodetail').subscribe('afterRefresh', function(ev, id) {
-        if (splashCount) {
-          --splashCount;
-          if (!splashCount)
-            splash.remove();
-        }
-      });
-      */
-
       if (callback) {
         callback(null);
       }
