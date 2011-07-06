@@ -159,10 +159,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  // console.warn(ui.getDataById(data[0][0]));
-                  // console.warn('plop', ui, evt, data);
-                  ui.app.ui.element('/footer').selectByIndex(0);
                   ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
+                  ui.app.ui.element('/footer').selectByIndex(0);
                   // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
