@@ -46,21 +46,24 @@ li {
 #myTED__toolbar {
   height: 42px;
   color: white;
+  text-align: center;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#232323), color-stop(9%,#1c1c1c), color-stop(18%,#1c1c1c), color-stop(67%,#000000), color-stop(80%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
   -webkit-box-shadow: #333434 0 1px 0;
 }
 
-#myTED__toolbar .josh-type-Button, #myTED__toolbar__loginButton{
+#myTED__toolbar .josh-type-Button, #myTED__toolbar__loginButton {
   position: absolute;
   height: 29px;
   border-radius: 6px;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1))); /* Chrome,Safari4+ */
   border: #171717 1px solid;
   color: #fff;
-  
+  line-height: 29px;
+  padding: 0 10px;
 }
 
 #myTED__toolbar h1 {
+  display: inline-block;
   text-shadow: #000 0 -1px 1px;
   text-align: center;
   line-height: 42px;
@@ -87,8 +90,8 @@ color:#fff;
   overflow: hidden;
 }
 
-#myTED__main__home__videolistpanel,
-#myTED__detailswrapper {
+#myTED__detailswrapper,
+#myTED__main__home__videolistpanel {
   position: absolute;
   z-index: 1;
   top: 0;

@@ -57,7 +57,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolisttitle',
                     type: Panel,
-                    uiDataSync: '/main/home/videolistpanel/videolist',
                     innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p>'
                   },
                   {
@@ -189,11 +188,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onSelect: function(ui, evt, data) {
                   var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
+                  
                   var token = videolist.subscribe('afterRefresh', function() {
                     videolist.selectByIndex(0);
                     videolist.unsubscribe(token);
                   });
                   ui.app.ui.element('/footer').selectByIndex(0);
+                  
+                  var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                  videolisttitle.setDataPath('/themes/' + data[0]);
                 }
               }]
             },
