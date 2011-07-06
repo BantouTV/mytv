@@ -85,7 +85,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                     if (error) return callback(error);
                     delete query.filter.theme;
 
-                    query.filter.id = _.isArray(json.list.TalkTheme) ? _.pluck(json.list.TalkTheme, 'talk') : json.list.TalkTheme.talk;
+                    query.filter.id = (json.list.TalkTheme ? (_.isArray(json.list.TalkTheme) ? _.pluck(json.list.TalkTheme, 'talk') : json.list.TalkTheme.talk) : null);
                     me.fetch('/talks/all/', query, callback);
                   });
                   return;
@@ -106,16 +106,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               }
 
               //Send the query
+              //console.warn('QUERY', urlserialize(qs));
               API.query('Talk?' + urlserialize(qs), function(error, json) {
                 if (error) return callback(error);
                 API.completeTalks(_.isArray(json.list.Talk) ? json.list.Talk : [json.list.Talk], function(error2, talks) {
-                  //console.warn('got talks', talks);
                   if (error2) return callback(error);
                   //Format talks for the tree
                   callback(null, _.map(talks, function(item) {
+                    //console.error(item.name)
                     return {
                       id: item.tedid,
-                      title: item.name.substring(item.name.indexOf(': ') + 2),
+                      title: ((item.name.indexOf(': ') == -1) ? item.name : item.name.substring(item.name.indexOf(': ') + 2)),
                       summary: item.shortsummary,
                       image: item.image,
                       talker: item.talker,
