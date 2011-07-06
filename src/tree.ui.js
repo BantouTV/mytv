@@ -27,7 +27,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'loginButton',
             type: 'button'
-          }]
+          }],
+          onAfterInsert: function(ui) {
+            //register onclick on login button
+            //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
+              this.onclick = function() {
+                if (!app.getState('auth')) {
+                ui.app.fbLogin();
+              } else {
+
+                ui.app.fbLogout();  
+
+              }
+            };
+          }
         },
         {
           id: 'main',
@@ -203,7 +216,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
-                alert('user id is ' + app.facebookSession.uid);
+
+                  //call api save prefs
+
               }
             };
           },

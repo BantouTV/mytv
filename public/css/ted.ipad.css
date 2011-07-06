@@ -45,7 +45,7 @@ li {
 #myTED__toolbar {
   height: 42px;
   color: white;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#686868), color-stop(0.5, #2F3130), color-stop(0.5, #212122), to(#212122));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#232323), color-stop(9%,#1c1c1c), color-stop(18%,#1c1c1c), color-stop(67%,#000000), color-stop(80%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
   -webkit-box-shadow: #333434 0 1px 0;
 }
 
@@ -112,24 +112,6 @@ li {
   padding-bottom: 10px;
 }
 
-#myTED__main__home__videolist___lastItem {
-  line-height: 100px !important;
-  height: 100px !important;
-  text-align: center;
-}
-
-#myTED__main__home__videolist___lastItem button {
-  -webkit-background-clip: padding-box;
-  color: #fff;
-  text-shadow: 0 1px 0 #000;
-  font-size: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
-  padding: 5px 10px;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3c3d), to(#2e2e2f));
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
 #myTED__main__home__videolist .josh-List img {
   width: 100%;
   border: 4px solid #1d1d1d;
@@ -149,6 +131,25 @@ li {
   font-size: 11px;
   color: #989998;
 }
+
+#myTED__main__home__videolist___lastItem {
+  line-height: 100px !important;
+  height: 100px !important;
+  text-align: center;
+}
+
+#myTED__main__home__videolist___lastItem button {
+  -webkit-background-clip: padding-box;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  font-size: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3c3d), to(#2e2e2f));
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 /* @end */
 
 /* @group Videodetail */
@@ -282,14 +283,16 @@ li {
   background: #333132;
   width: 100%;
 }
+
 #myTED__main__themes__themeslist {
   width: 100%;
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   z-index: 1;
-  height:100%;
+  height: 100%;
   background: #333132;
 }
+
 #myTED__main__themes .josh-List {
   -webkit-box-sizing: border-box;
   float: left;
@@ -378,11 +381,14 @@ li {
 */
 .scrollbarV div {
   position: absolute;
-  left: 1px;
+  left: 2px;
   z-index: 100;
+/*
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAABHCAYAAADP/42CAAAAn0lEQVR42u3QOwrCQBSF4SxDkzuTqTSFmEcdTJZiNWBro40gERG1icZmUoiCQd2dOzjeLllCimk/fjhwnGce6jqP9DWL9XGW6CJN5s4jm6KKRzhFY2yjAOsw+Dn3dILDwMPGJSyJsCCyaLFX2Hg+XlKhVKrFryfxEQpVF+uhwI0k9tJv8c1lw+WlW555aOcKrEjYky32DQ2jYTSMhrH8A6pMZjQI5/drAAAAAElFTkSuQmCC) no-repeat center center;
   background-size: 100% 100%;
-  height: 71px;
+*/
+/*   height: 71px; */
   width: 5px;
+  background: url(../images/scroll-haut.png) top left no-repeat,url(../images/scroll-bas.png) bottom left no-repeat, url(../images/scroll-centre.png) center center no-repeat, url(../images/scroll-inter.png) center center repeat;
 }
 /* @end */

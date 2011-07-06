@@ -4,27 +4,19 @@
     <meta charset="utf-8">
     <title>myTED.tv</title>
     <script data-main="../" src="../joshfire/adapters/ios/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/ted.ipad.css" />
     <link rel="stylesheet" href="css/ted.iphone.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <!-- <link rel="apple-touch-startup-image" href="img/l/splash.png"> -->
     <meta name="format-detection" content="telephone=no">
-    <!-- For iPhone 4 with high-resolution Retina display: -->
-    <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png"> -->
-    <!-- For first-generation iPad: -->
-    <!-- <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png"> -->
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png"> -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png"> <!-- 57x57 -->
   </head>
   <body>
-    
     <div id="fb-root"></div>
-   <!-- <header>
-      <h1 class="article_title">My TED TV</h1>
-    </header> -->
-    <div id="splashscreen">TED</div>
-      <script>
+    <div id="splashscreen"><!--TED--></div>
+    <script>
       Joshfire.debug = true;
       Joshfire.require(['../src/ted.ios'], function(MyTedTV) {
         Joshfire.onReady(function() {
@@ -34,17 +26,6 @@
     </script>
     <script src="scripts/helper.js"></script>
     <script>
-      // function showForm() {
-      //     $("#contactus").show();
-      // }
-      // $("#contactus").hide();
-      // var btn = document.getElementById("btn");
-      // new MBP.fastButton(btn,showForm);
-      // var contact = document.getElementById("contact");
-      // MBP.autogrow(contact);
-    </script>
-    <script>
-      // iPhone Scale Bug Fix, read this when using http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/
       MBP.scaleFix();
     </script>
   </body>
