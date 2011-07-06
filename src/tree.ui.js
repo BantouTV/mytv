@@ -23,15 +23,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: Panel,
           hideOnBlur: false,
           content: '<h1>myTED.tv</h1>',
-          children: [/*{
-            id: 'backButton',
-            type: 'button',
-            label: 'Back'
-          },*/
+          children: [
           {
             id: 'loginButton',
-            type: 'button',
-            label: 'Login'
+            type: 'button'
           }]
         },
         {
@@ -49,6 +44,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 incrementalRefresh: true,
+                lastItemInnerTemplate:"Show more!",
+                onLastItemSelect:function(me) {
+                  app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
+                    
+                  });
+                },
                 autoShow: true,
                 // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                 itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
@@ -87,8 +88,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'like',
                     type: 'Button',
                     label: 'Like',
-                    onClick: function() {
-                      alert('You liked it ^_^');
+                    onInput: function() {
+                      // alert('You liked it ^_^');
                     }
                   },
                   {
@@ -96,6 +97,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: 'video.mediaelement',
                     autoShow: true,
                     controls: true,
+                    noAutoPlay: false,
                     options: {
                       forceAspectRatio: false,
                       height: window.innerHeight
@@ -111,10 +113,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'info',
                     type: Panel,
+                    uiDataSync:'/main/home/videodetail',
                     children: [
                       {
                         id: 'videoinfo',
                         type: Panel,
+                        uiDataSync:'/main/home/videodetail',
                         innerTemplate:
                           '<h1 class="label">Summary</h1>'+
                           '<p class="description"><%= data.summary %></p>'
@@ -122,6 +126,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       {
                         id: 'talkerinfo',
                         type: Panel,
+                        uiDataSync:'/main/home/videodetail',
                         innerTemplate:
                           '<h1 class="name"><%= data.talker ? data.talker.name : "" %></h1>'+
                           '<p class="description"><%= data.talker ? data.talker.shortsummary : "" %></p>'
@@ -157,10 +162,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   // console.warn('plop', ui, evt, data);
                   // console.warn("$$$$$$$$$$$$$$$$$$$", ui, data, '/themes/' + data[0][0], ui.app.data.get('/themes/' + data[0][0]))
                   ui.app.ui.element('/footer').selectByIndex(0);
-                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
                   // console.warn('$$$$$$$$$$$$$$$', ui.app);
 
-                  ui.app.data.fetch('/themes/' + data.id, function() {alert('LOL');});
+                  console.error('1', ui.app.data.get('/themes/' + data.id));
+                  console.error('2', ui.app.data.get('/themes/' + data[0]));
+
+                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
+                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
                   // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
@@ -177,9 +185,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: List,
           hideOnBlur: false,
           content: '',
-          onAfterInsert:function() {
+          onAfterInsert: function() {
             document.getElementById('myTED__footer_favorites').onclick = function() {
-              
               if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
@@ -190,7 +197,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           data: [{
             id: 'home',
             //type: 'button',
-            label: 'Videos'
+            label: 'Latest'
           },
           {
             id: 'themes',
@@ -200,7 +207,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'favorites',
             //type: 'button',
-            label: 'My videos'
+            label: 'My favorites'
           }]
         }
       ];
