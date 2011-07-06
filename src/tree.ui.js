@@ -106,6 +106,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videoshortdesc',
                     type: Panel,
+                    uiDataSync:'/main/home/videodetail',
                     innerTemplate:
                       '<h1><%= data.title %></h1>'+
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
