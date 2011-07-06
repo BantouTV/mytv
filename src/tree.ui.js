@@ -113,15 +113,21 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       height: window.innerHeight
                     },
                     onAfterInsert:function(self){
-                      setInterval(function(){
+                      (function timer_daemon(){
+                          setTimeout(function(){
                         var video= self.htmlEl.querySelector('video');
                         if (video && !video.paused){
                            //Do your thing
                            //_app.ui.element('/main/home/videodetail).dataPath.match(/[0-9]+$/)
                            //video.currentTime
+                           // _app.timer._daemon
                            var video_id=_app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/);
                            $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
-                        }} , 3000);
+                          
+                        }
+                         timer_daemon();
+                        } , 1000);
+                      })();
                       
                     }
                   },
