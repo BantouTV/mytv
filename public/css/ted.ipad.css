@@ -45,7 +45,7 @@ li {
 #myTED__toolbar {
   height: 42px;
   color: white;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#686868), color-stop(0.5, #2F3130), color-stop(0.5, #212122), to(#212122));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#232323), color-stop(9%,#1c1c1c), color-stop(18%,#1c1c1c), color-stop(67%,#000000), color-stop(80%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
   -webkit-box-shadow: #333434 0 1px 0;
 }
 
