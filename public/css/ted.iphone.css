@@ -1,8 +1,12 @@
 /* @group Home */
 
+#myTED__main {
+  padding: 0;
+}
+
 #myTED__main__home {
-  width: 300px;
-  margin: auto;
+  width: 320px;
+  margin: 0;
 }
 
 /* @end */
@@ -17,11 +21,6 @@
 }
 
 /* @group Video details */
-
-#myTED__main__home__videodetail__like {
-  display: none !important;
-}
-
 #myTED__detailswrapper {
   -webkit-box-shadow: none;
   width: 100%;
@@ -29,7 +28,11 @@
 
 #myTED__main__home__videodetail {
   width: 100%;
-  margin-top: 10px;
+  margin: 0;
+}
+
+#myTED__main__home__videodetail__like {
+  display: none !important;
 }
 
 #myTED__main__home__videodetail__player {
@@ -65,12 +68,12 @@
   position: absolute;
   left: auto;
   right: auto;
-  top: 235px;
+  top: 215px;
   height: auto;
 }
 
 #myTED__main__home__videolistpanel__videolist {
-  top: 35px;
+  top: 25px;
 }
 
 #myTED__main__home__videolistpanel__videolisttitle {
@@ -86,7 +89,7 @@
 #myTED__main__home__videolistpanel__videolist .josh-List {
   width: 125px;
   height: 145px;
-  margin: 0 10px 10px;
+  margin: 0 15px 10px;
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List img {
