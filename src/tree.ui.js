@@ -203,7 +203,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               if (!app.getState('auth')) {
                 app.fbLogin();
               } else {
-                alert('user id is ' + app.facebookSession.uid);
+
+                  //call api save prefs
+
               }
             };
           },

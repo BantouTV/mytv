@@ -59,7 +59,8 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           if (!self.getState('auth')) {
             self.fbLogin();
           } else {
-            alert('user id is ' + self.facebookSession.uid);
+            //alert('user id is ' + self.facebookSession.uid);
+           self.fbLogout();
           }
         });
 
@@ -80,16 +81,16 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
             // logged in and connected user, someone you know
             self.facebookSession = response.session;
             self.setState("auth",true);
+            self.ui.element('/toolbar/loginButton').htmlEl.setAttribute('value', 'Logout');
             
             if (window.location.toString().match(/logout/)) {
-              FB.logout(function() {
-                window.location = window.location;
-              });
+             self.fbLogout();
             }
             
           } else {
             // no user session available, someone you dont know
             self.setState("auth",false);
+             self.ui.element('/toolbar/loginButton').htmlEl.setAttribute('value', 'Login');
           }
         });
       };
@@ -105,9 +106,8 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
       var self = this;
       
       if (!FB) return;
-    
-      FB.login(function(response) {
-        if (response.session) {
+          FB.login(function(response) {
+                if (response.session) {
           if (response.perms) {
             
             // user is logged in and granted some permissions.
@@ -122,6 +122,11 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           // user is not logged in
         }
       }, {perms:'read_stream,publish_stream,offline_access'});
+    },
+    fbLogout:function(){
+       FB.logout(function() {
+          window.location = window.location;
+        });
     }
   });
 });
