@@ -57,9 +57,9 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
         });
         loginButton.subscribe('input', function(ev, id) {
           if (!self.getState('auth')) {
-            app.fbLogin();
+            self.fbLogin();
           } else {
-            alert('user id is ' + app.facebookSession.uid);
+            alert('user id is ' + self.facebookSession.uid);
           }
         });
 
