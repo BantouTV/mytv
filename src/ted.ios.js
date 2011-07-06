@@ -49,20 +49,12 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
         var loginButton = self.ui.element('/toolbar/loginButton');
         loginButton.subscribe('afterShow', function(ev, id) {
           if (!self.getState('auth')) {
-            loginButton.htmlEl.setAttribute('value', 'Login');
+            loginButton.htmlEl.firstChild.innerText = 'Login';
           } else {
             // FIXME: Do not logout, do something else
-            loginButton.htmlEl.setAttribute('value', 'Logout');
+            loginButton.htmlEl.firstChild.innerText = 'Logout';
           }
         });
-    /*    loginButton.subscribe('input', function(ev, id) {
-          if (!self.getState('auth')) {
-            self.fbLogin();
-          } else {
-            //alert('user id is ' + self.facebookSession.uid);
-           self.fbLogout();
-          }
-        });*/
 
         self.fbInit(callback);
       });
@@ -81,7 +73,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
             // logged in and connected user, someone you know
             self.facebookSession = response.session;
             self.setState("auth",true);
-            self.ui.element('/toolbar/loginButton').htmlEl.setAttribute('value', 'Logout');
+            self.ui.element('/toolbar/loginButton').htmlEl.firstChild.innerText='Logout';
             
             if (window.location.toString().match(/logout/)) {
              self.fbLogout();
@@ -90,7 +82,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           } else {
             // no user session available, someone you dont know
             self.setState("auth",false);
-             self.ui.element('/toolbar/loginButton').htmlEl.setAttribute('value', 'Login');
+            self.ui.element('/toolbar/loginButton').htmlEl.firstChild.innerText='Login';
           }
         });
       };

@@ -26,18 +26,19 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           children: [
           {
             id: 'loginButton',
-            type: 'button'
+            type: Panel,
+            label:'Login',
+            innerTemplate:'<a href="http://www.facebook.com/dialog/oauth?client_id=214358631942957&redirect_uri='+window.location+'&display=touch"><%=options.label%></a>'
           }],
           onAfterInsert: function(ui) {
             //register onclick on login button
             //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
-              ui.htmlEl.onclick = function() {
-                if (!app.getState('auth')) {
-                ui.app.fbLogin();
-              } else {
-                ui.app.fbLogout();
-              }
-            };
+              
+                //  ui.app.fbLogin();
+                // ... Forget that ...
+                // Works fine in iOS Safari.. but not in a web app = launched from home screen
+                // Let's try direct link
+              //ui.htmlEl.onclick = function() {};
           }
         },
         {
@@ -48,7 +49,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'home',
             type: Panel,
-            onAfterBlur: function() { console.warn('blur!!'); },
             children:[
               {
                 id: 'videolistpanel',
