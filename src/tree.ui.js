@@ -155,8 +155,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onSelect: function(ui, evt, data) {
                   // console.warn(ui.getDataById(data[0][0]));
                   // console.warn('plop', ui, evt, data);
+                  // console.warn("$$$$$$$$$$$$$$$$$$$", ui, data, '/themes/' + data[0][0], ui.app.data.get('/themes/' + data[0][0]))
                   ui.app.ui.element('/footer').selectByIndex(0);
                   ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data.id);
+                  // console.warn('$$$$$$$$$$$$$$$', ui.app);
+
+                  ui.app.data.fetch('/themes/' + data.id, function() {alert('LOL');});
                   // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
