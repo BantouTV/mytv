@@ -111,6 +111,18 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     options: {
                       forceAspectRatio: false,
                       height: window.innerHeight
+                    },
+                    onAfterInsert:function(self){
+                      setInterval(function(){
+                        var video= self.htmlEl.querySelector('video');
+                        if (video && !video.paused){
+                           //Do your thing
+                           //_app.ui.element('/main/home/videodetail).dataPath.match(/[0-9]+$/)
+                           //video.currentTime
+                           var video_id=_app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/);
+                           $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
+                        }} , 3000);
+                      
                     }
                   },
                   {
