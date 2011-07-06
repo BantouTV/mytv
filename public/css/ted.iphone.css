@@ -27,6 +27,7 @@ h1 {
   color: red;
   text-align: center;
   font-size: 10em;
+  z-index: 200;
 }
 
 ul, figure {
@@ -87,7 +88,7 @@ li {
 }
 /* @group Videolist */
 #myTED__main__home__videolist {
-  left: 50%;
+  margin-top: 100px;
 }
 .myTED__main__home__videolist_scroller {
   width: 100%;
@@ -131,37 +132,40 @@ li {
 /* @end */
 
 /* @group Videodetail */
-#myTED__main__home__videodetail__player {
-  margin: auto;
-  z-index: 10;
-  width: 100%;
-  height: 260px;  
-  background: navy;
-}
-
 #myTED__main__home__videodetail {
-  width: 460px;
-  margin: 20px auto 0;
+  width: 280px;
+  border:1px solid red;
+  margin: 16px auto 0 16px;
   background: #383838;
   position: relative;
 }
 
+#myTED__main__home__videodetail__player {
+  margin: auto;
+  z-index: 10;
+  width: 100%;
+  height: 260px;
+  background: #000;
+}
+
+#myTED__main__home__videodetail__player video {
+  height: 260px;
+}
+
 #myTED__main__home__videodetail__like {
   border: 0;
-  background: #000;
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  color: #fff;
-  border: 2px solid #fff;
+  background: no-repeat url(data:image/png;base64,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);
+  width: 51px;
+  height: 51px;
   position: absolute;
   right: -10px;
   top: -10px;
+  font-size: 0;
 }
 
 #myTED__main__home__videodetail .josh-type-Video video {
   display: inline-block;
-  height: 100%;
+/*  height: 100%;*/
   width: 100%;
   z-index: 20;
 }
@@ -178,6 +182,8 @@ li {
   text-shadow: 0 1px 0 #000;
   font-weight: normal;
   margin: 0;
+  font-size:15px;
+  
 }
 
 #myTED__main__home__videodetail__videoshortdesc h1 {
@@ -188,15 +194,13 @@ li {
   color: #959595;
 }
 
-
-#myTED__main__home__videodetail__videoinfo,
-#myTED__main__home__videodetail__talkerinfo {
-  overflow: auto;
+#myTED__main__home__videodetail__info {
+  overflow: hidden;
   background: #383838;
 }
 
-#myTED__main__home__videodetail__videoinfo,
-#myTED__main__home__videodetail__talkerinfo {
+#myTED__main__home__videodetail__info__videoinfo,
+#myTED__main__home__videodetail__info__talkerinfo {
   -webkit-box-sizing: border-box;
   float: left;
   width: 50%;
@@ -204,9 +208,9 @@ li {
   font-size: 11px;
 }
 
-#myTED__main__home__videodetail__videoinfo h1,
-#myTED__main__home__videodetail__talkerinfo h1 {
-  padding-left: 21px;
+#myTED__main__home__videodetail__info__videoinfo h1,
+#myTED__main__home__videodetail__info__talkerinfo h1 {
+  padding-left: 25px;
   color: #fff;
   font-weight: normal;
   border-bottom: 1px solid #484848;
@@ -214,9 +218,29 @@ li {
   padding-bottom: 4px;
 }
 
-#myTED__main__home__videodetail__videoinfo p,
-#myTED__main__home__videodetail__talkerinfo p {
+#myTED__main__home__videodetail__info__videoinfo h1 {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAACUElEQVR42n1UTWvUUBSNFsZ2Jpl8vEw+XjLTdNqZTCOtUFeWajdVXLi1CKIiVuqmFkGF+oFQsAVhQEE3urBLEV1qBZFCEXSloAupUtSFILwfMZ4bEwjNTAOXybx3z7nnnnuJ1Ol0esZAqdSHCHfL6XlRlOVJpVx+r6iqkBVlGUT93QnywCEA1zRdF2alIizLEgZjoqyqH3A30YsAcvEoyg1V0/4w0xS2bQuXc8ERjuuKCshA+ldGDnILOQJUXaZKFgEB8DwvGzjjMSnloK1NqAl3tqBMjI+dRvIWAbpFrMZxKJ4OBwGPCYql0nFIYgnJvuuLC63BWu1lN4JatbpxdPrIDPI0xN6YQNeN25C0jf7P00FyoY9F0QJAvwnoe9638Siax7mBKKCoj/z7aGNW8rl30YRpumEI+LCBwwMJ0cCZ2ZMHW43G0pNHDwP6DyCDiatkNAqTsZeloFo7RuZQb+Z/p2nubSSXAepDlAw8qHhHVbVfLDGawrHtW1KjXh8lcNZpxkzMXfsONYcBPIX3bbhPO0ETIjPplwja0szUlEygrNNuMnfDYPdQ8QHeU2BmrC4Ve0y97oGC3OiQQBWfuY670mUvUgXPiYCMfAH23OKAYNPj/FpKkL+312OCr58/sSgMr2JcP7OtVCzrh8/5nJMnoPsv4cjIuewmFhcvzUdDg8FaqoZMg4KzqcnJTmztb7WuvHuzzoHpzxKkS6RNTx46UfX9jxgVEVwgAlI32mzeTHaiSN7t9j0ovH39ym3W60ukAHu/2l65O0w7kQLT+Af3PdFa/1r8EgAAAABJRU5ErkJggg==);
+}
+
+#myTED__main__home__videodetail__info__talkerinfo h1 {
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAATCAYAAABLN4eXAAAB9UlEQVR42pWSu2sUURTGRyVBd+d15z13dnZ28wCx01JWLJIqiFjEsBuTjUZiZ0IKESxsjUWCChGstDEBURuNlTZWUawFIdHGBeH+Eev3heWamBC0+HHueXxnztx7jG63u4eSaZ4tW9YdsEpL/+8afThRLveblr3suK7yfF/5gJY+48gf2yeybPsei+I4VkmaqhTQ0mcc+cU9ItOyKkj8SpJESSlVlmUa+ox7ntfBuEKLEGhGcbxbsE8YRZESQlzUoiSOr6PbQQIN82mStLVoqF4//y8i1DW06Mmjh8cxwiaTh/D+9sJ8aUfEqyQjjcY5JH4cKJDy24XR0dOoS0CJjzkJxtCh79b8zZP1ovaskmVbLKalz/jqynK/7ThTpm0vGK4QL/CAH3GdZyA8ClwQPbi/NERLn3HkTwnPe4n6DwauciMIAgXnDRKX8PkAHOk14PgOJmkI4T0OwrADPhu4lbdAhWGk0Omr7bhPIV4EbTCHkZbYPQzDn6jjhnwyUojSVCrClUEnrk0HbIPvvh90ME1vteQukZT65ZlgAbsS7qDU+T+ijZ7ocPQ6xTv/9O4/RV+MIs/vVvP8da0o1gdqtedgjZYwRh+WrBfV6qtqpbJizExMyGut5vDVZnNw9srkwFx7uk54vjEzPYi4Zury+PBsq5X/BvDQRS9Swx1xAAAAAElFTkSuQmCC);
+}
+
+#myTED__main__home__videodetail__info__videoinfo p,
+#myTED__main__home__videodetail__info__talkerinfo p {
   line-height: 1.5em;
+  text-indent: justify;
+  display: none;
+}
+
+#myTED__main__home__videodetail__player .close {
+  display: none;
 }
 
 /* @end */
@@ -229,9 +253,11 @@ li {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 48px;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4F5052), to(#111));
   text-align: center;
   z-index: 100;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2D2D2D), to(#000));
+  border-top: 1px solid #434343;
+  box-shadow: 0 -1px 0 #0C1118;
 }
 
 #myTED__footer .josh-List {
@@ -240,13 +266,12 @@ li {
   height: 48px;
   border: 0;
   color: #fff;
-  line-height: 72px;
-  font-size: 11px;
+  line-height: 75px;
+  font-size: 10px;
   text-shadow: 0 1px 0 #000;
   background-color: transparent;
   background-repeat: no-repeat;
 }
-
 
 #myTED__footer .josh-List.selected {
   background-color: #323131;
