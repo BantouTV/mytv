@@ -17,6 +17,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
     }
     return str.join('&');
   };
+
   
   return Class(DataTree, {
     buildTree: function() {
@@ -31,6 +32,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           API.query('Theme?page_size=' + query.limit + '&offset=' + query.skip, function(error, json) {
             if (error) return callback(error);
             childCallback(null, _.map(json.list.Theme, function(theme) {
+              //console.error('WAZAAAAAAAAAA', theme.key);
               return {
                 'id': theme.key,
                 'label': theme.name,
@@ -82,7 +84,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   API.query('TalkTheme?' + urlserialize(qs) + '&feq_theme=' + encodeURIComponent(query.filter.theme), function(error, json) {
                     if (error) return callback(error);
                     delete query.filter.theme;
-                    query.filter.id = _.pluck(json.list.TalkTheme, 'talk');
+
+                    query.filter.id = _.isArray(json.list.TalkTheme) ? _.pluck(json.list.TalkTheme, 'talk') : json.list.TalkTheme.talk;
                     me.fetch('/talks/all/', query, callback);
                   });
                   return;
