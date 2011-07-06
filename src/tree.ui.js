@@ -195,13 +195,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 },
                 player  = ui.app.ui.element('/main/home/videodetail/player');
 
-            btn.themes.onclick = function() { 
-console.error('JJJJJJJJJJ', player);
-              player.pause();
-            };
+            btn.themes.onclick = function() { player.pause(); };
             btn.latest.onclick = function() { player.pause(); };
-
-            //buttonTheme = ui.app.ui.element('/main/home/videodetail/player'),
 
             btn.favorites.onclick = function() {
               player.pause();
