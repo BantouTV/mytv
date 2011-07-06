@@ -28,19 +28,14 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
           if (videodetail.data) {
             if (videodetail.data.video) {
               player.pause();
-              player.playWithStaticUrl(edata.video['240']);
-              /*
-              player.play(videodetail.data.video['240']);
-              player.pause();
-              */
-              videodetail.unsubscribe(token);
+              player.play(edata.video['240']);
+              //videodetail.unsubscribe(token);
             } else {
               var edata = videodetail.data;
               API.getVideo(edata.key, function(error, vdata) {
                 edata.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
                 player.pause();
-                player.playWithStaticUrl(edata.video['240']);
-                videodetail.unsubscribe(token);
+                player.play(edata.video['240']);
               });
             }
           }
