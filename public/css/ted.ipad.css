@@ -60,6 +60,7 @@ li {
   color: #fff;
   line-height: 29px;
   padding: 0 10px;
+  -webkit-background-clip: padding;
 }
 
 #myTED__toolbar h1 {
@@ -107,7 +108,7 @@ color:#fff;
 
 #myTED__main__home__videolistpanel__videolist {
   position: absolute;
-  top: 45px;
+  top: 44px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -118,14 +119,19 @@ color:#fff;
   margin-left: 20px;
 }
 
-#myTED__main__home__videolistpanel__videolisttitle .theme-title {
-  -webkit-box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.1);
-  border-left: 3px solid #000;
-  border-right: 3px solid #000;
-  padding: 5px;
+#myTED__main__home__videolistpanel__videolisttitle .title-wrapper {
+  width: 459px;
   text-align: center;
-  width: 464px;
+}
+
+#myTED__main__home__videolistpanel__videolisttitle .theme-title {
+  display: inline-block;
+  padding-bottom: 6px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAABCAYAAACltkzpAAAAHklEQVR42tXDAQ0AAAzCMIxMzl3hGBPcBk0q4H5Gun3yNkTkdo5wAAAAAElFTkSuQmCC) center bottom no-repeat;
+  font-size: 15px;
+  color: #797675;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
 .myTED__main__home__videolistpanel__videolist_scroller,
@@ -172,11 +178,12 @@ color:#fff;
 
 #myTED__main__home__videolistpanel__videolist___lastItem button {
   -webkit-background-clip: padding-box;
+  -webkit-background-clip: padding;
   color: #fff;
   text-shadow: 0 1px 0 #000;
   font-size: 12px;
   border: 1px solid rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
+  border-radius: 7px;
   padding: 5px 10px;
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3c3c3d), to(#2e2e2f));
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
