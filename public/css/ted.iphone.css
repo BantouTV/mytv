@@ -10,7 +10,7 @@
 /* @group Panels */
 
 #myTED__detailswrapper,
-#myTED__main__home__videolist {
+#myTED__main__home__videolistpanel {
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -61,21 +61,35 @@
 
 /* @group Video List */
 
-#myTED__main__home__videolist {
+#myTED__main__home__videolistpanel {
   position: absolute;
   left: auto;
   right: auto;
-  top: 230px;
+  top: 235px;
   height: auto;
 }
 
-#myTED__main__home__videolist .josh-List {
+#myTED__main__home__videolistpanel__videolist {
+  top: 35px;
+}
+
+#myTED__main__home__videolistpanel__videolisttitle {
+  margin: 0;
+  width: 100%;
+}
+
+#myTED__main__home__videolistpanel__videolisttitle .theme-title {
+  width: 100%;
+  margin: 0;
+}
+
+#myTED__main__home__videolistpanel__videolist .josh-List {
   width: 125px;
   height: 145px;
   margin: 0 10px 10px;
 }
 
-#myTED__main__home__videolist .josh-List img {
+#myTED__main__home__videolistpanel__videolist .josh-List img {
   height: auto;
 }
 

@@ -83,8 +83,8 @@ li {
   overflow: hidden;
 }
 
-#myTED__main__home__videolistpanel,
-#myTED__detailswrapper {
+#myTED__detailswrapper,
+#myTED__main__home__videolistpanel {
   position: absolute;
   z-index: 1;
   top: 0;
