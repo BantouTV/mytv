@@ -34,6 +34,8 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
       API.query('Talker?page_size=200&fin_key=' + encodeURIComponent(_.pluck(talks, 'talker').join(',')), function(error, json) {
         if (error) return callback(error);
 
+        if (json.list.Talker && !_.isArray(json.list.Talker))
+          json.list.Talker = [json.list.Talker];
         _.each(talks,function(talk) {
           _.each(json.list.Talker, function(talker) {
             if (talk.talker == talker.key) {
