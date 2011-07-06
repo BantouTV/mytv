@@ -159,9 +159,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  ui.app.ui.element('/main/home/videolist').setDataPath('/themes/' + data[0]);
+                  var videolist = ui.app.ui.element('/main/home/videolist');
+                  videolist.setDataPath('/themes/' + data[0]);
+                  var token = videolist.subscribe('afterRefresh', function() {
+                    videolist.selectByIndex(0);
+                    videolist.unsubscribe(token);
+                  });
                   ui.app.ui.element('/footer').selectByIndex(0);
-                  // ui.app.ui.element('/main/home/videolist').iScroller.refresh();
+
+                  //ui.app.ui.element('/main/home/videolist').iScroller.refresh();
                 }
               }]
             },
