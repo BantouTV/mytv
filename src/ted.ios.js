@@ -55,14 +55,6 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
             loginButton.htmlEl.firstChild.innerText = 'Logout';
           }
         });
-    /*    loginButton.subscribe('input', function(ev, id) {
-          if (!self.getState('auth')) {
-            self.fbLogin();
-          } else {
-            //alert('user id is ' + self.facebookSession.uid);
-           self.fbLogout();
-          }
-        });*/
 
         self.fbInit(callback);
       });
