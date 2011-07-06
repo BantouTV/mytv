@@ -43,7 +43,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
         
         var likeButton = self.ui.element('/main/home/videodetail/like');
         likeButton.subscribe('input', function(ev, id) {
-          likeButton.htmlEl.classList.toggle('liked');
+          $('#' + likeButton.htmlId).toggleClass('liked');
         });
 
         var loginButton = self.ui.element('/toolbar/loginButton');
