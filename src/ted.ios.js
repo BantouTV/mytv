@@ -55,14 +55,14 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
             loginButton.htmlEl.setAttribute('value', 'Logout');
           }
         });
-        loginButton.subscribe('input', function(ev, id) {
+    /*    loginButton.subscribe('input', function(ev, id) {
           if (!self.getState('auth')) {
             self.fbLogin();
           } else {
             //alert('user id is ' + self.facebookSession.uid);
            self.fbLogout();
           }
-        });
+        });*/
 
         self.fbInit(callback);
       });
@@ -106,7 +106,7 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
       var self = this;
       
       if (!FB) return;
-          FB.login(function(response) {
+      FB.login(function(response) {
                 if (response.session) {
           if (response.perms) {
             
