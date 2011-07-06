@@ -44,7 +44,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 type: List,
                 dataPath: '/talks/latest/',
                 incrementalRefresh: true,
-                lastItemInnerTemplate: "Show more!",
+                lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                 onLastItemSelect:function(me) {
                   app.data.fetch(me.dataPath,{skip:me.data.length},function(newData) {
                       //me.iScroller.refresh();
