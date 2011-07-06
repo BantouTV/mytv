@@ -182,7 +182,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'favorites',
               type: Panel,
-              content: 'Toutes mes vidéos'
+              content: ''
             }
           ]//fin children main
         },//main
