@@ -10,6 +10,7 @@
  */
 
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi, _) {
+
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -74,8 +75,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           if (!newData || newData.length == 0){
                             $('#' + me.htmlId + '___lastItem', $('#' + me.htmlId)).remove();
                           }
-
                       });
+                    },
+
+                    onSelect: function(ui, type, data) {
+                      if (device == 'iphone') {
+                        ui.app.ui.element('/main/home/videodetail').show();
+                        ui.app.ui.element('/main/home/videodetail/close').show();
+                        ui.app.ui.element('/main/home/videolistpanel').hide();
+                      }
                     },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
@@ -97,7 +105,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 hideOnBlur: true,
                 template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
                 uiDataMaster: '/main/home/videolistpanel/videolist',
-                autoShow: true,
+                autoShow: (device != 'iphone'),
                 forceDataPathRefresh: true,
 
                 onData: function(ui) {
@@ -124,6 +132,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'like',
                     type: 'Button',
                     label: 'Like'
+                  },
+                  {
+                    id: 'close',
+                    type: 'Button',
+                    label: 'Close',
+                    autoShow: false,
+                    onSelect: function(ui, type, data, token) {
+                      ui.app.ui.element('/main/home/videodetail/player').pause();
+                      ui.app.ui.element('/main/home/videodetail').hide();
+                      ui.app.ui.element('/main/home/videolistpanel').show();
+                    }
                   },
                   {
                     id: 'player',
