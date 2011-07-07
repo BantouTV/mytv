@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager'], function(Class, UITree, List, Panel, PanelManager) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api'], function(Class, UITree, List, Panel, PanelManager, TEDApi) {
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -49,6 +49,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'home',
             type: Panel,
+            onAfterShow: function(ui) {
+              // propagate event to child list for scroller refresh
+              ui.app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
+            },
             children:[
               {
                 id: 'videolistpanel',
@@ -95,6 +99,26 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 uiDataMaster: '/main/home/videolistpanel/videolist',
                 autoShow: true,
                 forceDataPathRefresh: true,
+
+                onData: function(ui) {
+                  var player = ui.app.ui.element('/main/home/videodetail/player'),
+                      play = function() {
+                        player.playWithStaticUrl(videodetail.data.video['240']);
+                        player.pause();
+                      };
+
+                  if (ui.data) {
+                    if (ui.data.video) {
+                      play();
+                    } else {
+                      TEDApi.getVideo(ui.data.key, function(error, vdata) {
+                        ui.data.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
+                        play();
+                      });
+                    }
+                  }
+                },
+
                 children:[
                   {
                     id: 'like',
@@ -169,6 +193,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               id: 'themes',
               type: Panel,
               content: '',
+              onAfterShow: function(ui) {
+                // propagate event to child list for scroller refresh
+                ui.app.ui.element('/main/themes/themeslist').publish('afterShow');
+              },
               children: [{
                 id: 'themeslist',
                 type: List,

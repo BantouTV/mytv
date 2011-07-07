@@ -19,28 +19,6 @@ Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/unders
 
       this.__super(function() {
 
-        var videodetail = self.ui.element('/main/home/videodetail');
-
-        videodetail.subscribe('data', function(ev, id) {
-          
-          var player = self.ui.element('/main/home/videodetail/player'),
-              play = function() {
-                player.playWithStaticUrl(videodetail.data.video['240']);
-                player.pause();
-              };
-
-          if (videodetail.data) {
-            if (videodetail.data.video) {
-              play();
-            } else {
-              API.getVideo(videodetail.data.key, function(error, vdata) {
-                videodetail.data.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
-                play();
-              });
-            }
-          }
-        });
-        
         var likeButton = self.ui.element('/main/home/videodetail/like');
         likeButton.subscribe('input', function(ev, id) {
           $('#' + likeButton.htmlId).toggleClass('liked');

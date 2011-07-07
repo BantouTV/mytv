@@ -20,31 +20,16 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           splash = new Splash(),
           videolist = self.ui.element('/main/home/videolistpanel/videolist');
 
-      var token = videolist.subscribe('data', function(ev, data) {
+      videolist.subscribe('data', function(ev, data, token) {
         videolist.unsubscribe(token);
-
         self.ui.setState('focus', '/main/home/videolistpanel/videolist');
         videolist.selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
-        
         splash.remove();
       });
 
-      var scrollerUpdate = function() {
-        if (videolist.iScroller) {
-          console.error('iScroller', videolist.iScroller);
-
-          videolist.vScrollbar = true;
-          videolist.iScroller.refresh();
-        }
-      };
-
-      self.ui.element('/main/home').subscribe('afterShow', scrollerUpdate);
-      self.ui.element('/main/themes').subscribe('afterShow', scrollerUpdate);
-           
-      if (callback) {
+      if (callback)
         callback(null);
-      }
     }
   });
 });
