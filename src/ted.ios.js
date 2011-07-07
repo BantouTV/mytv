@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['./app', 'joshfire/class', './ted.api', 'joshfire/vendor/underscore'], function(App, Class, API, _) {
+Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], function(App, Class, _) {
   return Class(App, {
 
     id: 'myTED',

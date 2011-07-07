@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api'], function(Class, UITree, List, Panel, PanelManager, TEDApi) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi, _) {
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -103,7 +103,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onData: function(ui) {
                   var player = ui.app.ui.element('/main/home/videodetail/player'),
                       play = function() {
-                        player.playWithStaticUrl(videodetail.data.video['240']);
+                        player.playWithStaticUrl(ui.data.video['240']);
                         player.pause();
                       };
 
