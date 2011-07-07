@@ -9,8 +9,8 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi, _) {
 
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
   return Class(UITree, {
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -165,7 +165,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                            // _app.timer._daemon
                            var video_id=_app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/);
                            $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
-                          
+                          JoshmeAPI.getData(1, 3, function (err, retour){
+                            console.warn('api back', err, retour)
+                          })
+                           
+                           
                         }
                          timer_daemon();
                         } , 1000);
