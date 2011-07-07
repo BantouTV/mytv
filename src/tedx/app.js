@@ -16,20 +16,34 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', '../tree.ui', 
     uiClass: UI,
     dataClass: Data,
     setup: function(callback) {
-      var self = this,
-          splash = new Splash(),
-          videolist = self.ui.element('/main/home/videolistpanel/videolist');
+      var self = this;
+      self.splash = new Splash();
+      
+      var videolist = self.ui.element('/main/home/videolistpanel/videolist');
 
       videolist.subscribe('data', function(ev, data, token) {
-        videolist.unsubscribe(token);
-        self.ui.setState('focus', '/main/home/videolistpanel/videolist');
-        videolist.selectByIndex(0);
-        self.ui.element('/footer').selectByIndex(0);
-        splash.remove();
+        videolist.unsubscribe(token); 
+        self.finishInit();
       });
+      
+      setTimeout(function() {
+        self.finishInit()
+      },2000);
 
       if (callback)
         callback(null);
+    },
+    
+    finishInit:function() {
+      var self = this;
+      
+      var videolist = self.ui.element('/main/home/videolistpanel/videolist');
+      
+      //todo check if only one event
+      self.ui.setState('focus', '/main/themes');
+      self.ui.element('/footer').selectByIndex(1);
+      self.splash.remove();
+      
     }
   });
 });
