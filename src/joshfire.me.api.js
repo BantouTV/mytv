@@ -23,9 +23,17 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
         cache: 'no',
         jsonp: 'callback'
       },
-      function (error, json) {
+      function (error, retour) {
         if (error) {
           return callback(error, null);
+        }
+        var json={};
+        try{
+          json=JSON.parse(retour);
+        }
+        catch(e){
+          console.error('invalid json', retour);
+          
         }
         return callback(null, json);
       });

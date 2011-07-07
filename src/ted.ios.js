@@ -21,7 +21,26 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
 
         var likeButton = self.ui.element('/main/home/videodetail/like');
         likeButton.subscribe('input', function(ev, id) {
+          
           $('#' + likeButton.htmlId).toggleClass('liked');
+          if (!self.userSession){
+            //Should be connected. Prompt ?
+            return false;
+          }
+          var favorites = _.extend([],self.userSession.mytv.favorites),
+            videoid =  ''+self.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/)[0];
+          if (_.include(favorites, videoid)){
+            //unfavorite
+            favorites = _.without(favorites, videoid);
+          }
+          else{
+            //favorite
+            favorites.push(videoid);
+          }
+            JoshmeAPI.setData(self,self.userSession.uid, {favorites:favorites}, function (err, retour){
+              self.userSession.mytv.favorites=favorites;
+          });
+          
         });
 
        

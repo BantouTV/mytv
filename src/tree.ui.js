@@ -124,6 +124,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         play();
                       });
                     }
+                    //like icon
+                    if (ui.app.userSession && ui.app.userSession.mytv && ui.app.userSession.mytv.favorites){
+                      if (_.include(ui.app.userSession.mytv.favorites, ui.data.id)){
+                         $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).addClass('liked');
+                      }
+                      else{
+                         $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                      }
+                    }
+                    else{
+                       $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                    }
+                    
+                    
                   }
                 },
 
@@ -157,16 +171,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     onAfterInsert:function(self){
                       (function timer_daemon(){
                           setTimeout(function(){
-                        var video= self.htmlEl.querySelector('video');
-                        if (video && !video.paused && self.app.userSession){
+                        var video= self.app.ui.element('/main/home/videodetail/player').htmlEl.querySelector('video');
+                        if (self.app.userSession && video && !video.paused){
                            //Do your thing
-                           //_app.ui.element('/main/home/videodetail).dataPath.match(/[0-9]+$/)
-                           //video.currentTime
-                           // _app.timer._daemon
                            var video_id=self.app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/)[0];
-//                           $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
-            //JoshmeAPI.getData(1, 3, function (err, retour){
-                            JoshmeAPI.setData(self.app,self.app.userSession.uid, {video:video_id, time:Math.floor(video.currentTime*100)/100}, function (err, retour){
+                            JoshmeAPI.setData(self.app,self.app.userSession.uid, {currentVideo:video_id, time:Math.floor(video.currentTime*100)/100}, function (err, retour){
                           });
                            
                            
@@ -174,7 +183,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                          timer_daemon();
                         } , 1000);
                       })();
-                      
                     }
                   },
                   {
