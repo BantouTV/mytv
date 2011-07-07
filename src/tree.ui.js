@@ -9,6 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
+
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
 
   return Class(UITree, {     
@@ -74,12 +75,19 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           if (!newData || newData.length == 0){
                             $('#' + me.htmlId + '___lastItem', $('#' + me.htmlId)).remove();
                           }
-
                       });
+                    },
+
+                    onSelect: function(ui, type, data) {
+                      if (device == 'iphone') {
+                        ui.app.ui.element('/main/home/videodetail').show();
+                        ui.app.ui.element('/main/home/videodetail/close').show();
+                        ui.app.ui.element('/main/home/videolistpanel').hide();
+                      }
                     },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
+                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
                     scroller: true,
                     scrollOptions: {
                       // do scroll in only one direction
@@ -97,7 +105,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 hideOnBlur: true,
                 template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
                 uiDataMaster: '/main/home/videolistpanel/videolist',
-                autoShow: true,
+                autoShow: (device != 'iphone'),
                 forceDataPathRefresh: true,
 
                 onData: function(ui) {
@@ -124,6 +132,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'like',
                     type: 'Button',
                     label: 'Like'
+                  },
+                  {
+                    id: 'close',
+                    type: 'Button',
+                    label: 'Close',
+                    autoShow: false,
+                    onSelect: function(ui, type, data, token) {
+                      ui.app.ui.element('/main/home/videodetail/player').pause();
+                      ui.app.ui.element('/main/home/videodetail').hide();
+                      ui.app.ui.element('/main/home/videolistpanel').show();
+                    }
                   },
                   {
                     id: 'player',
@@ -163,7 +182,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: Panel,
                     uiDataSync: '/main/home/videodetail',
                     innerTemplate:
-                      '<h1><%= data.title %></h1>'+
+                      '<h1><%= data.label %></h1>'+
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
                   },
                   {

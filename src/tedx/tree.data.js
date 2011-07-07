@@ -20,10 +20,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
   
   var ds = new DataSource();
   
+  var youtubeAPI = new YoutubeAPI();
+  
+  var TEDXID = "paris";
+  
   return Class(DataTree, {
     
     setup:function(callback) {
       var self = this;
+      
+      //all rows
+      this.tedxdata = [];
+      
+      //filtered version
+      this.tedxmeta = false;
       
       this.__super(function(err) {
         
@@ -33,6 +43,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
         },function(err,data) {
           if (err) return callback(err);
           self.tedxdata = data.feed.entry;
+          console.log(self.tedxdata);
           callback();
         });
         
@@ -40,6 +51,39 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
       
     },
     
+    formatData:function(talk) {
+      
+      
+      //remove event name
+      var label = talk.label;
+      
+      //strip "TEDx XYZ 20xx"
+      label = label.replace(/tedx( )?([a-z0-9]+)( 20[0-9]{2})?/ig,"");
+      
+      //strip dates
+      label = label.replace(/[0-9]{2,4}\/[0-9]{2}\/[0-9]{2,4}/g,"");
+      
+      //Trim
+      label = label.replace(/^[ \-\:]+/,"");
+      label = label.replace(/[ \-\:]+$/,"");
+      
+      //Try to extract talker name, before the first " - "
+      if (label.indexOf(" - ")>0) {
+        talk.talker = {name:label.substring(0,label.indexOf(" - "))};
+        label = label.substring(label.indexOf(" - ")+3);
+      }
+      
+      //Trim again
+      label = label.replace(/^[ \-\:]+/,"");
+      label = label.replace(/[ \-\:]+$/,"");
+      
+      
+      talk.label = label;
+      
+      return talk;
+      
+      
+    },
     
     buildTree: function() {
       var self = this;
@@ -48,15 +92,49 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
 
       return [
         { 
-          id: 'themes'
-        },
-        id: 'talks',
-        children: [
-          {
-            'id': 'latest',
-            'children':[]
+          id: 'themes',
+          children:function(query,callback) {
+            var matches = [];
+            _.each(self.tedxdata,function(tedx,i) {
+              if (tedx.gsx$tedxname.$t==TEDXID) {
+                if (!self.tedxmeta) {
+                  self.tedxmeta = {
+                    "id":TEDXID,
+                    "name":tedx.gsx$formattedname.$t
+                  };
+                }
+                matches.push({
+                  "id":i,
+                  "image":tedx.gsx$eventimage.$t,
+                  "label":tedx.gsx$eventname.$t,
+                  "children":function(q,cb) {
+
+                    youtubeAPI.getPlaylistVideos(tedx.gsx$youtubeplaylist.$t,function(err,videos) {
+                      
+                      cb(err,_.map(videos,self.formatData));
+                    });
+                    
+                  }
+                })
+              }
+            });
+            callback(null,matches);
           }
-        ]
+        },
+        {
+          id: 'talks',
+          children: [
+            {
+              'id': 'latest',
+              'children':[
+                {
+                  "id":"test"
+                }
+              ]
+            }
+          ]
+        }
+        
       
       ];
       
