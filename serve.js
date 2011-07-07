@@ -20,7 +20,7 @@ var expressApp = express.createServer(),
 
 testPath = __dirname + '/';
 expressApp.use(express.static(testPath));
-
+expressApp.use(express.bodyParser());
 var serialize = function(obj) {
   var str = [];
   for(var p in obj)
@@ -34,7 +34,7 @@ expressApp.get('/proxy.php', function(req, res){
   res.end('Coucou');
 })
 
-expressApp.post('/proxy.php', function(req, res){
+expressApp.post('/proxy/', function(req, res){
     
     var rq = {'uri':req.param("url"),'method':'POST'};
     console.log('requete post via proxy', req.param('url'), req.body);
