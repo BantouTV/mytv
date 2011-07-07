@@ -16,11 +16,11 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
 
   return {
     query: function(url,data, callback) {
-data.url = TRUE_APIROOT_JOSHME+url;
+
       datasource.request({
         url:APIROOT_JOSHME,
-        data:data, 
-        type:'post',
+        data:{'data':data,'url':TRUE_APIROOT_JOSHME+url}, 
+        type:'POST',
         cache: 'no',
         jsonp: 'callback'
       },
