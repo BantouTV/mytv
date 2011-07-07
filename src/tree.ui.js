@@ -87,7 +87,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.title %><br><span class="talker">by <%= item.talker.name %></span></figcaption></figure>',
+                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
                     scroller: true,
                     scrollOptions: {
                       // do scroll in only one direction
@@ -182,7 +182,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: Panel,
                     uiDataSync: '/main/home/videodetail',
                     innerTemplate:
-                      '<h1><%= data.title %></h1>'+
+                      '<h1><%= data.label %></h1>'+
                       '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
                   },
                   {
