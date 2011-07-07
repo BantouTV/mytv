@@ -12,7 +12,7 @@
 Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], function(DataSource,_) {
   var datasource = new DataSource(),
      TRUE_APIROOT_JOSHME = 'http://joshfire.com:40008/data/';
-      APIROOT_JOSHME = 'http://local.myted.tv:40010/proxy.php';
+      APIROOT_JOSHME = 'http://local.myted.tv:40010/proxy/';
 
   return {
     query: function(url,data, callback) {
