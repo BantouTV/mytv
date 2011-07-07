@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], function(App, Class, _) {
+Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './joshfire.me.api'], function(App, Class, _, JoshmeAPI) {
   return Class(App, {
 
     id: 'myTED',
@@ -24,15 +24,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], funct
           $('#' + likeButton.htmlId).toggleClass('liked');
         });
 
-        var loginButton = self.ui.element('/toolbar/loginButton');
-        loginButton.subscribe('afterShow', function(ev, id) {
-          if (!self.getState('auth')) {
-            loginButton.htmlEl.firstChild.innerText = 'Login';
-          } else {
-            // FIXME: Do not logout, do something else
-            loginButton.htmlEl.firstChild.innerText = 'Logout';
-          }
-        });
+       
 
         self.fbInit(callback);
       });
@@ -46,21 +38,28 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], funct
         
         //TODO on iPad this is not fired sometimes.
         FB.getLoginStatus(function(response) {
+          var loginButton = self.ui.element('/toolbar/loginButton').htmlEl;
 
           if (response.session) {
             // logged in and connected user, someone you know
-            self.facebookSession = response.session;
+            self.userSession = response.session;
             self.setState("auth",true);
-            self.ui.element('/toolbar/loginButton').htmlEl.firstChild.innerText='Logout';
+            loginButton.innerHTML='Logout';
+            loginButton.onclick= self.fbLogout;
             
-            if (window.location.toString().match(/logout/)) {
-             self.fbLogout();
-            }
+            /* Get myTV data */
+            
+            JoshmeAPI.getData(self, self.userSession.uid, function (err, retour){
+                if (!err && retour){
+                  self.userSession.mytv = retour;
+                }
+            });
+            
             
           } else {
             // no user session available, someone you dont know
             self.setState("auth",false);
-            self.ui.element('/toolbar/loginButton').htmlEl.firstChild.innerText='Login';
+            loginButton.innerHTML='<a href="http://www.facebook.com/dialog/oauth?client_id=214358631942957&redirect_uri='+window.location+'&display=touch&scope=read_stream,publish_stream,offline_access">Login</a>';
           }
         });
       };
@@ -82,9 +81,8 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], funct
             
             // user is logged in and granted some permissions.
             // perms is a comma separated list of granted permissions
-            self.facebookSession = response.session;
+            self.userSession = response.session;
             self.setState("auth",true);
-            
           } else {
             // user is logged in, but did not grant any permissions
           }

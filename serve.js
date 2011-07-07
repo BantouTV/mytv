@@ -53,7 +53,7 @@ expressApp.post('/proxy/', function(req, res){
     var rq = {'uri':req.body.url,'method':'POST'};
     console.log('requete post via proxy', req.param('url'), req.body);
     if (req.body!==undefined) {
-        rq["body"] = serialize(req.body.data);
+        rq["json"] = req.body.data;
         rq["headers"] = {"Content-Type":"application/x-www-form-urlencoded"};
     } else {
         rq["headers"] = {"Content-Length":"0"};

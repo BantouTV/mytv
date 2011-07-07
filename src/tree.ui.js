@@ -10,7 +10,8 @@
  */
 
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
-  return Class(UITree, {
+
+  return Class(UITree, {     
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
       var bVerticalList = (Joshfire.adapter === 'ios') ? true : false;
@@ -27,8 +28,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'loginButton',
             type: Panel,
-            label:'Login',
-            innerTemplate:'<a href="http://www.facebook.com/dialog/oauth?client_id=214358631942957&redirect_uri='+window.location+'&display=touch"><%=options.label%></a>'
+            label:'Wait...'
           }],
           onAfterInsert: function(ui) {
             //register onclick on login button
@@ -139,16 +139,16 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       (function timer_daemon(){
                           setTimeout(function(){
                         var video= self.htmlEl.querySelector('video');
-                        if (video && !video.paused){
+                        if (video && !video.paused && self.app.userSession){
                            //Do your thing
                            //_app.ui.element('/main/home/videodetail).dataPath.match(/[0-9]+$/)
                            //video.currentTime
                            // _app.timer._daemon
-                           var video_id=_app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/);
-                           $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
-                          JoshmeAPI.getData(1, 3, function (err, retour){
-                            console.warn('api back', err, retour)
-                          })
+                           var video_id=self.app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/)[0];
+//                           $('#myTED__toolbar h1').html('Now playing '+video_id+', at '+Math.floor(video.currentTime*100)/100+'s');
+            //JoshmeAPI.getData(1, 3, function (err, retour){
+                            JoshmeAPI.setData(self.app,self.app.userSession.uid, {video:video_id, time:Math.floor(video.currentTime*100)/100}, function (err, retour){
+                          });
                            
                            
                         }

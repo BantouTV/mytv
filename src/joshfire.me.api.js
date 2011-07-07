@@ -16,7 +16,6 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
 
   return {
     query: function(url,data, callback) {
-
       datasource.request({
         url:APIROOT_JOSHME,
         data:{'data':data,'url':TRUE_APIROOT_JOSHME+url}, 
@@ -25,17 +24,19 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
         jsonp: 'callback'
       },
       function (error, json) {
-        console.warn('josh api', error, 'x', json)
         if (error) {
           return callback(error, null);
         }
         return callback(null, json);
       });
     },
-    getData:function(app_id, user_id, callback){
-      this.query('get',{appId:app_id, userId:user_id}, callback);
+    getData:function(app, user_id, callback){
+      this.query('get',{appId:app.id, userId:user_id}, callback);
     },
-    setData:function(app_id, user_id, data, callback){
-      this.query('set',{appId:app_id, userId:user_id, data:data}, callback);
+    setData:function(app, user_id, data, callback){
+      this.query('set',{appId:app.id, userId:user_id, data:data}, function(){
+        console.warn('user session', app.userSession.mytv, data)
+        callback();
+      });
     }  };
 });
