@@ -23,7 +23,8 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       videolist.subscribe('data', function(ev, data, token) {
         videolist.unsubscribe(token);
         self.ui.setState('focus', '/main/home/videolistpanel/videolist');
-        videolist.selectByIndex(0);
+        if (device != 'iphone')
+          videolist.selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
         splash.remove();
       });

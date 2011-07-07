@@ -18,6 +18,7 @@
       Joshfire.debug = true;
       Joshfire.require(['../src/ted.ios'], function(MyTedTV) {
         Joshfire.onReady(function() {
+          device = 'ipad';
           window._app = new MyTedTV();
         });
       });
