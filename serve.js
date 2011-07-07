@@ -15,11 +15,59 @@ Joshfire = {define: function(a,b) {_ = b();}};
 
 var express = require('express');
 var fs = require('fs');
-var expressApp = express.createServer();
+var expressApp = express.createServer(),
+ request = require('request');
 
-testPath = __dirname + '/';
-expressApp.use(express.static(testPath));
 
+
+
+expressApp.configure(function(){
+//    app.set('views', __dirname + '/views');
+    
+    expressApp.use(express.logger({ format : ":method :url"}));
+    expressApp.use(express.bodyParser());
+    
+    expressApp.use(expressApp.router);
+    
+    var testPath = __dirname + '/';
+    expressApp.use(express.static(testPath));
+    
+  
+});
+
+
+var serialize = function(obj) {
+  var str = [];
+  for(var p in obj)
+     str.push(p + "=" + encodeURIComponent(obj[p]));
+  return str.join("&");
+};
+
+
+
+expressApp.get('/proxy.php', function(req, res){
+  res.end('Coucou');
+})
+
+expressApp.post('/proxy.php', function(req, res){
+    
+    var rq = {'uri':req.body.url,'method':'POST'};
+    console.log('requete post via proxy', req.param('url'), req.body);
+    if (req.body!==undefined) {
+        rq["body"] = serialize(req.body.data);
+        rq["headers"] = {"Content-Type":"application/x-www-form-urlencoded"};
+    } else {
+        rq["headers"] = {"Content-Length":"0"};
+    }
+    
+    console.log('proxy call', rq);
+    
+    request(rq,function(error, response, body) {
+
+        res.send(body);
+    });
+ 
+});
+expressApp.listen(40010);
 
 console.log('Listening on 40010.')
-expressApp.listen(40010);

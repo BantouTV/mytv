@@ -140,6 +140,11 @@ color:#fff;
   position: absolute;
 }
 
+
+.myTED__main__home__videolistpanel__videolist_scroller ul {
+  width: 520px;
+}
+
 #myTED__main__home__videolistpanel__videolist .josh-List {
   float: left;
   -webkit-box-sizing: border-box;
