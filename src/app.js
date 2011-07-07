@@ -17,19 +17,30 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
     dataClass: Data,
     setup: function(callback) {
       var self = this,
-          splash = new Splash();
+          splash = new Splash(),
+          videolist = self.ui.element('/main/home/videolistpanel/videolist');
 
-      // Select first video as soon we get the data
-      var videolist = self.ui.element('/main/home/videolistpanel/videolist'),
-        token = videolist.subscribe('data', _.once(function(ev, data) {
+      var token = videolist.subscribe('data', function(ev, data) {
+        videolist.unsubscribe(token);
 
         self.ui.setState('focus', '/main/home/videolistpanel/videolist');
-        self.ui.element('/main/home/videolistpanel/videolist').selectByIndex(0);
+        videolist.selectByIndex(0);
         self.ui.element('/footer').selectByIndex(0);
         
         splash.remove();
-        videolist.unsubscribe(token);
-      }));
+      });
+
+      var scrollerUpdate = function() {
+        if (videolist.iScroller) {
+          console.error('iScroller', videolist.iScroller);
+
+          videolist.vScrollbar = true;
+          videolist.iScroller.refresh();
+        }
+      };
+
+      self.ui.element('/main/home').subscribe('afterShow', scrollerUpdate);
+      self.ui.element('/main/themes').subscribe('afterShow', scrollerUpdate);
            
       if (callback) {
         callback(null);
