@@ -18,9 +18,23 @@ var fs = require('fs');
 var expressApp = express.createServer(),
  request = require('request');
 
-testPath = __dirname + '/';
-expressApp.use(express.static(testPath));
-expressApp.use(express.bodyParser());
+
+
+
+expressApp.configure(function(){
+//    app.set('views', __dirname + '/views');
+    
+    expressApp.use(express.logger({ format : ":method :url"}));
+    expressApp.use(express.bodyParser());
+    
+    expressApp.use(expressApp.router);
+    
+    var testPath = __dirname + '/';
+    expressApp.use(express.static(testPath));
+    
+  
+});
+
 var serialize = function(obj) {
   var str = [];
   for(var p in obj)
@@ -36,10 +50,10 @@ expressApp.get('/proxy.php', function(req, res){
 
 expressApp.post('/proxy/', function(req, res){
     
-    var rq = {'uri':req.param("url"),'method':'POST'};
+    var rq = {'uri':req.body.url,'method':'POST'};
     console.log('requete post via proxy', req.param('url'), req.body);
     if (req.body!==undefined) {
-        rq["body"] = serialize(req.body);
+        rq["body"] = serialize(req.body.data);
         rq["headers"] = {"Content-Type":"application/x-www-form-urlencoded"};
     } else {
         rq["headers"] = {"Content-Length":"0"};
