@@ -43,6 +43,14 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
 
           JoshmeAPI.setData(self, self.userSession.uid, {favorites: favorites}, function (err, retour) {
             self.userSession.mytv.favorites = favorites;
+            //Update my favs
+              self.data.set('/talks/favorites/', 
+                _.select(self.data.get('/talks/all/'), 
+                  function (item){
+                    return _.contains(self.userSession.mytv.favorites, item.id);
+                  }
+                )
+              );
           });
         });
 
@@ -58,6 +66,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
 
         // TODO on iPad this is not fired sometimes.
         FB.getLoginStatus(function(response) {
+
           var loginButton = self.ui.element('/toolbar/loginButton').htmlEl;
 
           if (response.session) {
@@ -77,7 +86,13 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
               } else {
                 self.userSession.mytv = {'favorites': []};
               }
-              console.warn("self.userSession", self.userSession);
+              
+              
+              //some more info
+              FB.api('/me', function(me){
+                self.userSession.name = me.name;
+                self.data.get('/talks/favorites').label = me.name+"'s favorites";
+              });
             });
           } else {
             // no user session available, someone you dont know

@@ -65,7 +65,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
             }
           },
           {
-            'id': 'favorites',
+            id: 'favorites',
+            label:'Favorites',
            /* 'children': function(query, cb) {
               // Fetch ID list from joshfire.me
               var favorites = ['agd0ZWQtYXBpcgsLEgRUYWxrGI9vDA'];
