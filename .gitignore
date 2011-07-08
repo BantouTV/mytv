@@ -1,6 +1,8 @@
 *.pyc
 .DS_Store
+export-optimized/
 export/
+templates_compiled/
 joshfire
 .sass-cache
 node_modules/*

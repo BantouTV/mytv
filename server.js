@@ -9,12 +9,17 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire = {define: function(a, b) {_ = b();}};
+COMPILED = false;
+
+Joshfire = {define: function(a,b) {_ = b();}};
 
 var express = require('express');
+var _ = require('underscore')._;
 var fs = require('fs');
-var expressApp = express.createServer();
-var request = require('request');
+
+var path = require('path');
+var expressApp = express.createServer(),
+ request = require('request');
 
 expressApp.configure(function() {
 //    app.set('views', __dirname + '/views');
@@ -24,8 +29,16 @@ expressApp.configure(function() {
 
   expressApp.use(expressApp.router);
 
-  var testPath = __dirname + '/';
-  expressApp.use(express.static(testPath));
+expressApp.configure(function(){
+//    app.set('views', __dirname + '/views');
+    
+    expressApp.use(express.logger({ format : ":method :url"}));
+    expressApp.use(express.bodyParser());
+    
+    expressApp.use(expressApp.router);
+    
+    var testPath = __dirname + '/public/';
+    expressApp.use(express.static(testPath));
 });
 
 var serialize = function(obj) {
@@ -36,9 +49,40 @@ var serialize = function(obj) {
   return str.join('&');
 };
 
-// expressApp.get('/proxy.php', function(req, res) {
-//   res.end('Coucou');
-// });
+var indexTemplate = require(path.join(__dirname,"templates_compiled/commonjs/index.js"));
+
+var appServe = function(tedxid,req,res) {
+  
+  //Detect device
+  var device = "ipad";
+  if (req.param("device")) {
+    device = req.param("device");
+  } else {
+    var ua = req.headers["user-agent"];
+    if (ua.indexOf("iPad")>=0) {
+      device = "ipad";
+    } else if (ua.indexOf("iPhone")>=0 || ua.indexOf("iPod")>=0) {
+      device = "iphone";
+    }
+  }
+  
+  var values = {
+    "buildname":device,
+    "adapter":"ios",
+    "compiled":COMPILED
+    
+  }
+  console.log(indexTemplate(values));
+  res.send(indexTemplate(values));
+};
+
+expressApp.get('/tedx:tedxid', function(req, res){
+  appServe(req.param("tedxid"),req,res);
+});
+
+expressApp.get('/', function(req, res){
+  appServe(false,req,res);
+});
 
 // Allow CORS
 expressApp.options('/proxy/', function(req, res) {

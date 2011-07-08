@@ -12,15 +12,15 @@
 
 var build = {
   baseUrl: '../',
-  name: 'exampleVideoList',
+  name: 'mytedtv',
   dir: '../export/',
   modules: [
     {
-  		name: 'leanback',
-  		adapter: 'browser',
+  		name: 'ipad',
+  		adapter: 'ios',
   		js: {
   			'include': [
-  				'src/app',
+  				'src/ted.ios',
   				// Dynamically loaded dependencies - not autodetectable
   				'joshfire/adapters/browser/uielements/video.youtube.swf',
   				'joshfire/adapters/browser/uielements/mediacontrols',
@@ -30,46 +30,7 @@ var build = {
   			]
   		},
   		css: {
-  		  scss: 'css/leanback.scss'
-  		}
-  	},
-  	{
-  		name: 'leanback',
-  		adapter: 'samsungtv',
-  		js: {
-  			include: [
-  				'src/app',
-  				//'joshfire/adapters/samsungtv/uielement',
-  				//'joshfire/adapters/samsungtv/inputs/keyboard',
-  				//'joshfire/uielement',
-  				'joshfire/uielements/panel',
-  				'joshfire/adapters/samsungtv/inputs/remote',
-  				'joshfire/adapters/browser/uielements/list',
-  				'joshfire/adapters/browser/uielements/mediacontrols',
-  				'joshfire/adapters/samsungtv/uielements/video.mediaelement'
-  			]
-  		},
-  		css: {
-  		  scss: 'css/samsungtv.scss'
-  		}
-  	},
-  	{
-  		name: 'leanback',
-  		adapter: 'android',
-  		js: {
-  			include: [
-  				'src/app',
-  				'joshfire/uielement',
-  				'joshfire/uielements/panel',
-  				//'joshfire/adapters/ios/inputs/touch',
-  				'joshfire/adapters/android/uielements/list',
-  				'joshfire/adapters/browser/uielements/mediacontrols',
-  				'joshfire/utils/splashscreen',
-  				'joshfire/adapters/android/uielements/video.mediaelement'
-  			]
-  		},
-  		css: {
-  		  scss: 'css/leanback.scss'
+  		  
   		}
   	}
 
