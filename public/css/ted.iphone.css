@@ -50,15 +50,13 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  display: none;
 }
 
 /* @group Video details */
 #myTED__detailswrapper {
   -webkit-box-shadow: none;
-  width: 90%;
+  width: 100%;
   margin: auto;
-  
 }
 
 #myTED__main__home__videodetail {
@@ -67,16 +65,28 @@
 }
 
 #myTED__main__home__videodetail__like {
-  display: none !important;
+/*   display: none !important; */
+  position: absolute;
+  right: 25px;
+  top: 200px;
+  font-size: 0;
+  z-index: 1000;
+
 }
+
+#myTED__main__home__videodetail__player .close {
+  background: red;
+  border: 0px;
+}
+
 
 #myTED__main__home__videodetail__player {
   height: auto !important;
 }
 
 #myTED__detailswrapper video {
-  width: 100%;
-  height: 130px;
+  width: 90%;
+  height: 170px;
 }
 
 #myTED__main__home__videodetail__videoshortdesc {
@@ -84,34 +94,44 @@
 }
 
 #myTED__main__home__videodetail__videoshortdesc h1 {
-  font-size: 1.2em;
+  font-size: 17px;
 }
 
 #myTED__main__home__videodetail__videoshortdesc h2 {
-  font-size: 1em;
+  font-size: 14px;
 }
 
 #myTED__main__home__videodetail__info {
-  display: none !important;
+display: none !important;
+}
+
+#myTED__main__home__videodetail__info__videoinfo {
+  width: 100%;
+}
+
+#myTED__main__home__videodetail__info__talkerinfo {
+	display: none;
 }
 
 /* @end */
 
 /* @group Video List */
-
 #myTED__main__home__videolistpanel {
   position: absolute;
   left: auto;
   right: auto;
-  height: auto;
-  
+  height: auto;  
+}
+
+.myTED__main__home__videolistpanel__videolist_scroller ul {
+  width: 320px;
 }
 
 #myTED__main__home__videolistpanel__videolist {
   top: 25px;
   padding-top: 5px;
   padding-left: 13px;
-  }
+}
 
 #myTED__main__home__videolistpanel__videolisttitle {
   margin: 0;
@@ -124,8 +144,8 @@
   margin: 0;
   font-size: 18px;
   -webkit-box-shadow: 4px 4px 10px rgba(23, 23, 23, 0.8);
-  z-index: 999;
-
+  z-index: 10000;
+  position: relative;
 }
 
 #myTED__main__home__videolistpanel__videolisttitle .theme-title {
@@ -181,7 +201,7 @@
 /* @group Scrollbar */
 
 .scrollbarV {
-  right: 1px;
+  right: 3px;
 }
 
 /* @end */
