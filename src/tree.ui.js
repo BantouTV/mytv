@@ -28,7 +28,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'loginButton',
             type: Panel,
-            label:'Wait...'
+            content:'Wait...'
           }],
           onAfterInsert: function(ui) {
             //register onclick on login button
@@ -130,6 +130,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       else{
                          $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                       }
+                      //Update my favs
+                      ui.app.data.set('/talks/favorites/', 
+                        _.select(ui.app.data.get('/talks/all/'), 
+                          function (item){
+                            return _.contains(ui.app.userSession.mytv.favorites, item.id);
+                          }
+                        )
+                      );
+                     
+                     
+                      ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
                     }
                     else{
                        $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
@@ -262,15 +273,48 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'favorites',
               type: Panel,
-              content: 'Loading...',
               autoShow:false,
+              children: [
+                {
+                  id: 'mytitle',
+                  type: Panel,
+                  innerTemplate: '<div class="title-wrapper"><p class="theme-title">My favorites</p></div>'
+                },
+                {
+                  id: 'favlist',
+                  type: List,
+              //    dataPath: '/talks/favorites/',
+                  onSelect: function(ui, type, data) {
+                    console.warn('do something clever');return;
+                    if (device == 'iphone') {
+                      ui.app.ui.element('/main/home/videodetail').show();
+                      ui.app.ui.element('/main/home/videodetail/close').show();
+                      ui.app.ui.element('/main/home/videolistpanel').hide();
+                    }
+                  },
+                  autoShow: true,
+                  // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                  itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
+                  scroller: true,
+                  scrollOptions: {
+                    // do scroll in only one direction
+                    vScroll: bVerticalList,
+                    hScroll: !bVerticalList
+                  },
+                  scrollBarClass: 'scrollbar',
+                  autoScroll: true,
+                  onSelect:function(){
+                    alert('Play!')
+                  }
+                }
+              ],
               onAfterShow:function(ui){
                   ui.app.ui.element('/main/home/videodetail/player').player.pause();
                   if (!ui.app.getState('auth')) {
                     ui.app.fbLogin();
                   } else {
                     //OK here come your videos
-                    ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
+                   // ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
                   }
               }
             }
