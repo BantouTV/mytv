@@ -71,6 +71,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                     onLastItemSelect:function(me) {
+                      $('#' + me.htmlId + '___lastItem button', $('#' + me.htmlId)).html("Loading...");
                       app.data.fetch(me.dataPath, {skip: me.data.length}, function(newData) {
                           if (!newData || newData.length == 0){
                             $('#' + me.htmlId + '___lastItem', $('#' + me.htmlId)).remove();
