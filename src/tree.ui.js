@@ -109,21 +109,50 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 forceDataPathRefresh: true,
 
                 onData: function(ui) {
-                  var player = ui.app.ui.element('/main/home/videodetail/player'),
-                      play = function() {
-                        player.playWithStaticUrl(ui.data.video['240']);
-                        player.pause();
-                      };
-
+                  
+                  var player = ui.app.ui.element('/main/home/videodetail/player');
+                  var playerYT = ui.app.ui.element('/main/home/videodetail/player.youtube');
+                  
+                  
                   if (ui.data) {
-                    if (ui.data.video) {
-                      play();
+                    
+                    
+                    if (ui.data.source=="youtube") {
+                      playerYT.show();
+                      player.hide();
+                      player.stop();
+                      ui.app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="100%";
+                      ui.app.ui.element('/main/home/videodetail/info/talkerinfo').hide();
+                      
+                      playerYT.playWithStaticUrl(ui.data);
+                      
                     } else {
-                      TEDApi.getVideo(ui.data.key, function(error, vdata) {
-                        ui.data.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
+                      var player = ui.app.ui.element('/main/home/videodetail/player'),
+                          play = function() {
+                            player.playWithStaticUrl(ui.data.video['240']);
+                            player.pause();
+                          };
+                          
+                      player.show();
+                      playerYT.hide();
+                      playerYT.stop();
+                      ui.app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="50%";
+                      ui.app.ui.element('/main/home/videodetail/info/talkerinfo').show();
+                      
+                      
+                      if (ui.data.video) {
                         play();
-                      });
+                      } else {
+                        TEDApi.getVideo(ui.data.key, function(error, vdata) {
+                          ui.data.video = _.reduce(vdata, function(m, v) { m[v.format] = { url: v.url }; return m; }, {});
+                          play();
+                        });
+                      }
                     }
+                    
+                    
+                
+                    
                     //like icon
                     if (ui.app.userSession && ui.app.userSession.mytv && ui.app.userSession.mytv.favorites){
                        if (!ui.app.data.get('/talks/favorites/')){
@@ -194,6 +223,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                          timer_daemon();
                         } , 1000);
                       })();
+                    }
+                  },
+                  {
+                    id: 'player.youtube',
+                    type: 'video.youtube',
+                    autoShow: true,
+                    controls: true,
+                    noAutoPlay: false,
+                    options: {
+                      forceAspectRatio: false,
+                      height: window.innerHeight
+                    },
+                    onAfterInsert:function(self){
+                      
                     }
                   },
                   {
