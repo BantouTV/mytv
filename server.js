@@ -1,20 +1,11 @@
-/*!
- * Joshfire Framework 0.9.0
- * http://framework.joshfire.com/
- *
- * Copyright 2011, Joshfire
- * Dual licensed under the GPL Version 2 and a Commercial license.
- * http://framework.joshfire.com/license
- *
- * Date: Wed Jun 29 16:25:37 2011
- */
-
+COMPILED = false;
 
 Joshfire = {define: function(a,b) {_ = b();}};
   
-
 var express = require('express');
+var _ = require('underscore')._;
 var fs = require('fs');
+var path = require('path');
 var expressApp = express.createServer(),
  request = require('request');
 
@@ -29,7 +20,7 @@ expressApp.configure(function(){
     
     expressApp.use(expressApp.router);
     
-    var testPath = __dirname + '/';
+    var testPath = __dirname + '/public/';
     expressApp.use(express.static(testPath));
     
   
@@ -42,6 +33,44 @@ var serialize = function(obj) {
   return str.join("&");
 };
 
+var indexTemplate = require(path.join(__dirname,"templates_compiled/commonjs/index.js"));
+
+var appServe = function(tedxid,req,res) {
+  
+  //Detect device
+  var device = "ipad";
+  if (req.param("device")) {
+    device = req.param("device");
+  } else {
+    var ua = req.headers["user-agent"];
+    if (ua.indexOf("iPad")>=0) {
+      device = "ipad";
+    } else if (ua.indexOf("iPhone")>=0 || ua.indexOf("iPod")>=0) {
+      device = "iphone";
+    }
+  }
+  
+  
+  var values = {
+    "buildname":device,
+    "adapter":"ios",
+    "compiled":COMPILED
+    
+  }
+  console.log(indexTemplate(values));
+  res.send(indexTemplate(values));
+  
+  
+  
+};
+
+expressApp.get('/tedx:tedxid', function(req, res){
+  appServe(req.param("tedxid"),req,res);
+});
+
+expressApp.get('/', function(req, res){
+  appServe(false,req,res);
+});
 
 
 expressApp.get('/proxy.php', function(req, res){
