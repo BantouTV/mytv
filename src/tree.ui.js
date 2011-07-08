@@ -177,6 +177,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                        $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
                   }
+
                   ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
                   
                 },

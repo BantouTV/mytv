@@ -23,7 +23,8 @@
   -webkit-box-shadow: #333434 0 1px 0;
 }
 
-#myTED__toolbar .josh-type-Button, #myTED__toolbar__loginButton {
+#myTED__toolbar .josh-type-Button,
+#myTED__toolbar__loginButton {
   position: absolute;
   height: 20px;
   border-radius: 6px;
@@ -56,6 +57,7 @@
 }
 
 /* @group Video details */
+
 #myTED__detailswrapper {
   -webkit-box-shadow: none;
   width: 100%;
@@ -121,7 +123,7 @@ display: none !important;
 }
 
 #myTED__main__home__videodetail__info__talkerinfo {
-	display: none;
+  display: none;
 }
 
 /* @end */
@@ -136,7 +138,8 @@ display: none !important;
 
 .myTED__main__themes__themeslist_scroller ul,
 .myTED__main__tedx__tedxlist_scroller ul,
-.myTED__main__home__videolistpanel__videolist_scroller ul {
+.myTED__main__home__videolistpanel__videolist_scroller ul,
+.myTED__main__favorites__favlist_scroller ul {
   width: 320px;
 }
 
@@ -149,34 +152,25 @@ display: none !important;
 #myTED__main__home__videolistpanel__videolisttitle {
   margin: 0;
   width: 100%;
-  
 }
 
 #myTED__main__home__videolistpanel__videolisttitle .theme-title {
-  width: 100%;
   margin: 0;
-  font-size: 18px;
+  font-size: 15px;
   -webkit-box-shadow: 0 4px 10px rgba(23, 23, 23, 0.8);
   z-index: 10000;
   position: relative;
-}
-
-#myTED__main__home__videolistpanel__videolisttitle .theme-title {
+  width: 100%;
   display: inline-block;
   padding-bottom: 6px;
-  font-size: 15px;
   color: #797675;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-  margin: 0;
-  background: none;
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List {
   width: 125px;
   height: 130px;
   margin-left: 5px;
-
-  
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List img {
@@ -188,21 +182,18 @@ display: none !important;
   text-align: center;
 }  
 
-
 /* @end */
 
 /* @end */
 
 /* @group Themes List */
 
-
-
-#myTED__main__themes .josh-List, #myTED__main__tedx .josh-List {
+#myTED__main__themes .josh-List,
+#myTED__main__tedx .josh-List {
   width: 130px;
   height: 135px;
   margin: 10px;
   padding-left: 9px;
-  
 }
 
 #myTED__main__themes .josh-List img, #myTED__main__tedx .josh-List img {
