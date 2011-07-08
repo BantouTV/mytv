@@ -224,6 +224,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               id: 'themes',
               type: Panel,
               content: '',
+              autoShow:false,
               onAfterShow: function(ui) {
                 // propagate event to child list for scroller refresh
                 ui.app.ui.element('/main/themes/themeslist').publish('afterShow');
@@ -262,7 +263,17 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'favorites',
               type: Panel,
-              content: ''
+              content: 'Loading...',
+              autoShow:false,
+              onAfterShow:function(ui){
+                  ui.app.ui.element('/main/home/videodetail/player').player.pause();
+                  if (!ui.app.getState('auth')) {
+                    ui.app.fbLogin();
+                  } else {
+                    //OK here come your videos
+                    ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
+                  }
+              }
             }
           ]//fin children main
         },//main
@@ -280,14 +291,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             player  = ui.app.ui.element('/main/home/videodetail/player');
             btn.themes.onclick = function() { player.pause(); };
             btn.latest.onclick = function() { player.pause(); };
-            btn.favorites.onclick = function() {
-              player.pause();
-              if (!app.getState('auth')) {
-                app.fbLogin();
-              } else {
-                  //call api save prefs
-              }
-            };
           },
           data: [{
             id: 'home',

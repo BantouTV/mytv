@@ -49,7 +49,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], funct
 
           if (response.session) {
             // logged in and connected user, someone you know
-            self.facebookSession = response.session;
+            self.userSession = response.session;
             self.setState("auth",true);
             self.ui.element('/toolbar/loginButton').htmlEl.firstChild.innerText='Logout';
             
@@ -82,7 +82,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore'], funct
             
             // user is logged in and granted some permissions.
             // perms is a comma separated list of granted permissions
-            self.facebookSession = response.session;
+            self.userSession = response.session;
             self.setState("auth",true);
             
           } else {
