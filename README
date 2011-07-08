@@ -1,3 +1,18 @@
-Run node serve.js
+Dependencies
+------------
+
+ - Joshfire framework 0.9+ symlinked in joshfire/
+ - http://fabfile.org
+
+Running the app
+---------------
+
+$ fab serve
+
 You should map local.myted.tv on your localhost for facebook testing purposes
-To run iPad version: local.myted.tv:40100/public/ted.ipad.html or localhost:40010/public/ted.ipad.html
+
+You can then run these versions:
+http://local.myted.tv:40100/ (user agent detect)
+http://local.myted.tv:40100/?device=ipad
+http://local.myted.tv:40100/?device=iphone
+http://local.myted.tv:40100/tedxparis
