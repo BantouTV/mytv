@@ -66,13 +66,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           },
           {
             'id': 'favorites',
-            'children': function(query, cb) {
+           /* 'children': function(query, cb) {
               // Fetch ID list from joshfire.me
               var favorites = ['agd0ZWQtYXBpcgsLEgRUYWxrGI9vDA'];
               if (!query.filter) query.filter = {};
               query.filter.id = favorites;
               me.fetch('/talks/all/', query, cb);
-            }
+            }*/
           },
           {
             'id': 'all',

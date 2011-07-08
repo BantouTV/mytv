@@ -9,7 +9,6 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
 
   return Class(UITree, {     
@@ -29,16 +28,16 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'loginButton',
             type: Panel,
-            label:'Wait...'
+            content:'Wait...'
           }],
           onAfterInsert: function(ui) {
             //register onclick on login button
             //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
               
-                //  ui.app.fbLogin();
-                // ... Forget that ...
-                // Works fine in iOS Safari.. but not in a web app = launched from home screen
-                // Let's try direct link
+              //  ui.app.fbLogin();
+              // ... Forget that ...
+              // Works fine in iOS Safari.. but not in a web app = launched from home screen
+              // Let's try direct link
               //ui.htmlEl.onclick = function() {};
           }
         },
@@ -62,7 +61,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolisttitle',
                     type: Panel,
-                    innerTemplate: '<div class="title-wrapper"><p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p></div>'
+                    innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p>'
                   },
                   {
                     id: 'videolist',
@@ -77,7 +76,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           }
                       });
                     },
-
                     onSelect: function(ui, type, data) {
                       if (device == 'iphone') {
                         ui.app.ui.element('/main/home/videodetail').show();
@@ -132,12 +130,21 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       else{
                          $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                       }
+                      //Update my favs
+                      ui.app.data.set('/talks/favorites/', 
+                        _.select(ui.app.data.get('/talks/all/'), 
+                          function (item){
+                            return _.contains(ui.app.userSession.mytv.favorites, item.id);
+                          }
+                        )
+                      );
+                     
+                     
+                      ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
                     }
                     else{
                        $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
-                    
-                    
                   }
                 },
 
@@ -150,7 +157,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'close',
                     type: 'Button',
-                    label: 'Close',
+                    label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       ui.app.ui.element('/main/home/videodetail/player').pause();
@@ -249,10 +256,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
-                  var token = videolist.subscribe('afterRefresh', function() {
-                    videolist.selectByIndex(0);
-                    videolist.unsubscribe(token);
-                  });
+                  if (device != 'iphone') {
+                    var token = videolist.subscribe('afterRefresh', function() {
+                      videolist.selectByIndex(0);
+                      videolist.unsubscribe(token);
+                    });
+                  }
+
                   ui.app.ui.element('/footer').selectByIndex(0);
                   
                   var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
@@ -303,15 +313,53 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             {
               id: 'favorites',
               type: Panel,
-              content: 'Loading...',
               autoShow:false,
+              children: [
+                {
+                  id: 'mytitle',
+                  type: Panel,
+                  innerTemplate: '<div class="title-wrapper"><p class="theme-title">My favorites</p></div><div class="fav-not-connected"><h3>You should be connected !</a></h3></div><div class="fav-zero-favs"><h3>No favorites yet !</a></h3></div>'
+                },
+                {
+                  id: 'favlist',
+                  type: List,
+              //    dataPath: '/talks/favorites/',
+                  onSelect: function(ui, type, data) {
+                    console.warn('do something clever');return;
+                    if (device == 'iphone') {
+                      ui.app.ui.element('/main/home/videodetail').show();
+                      ui.app.ui.element('/main/home/videodetail/close').show();
+                      ui.app.ui.element('/main/home/videolistpanel').hide();
+                    }
+                  },
+                  autoShow: true,
+                  // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                  itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
+                  scroller: true,
+                  scrollOptions: {
+                    // do scroll in only one direction
+                    vScroll: bVerticalList,
+                    hScroll: !bVerticalList
+                  },
+                  scrollBarClass: 'scrollbar',
+                  autoScroll: true,
+                  onSelect:function(){
+                    alert('Play!')
+                  }
+                }
+              ],
               onAfterShow:function(ui){
                   ui.app.ui.element('/main/home/videodetail/player').player.pause();
                   if (!ui.app.getState('auth')) {
+                    $('#'+ui.htmlId+' .fav-zero-favs').hide();
                     ui.app.fbLogin();
                   } else {
+                    $('#'+ui.htmlId+' .fav-not-connected').hide();
+                    if (ui.app.ui.element('/main/favorites/favlist').data.length>0){
+                      $('#'+ui.htmlId+' .fav-zero-favs').hide();
+                    }
                     //OK here come your videos
-                    ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
+                   // ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
                   }
               }
             }
