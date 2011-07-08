@@ -1,7 +1,7 @@
 Dependencies
 ------------
 
- - Joshfire framework 0.9+ symlinked in joshfire/
+ - Joshfire framework 0.9+ symlinked in joshfire/ and public/joshfire/
  - http://fabfile.org
 
 Running the app

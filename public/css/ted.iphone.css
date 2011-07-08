@@ -79,7 +79,7 @@
 #myTED__main__home__videodetail__close {
   position: absolute;
   top: -35px;
-  left: 5px;
+  left: -7px;
   height: 22px;
   border-radius: 6px;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));
@@ -90,7 +90,6 @@
   -webkit-background-clip: padding;
   font-size: 12px;
 }
-
 
 #myTED__main__home__videodetail__player {
   height: auto !important;

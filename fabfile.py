@@ -39,6 +39,7 @@ def node_restart():
 def export():
     templates()
     optimize()
+    compile("export-optimized/")
     
     compiledstamp = int(time.time())
     
@@ -48,13 +49,13 @@ def export():
     local("rm -rf %s/*" % (env.export_dir,))
     local("cp -RL public %s/" % (env.export_dir,))
     
-    compile("export-optimized/")
+    
     
     for js in os.listdir("export-optimized/"):
       
       local("cp export-optimized/%s %s/public/js/%s.%s%s" % (js,env.export_dir,js[0:-3],compiledstamp,js[-3:]))
       
-    for f in ["server.js","package.json","src","joshfire"]:
+    for f in ["server.js","package.json","src","joshfire","templates_compiled"]:
       local("cp -RL %s %s/" % (f,env.export_dir))
     
     
@@ -66,7 +67,7 @@ def export():
     
 def serve():
     templates()
-    local("node-dev server.js")
+    local("node server.js")
 
 def templates():
     local("node joshfire/adapters/node/bootstrap.js joshfire/adapters/node/utils/templatecompiler.cli.js templates/ "+os.path.join(os.getcwd(),"templates_compiled"))

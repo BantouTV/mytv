@@ -9,8 +9,9 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
-                     window._ = _;
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _) {
+  window._ = _;
+
   return Class(UITree, {     
     buildTree: function() {
       // UI specialization : the video list scrolls from top to bottom only on iOS
@@ -152,12 +153,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 children:[
                   {
                     id: 'like',
-                    type: 'Button',
+                    type: Button,
                     label: 'Like'
                   },
                   {
                     id: 'close',
-                    type: 'Button',
+                    type: Button,
                     label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
@@ -328,7 +329,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 {
                   id: 'favlist',
                   type: List,
-              //    dataPath: '/talks/favorites/',
                   autoShow: true,
                   // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                   itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
