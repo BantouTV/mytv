@@ -141,7 +141,7 @@ color:#fff;
   width: 520px;
 }
 
-.myTED__main__themes__themeslist_scroller ul {
+.myTED__main__themes__themeslist_scroller ul, .myTED__main__tedx__tedxlist_scroller ul {
   width: 1000px;
 }
 

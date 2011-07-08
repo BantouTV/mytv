@@ -66,7 +66,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolist',
                     type: List,
-                    dataPath: '/talks/latest/',
+                    dataPath: TEDXID?false:'/talks/latest/',
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                     onLastItemSelect:function(me) {
@@ -299,10 +299,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/tedx/' + data[0]);
             
-                  var token = videolist.subscribe('afterRefresh', function() {
-                    videolist.selectByIndex(0);
-                    videolist.unsubscribe(token);
-                  });
+                  if (device != 'iphone') {
+                    var token = videolist.subscribe('afterRefresh', function() {
+                      videolist.selectByIndex(0);
+                      videolist.unsubscribe(token);
+                    });
+                  }
+                  
                   ui.app.ui.element('/footer').selectByIndex(0);
             
                   var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');

@@ -20,14 +20,23 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           splash = new Splash(),
           videolist = self.ui.element('/main/home/videolistpanel/videolist');
 
-      videolist.subscribe('data', function(ev, data, token) {
-        videolist.unsubscribe(token);
-        self.ui.setState('focus', '/main/home/videolistpanel/videolist');
-        if (device != 'iphone')
-          videolist.selectByIndex(0);
-        self.ui.element('/footer').selectByIndex(0);
-        splash.remove();
-      });
+      if (TEDXID) {
+        setTimeout(function() {
+          self.ui.element('/footer').selectById("tedx");
+          splash.remove();
+        },200);
+        
+      } else {
+        videolist.subscribe('data', function(ev, data, token) {
+          videolist.unsubscribe(token);
+          self.ui.setState('focus', '/main/home/videolistpanel/videolist');
+          if (device != 'iphone')
+            videolist.selectByIndex(0);
+          self.ui.element('/footer').selectByIndex(0);
+          splash.remove();
+        });
+      }
+      
 
       if (callback)
         callback(null);
