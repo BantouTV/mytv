@@ -1,16 +1,8 @@
-/*!
- * Joshfire Framework 0.9.0
- * http://framework.joshfire.com/
- *
- * Copyright 2011, Joshfire
- * Dual licensed under the GPL Version 2 and a Commercial license.
- * http://framework.joshfire.com/license
- *
- * Date: Wed Jun 29 16:25:37 2011
- */
-
 Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], function(DataSource,_) {
   var datasource = new DataSource(),
+  
+      // This API is also open source on github : http://github.com/joshfire/ted-api
+      // It is only temporary since TED is supposed to release an API mid-2011.
       APIROOT_TED = 'http://ted-api.appspot.com/rest/v1/json/';
 
   return {

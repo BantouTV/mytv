@@ -1,13 +1,3 @@
-/*!
- * Joshfire Framework 0.9.0
- * http://framework.joshfire.com/
- *
- * Copyright 2011, Joshfire
- * Dual licensed under the GPL Version 2 and a Commercial license.
- * http://framework.joshfire.com/license
- *
- * Date: Wed Jun 29 16:25:37 2011
- */
 
 Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './ted.api','./youtube.api','joshfire/utils/datasource'], function(Class, DataTree, _, API, YoutubeAPI, DataSource) {
   var urlserialize = function(obj) {
@@ -139,6 +129,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
         children:function(query,callback) {
           
           ds.request({
+            
+            // Email sylvain _at_ joshfire.com to get an invite on this spreadsheet to add your TEDx events.
             "url":"https://spreadsheets.google.com/feeds/list/0ArnpnObxnz4RdHJhSVlURUlFdk9pc09jOHkxLWRHa1E/od6/public/values?hl=fr&alt=json-in-script",
             "dataType":"jsonp",
             "cache":3600
@@ -180,10 +172,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
       ];
     
   },
+  
+  // Beautify the labels from YouTube
   formatTEDxData:function(talk) {
     
-    
-    //remove event name
     var label = talk.label;
     
     //strip "TEDx XYZ 20xx"

@@ -1,14 +1,3 @@
-/*!
- * Joshfire Framework 0.9.0
- * http://framework.joshfire.com/
- *
- * Copyright 2011, Joshfire
- * Dual licensed under the GPL Version 2 and a Commercial license.
- * http://framework.joshfire.com/license
- *
- * Date: Wed Jun 29 16:25:37 2011
- */
-
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _) {
   window._ = _;
 
@@ -18,6 +7,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
       var bVerticalList = (Joshfire.adapter === 'ios') ? true : false;
 
       var app = this.app;
+      
       // our UI definition
       var aUITree = [
         {
@@ -35,7 +25,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             //register onclick on login button
             //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
               
-              //  ui.app.fbLogin();
+              //  app.fbLogin();
               // ... Forget that ...
               // Works fine in iOS Safari.. but not in a web app = launched from home screen
               // Let's try direct link
@@ -52,7 +42,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             type: Panel,
             onAfterShow: function(ui) {
               // propagate event to child list for scroller refresh
-              ui.app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
+              app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
             },
             children:[
               {
@@ -80,9 +70,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     },
                     onSelect: function(ui, type, data) {
                       if (device == 'iphone') {
-                        ui.app.ui.element('/main/home/videodetail').show();
-                        ui.app.ui.element('/main/home/videodetail/close').show();
-                        ui.app.ui.element('/main/home/videolistpanel').hide();
+                        app.ui.element('/main/home/videodetail').show();
+                        app.ui.element('/main/home/videodetail/close').show();
+                        app.ui.element('/main/home/videolistpanel').hide();
                       }
                     },
                     autoShow: true,
@@ -110,8 +100,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
 
                 onData: function(ui) {
                   
-                  var player = ui.app.ui.element('/main/home/videodetail/player');
-                  var playerYT = ui.app.ui.element('/main/home/videodetail/player.youtube');
+                  var player = app.ui.element('/main/home/videodetail/player');
+                  var playerYT = app.ui.element('/main/home/videodetail/player.youtube');
                   
                   
                   if (ui.data) {
@@ -121,13 +111,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       playerYT.show();
                       player.hide();
                       player.stop();
-                      ui.app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="100%";
-                      ui.app.ui.element('/main/home/videodetail/info/talkerinfo').hide();
+                      app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="100%";
+                      app.ui.element('/main/home/videodetail/info/talkerinfo').hide();
                       
                       playerYT.playWithStaticUrl(ui.data);
                       
                     } else {
-                      var player = ui.app.ui.element('/main/home/videodetail/player'),
+                      var player = app.ui.element('/main/home/videodetail/player'),
                           play = function() {
                             player.playWithStaticUrl(ui.data.video['240']);
                             player.pause();
@@ -136,8 +126,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       player.show();
                       playerYT.hide();
                       playerYT.stop();
-                      ui.app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="50%";
-                      ui.app.ui.element('/main/home/videodetail/info/talkerinfo').show();
+                      app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="50%";
+                      app.ui.element('/main/home/videodetail/info/talkerinfo').show();
                       
                       
                       if (ui.data.video) {
@@ -154,31 +144,31 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 
                     
                     //like icon
-                    if (ui.app.userSession && ui.app.userSession.mytv && ui.app.userSession.mytv.favorites){
-                       if (!ui.app.data.get('/talks/favorites/')){
+                    if (app.userSession && app.userSession.mytv && app.userSession.mytv.favorites){
+                       if (!app.data.get('/talks/favorites/')){
                          //Update my favs
-                          ui.app.data.set('/talks/favorites/', 
-                            _.select(ui.app.data.get('/talks/all/'), 
+                          app.data.set('/talks/favorites/', 
+                            _.select(app.data.get('/talks/all/'), 
                               function (item){
-                                return _.contains(ui.app.userSession.mytv.favorites, item.id);
+                                return _.contains(app.userSession.mytv.favorites, item.id);
                               }
                             )
                           );
                         }
                       
-                      if (_.include(ui.app.userSession.mytv.favorites, ui.data.id)){
-                         $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).addClass('liked');
+                      if (_.include(app.userSession.mytv.favorites, ui.data.id)){
+                         $('#'+app.ui.element('/main/home/videodetail/like').htmlId).addClass('liked');
                       }
                       else{
-                         $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                         $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                       }
                                           }
                     else{
-                       $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                       $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
                   }
 
-                  ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
+                  app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
                   
                 },
                 children:[
@@ -193,9 +183,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
-                      ui.app.ui.element('/main/home/videodetail/player').pause();
-                      ui.app.ui.element('/main/home/videodetail').hide();
-                      ui.app.ui.element('/main/home/videolistpanel').show();
+                      app.ui.element('/main/home/videodetail/player').pause();
+                      app.ui.element('/main/home/videodetail').hide();
+                      app.ui.element('/main/home/videolistpanel').show();
                     }
                   },
                   {
@@ -282,7 +272,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               autoShow:false,
               onAfterShow: function(ui) {
                 // propagate event to child list for scroller refresh
-                ui.app.ui.element('/main/themes/themeslist').publish('afterShow');
+                app.ui.element('/main/themes/themeslist').publish('afterShow');
               },
               children: [{
                 id: 'themeslist',
@@ -301,7 +291,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
+                  var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
                   if (device != 'iphone') {
@@ -311,9 +301,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     });
                   }
 
-                  ui.app.ui.element('/footer').selectByIndex(0);
+                  app.ui.element('/footer').selectByIndex(0);
                   
-                  var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                  var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
                   videolisttitle.setDataPath('/themes/' + data[0]);
                 }
               }]
@@ -325,7 +315,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               autoShow:false,
               onAfterShow: function(ui) {
                 // propagate event to child list for scroller refresh
-                ui.app.ui.element('/main/tedx/tedxlist').publish('afterShow');
+                app.ui.element('/main/tedx/tedxlist').publish('afterShow');
               },
               children: [{
                 id: 'tedxlist',
@@ -344,7 +334,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
-                  var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
+                  var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/tedx/' + data[0]);
             
                   if (device != 'iphone') {
@@ -354,9 +344,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     });
                   }
                   
-                  ui.app.ui.element('/footer').selectByIndex(0);
+                  app.ui.element('/footer').selectByIndex(0);
             
-                  var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                  var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
                   videolisttitle.setDataPath('/tedx/' + data[0]);
                 }
               }]
@@ -388,7 +378,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   onSelect:function(ui,event, data){
                     var video_id = data[0][0],path='/talks/latest/';
                     //Change videolist dataPath
-                     var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
+                     var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                       videolist.setDataPath('/talks/favorites');
 
                     //Change video dataPath
@@ -407,23 +397,23 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     app.ui.element('/footer').selectByIndex(0);
                     
                     
-                    var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                    var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
                     videolisttitle.setDataPath('/talks/favorites');
                   }
                 }
               ],
               onAfterShow:function(ui){
-                  ui.app.ui.element('/main/home/videodetail/player').player.pause();
-                  if (!ui.app.getState('auth')) {
+                  app.ui.element('/main/home/videodetail/player').player.pause();
+                  if (!app.getState('auth')) {
                     $('#'+ui.htmlId+' .fav-zero-favs').hide();
-                    ui.app.fbLogin();
+                    app.fbLogin();
                   } else {
                     $('#'+ui.htmlId+' .fav-not-connected').hide();
-                    if (ui.app.ui.element('/main/favorites/favlist').data.length>0){
+                    if (app.ui.element('/main/favorites/favlist').data.length>0){
                       $('#'+ui.htmlId+' .fav-zero-favs').hide();
                     }
                     //OK here come your videos
-                   // ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
+                   // app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(app.userSession.mytv.favorites);
                   }
               }
             }
@@ -434,32 +424,41 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           type: List,
           hideOnBlur: false,
           content: '',
-          onAfterInsert: function(ui) {
-            var btn = {
-                  latest: document.getElementById('myTED__footer_home'),
-                  themes: document.getElementById('myTED__footer_themes'),
-                  favorites: document.getElementById('myTED__footer_favorites')
-                },
-            player  = ui.app.ui.element('/main/home/videodetail/player');
-            btn.themes.onclick = function() { player.pause(); };
-            btn.latest.onclick = function() { player.pause(); };
+          onSelect: function(ids) {
+            
+            if (ids[0]!="home") {
+              app.ui.element('/main/home/videodetail/player').pause();
+            }
+            
           },
-          data: [{
-            id: 'home',
-            label: 'Videos'
-          },
-          {
-            id: 'themes',
-            label: 'Themes'
-          },
-          {
-            id: 'tedx',
-            label: 'TEDx'
-          },
-          {
-            id: 'favorites',
-            label: 'My favorites'
-          }]
+          data: TEDXID?
+          
+            //TEDx mode
+            [{
+              id: 'home',
+              label: 'Videos'
+            },{
+              id: 'tedx',
+              label: 'Events'
+            }]:
+          
+            //Global mode
+            [{
+              id: 'home',
+              label: 'Videos'
+            },
+            {
+              id: 'themes',
+              label: 'Themes'
+            },
+            {
+              id: 'tedx',
+              label: 'TEDx'
+            },
+            {
+              id: 'favorites',
+              label: 'My favorites'
+            }]
         }
       ];
       // UI specialization : the video control bar is useless on environments without a mouse
