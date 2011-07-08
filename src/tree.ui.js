@@ -301,7 +301,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     });
                   }
 
-                  app.ui.element('/footer').selectByIndex(0);
+                  app.ui.element('/footer').selectById("home");
                   
                   var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
                   videolisttitle.setDataPath('/themes/' + data[0]);
@@ -344,7 +344,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     });
                   }
                   
-                  app.ui.element('/footer').selectByIndex(0);
+                  app.ui.element('/footer').selectById("home");
             
                   var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
                   videolisttitle.setDataPath('/tedx/' + data[0]);
@@ -394,7 +394,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
 
                     app.ui.element('/main/home/videodetail').setDataPath(path+video_id);
                     //Change main view
-                    app.ui.element('/footer').selectByIndex(0);
+                    app.ui.element('/footer').selectById("home");
                     
                     
                     var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');

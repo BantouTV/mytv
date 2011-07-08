@@ -12,7 +12,6 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       if (TEDXID) {
         setTimeout(function() {
           self.ui.element('/footer').selectById("tedx");
-          splash.remove();
         },200);
         
       } else {
@@ -21,7 +20,7 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           self.ui.setState('focus', '/main/home/videolistpanel/videolist');
           if (device != 'iphone')
             videolist.selectByIndex(0);
-          self.ui.element('/footer').selectByIndex(0);
+          self.ui.element('/footer').selectById("home");
           splash.remove();
         });
       }
@@ -29,6 +28,12 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
 
       if (callback)
         callback(null);
+    },
+    setTitle:function(newTitle) {
+      document.getElementsByTagName("title")[0].innerHTML = newTitle;
+      app.ui.element("/toolbar").htmlEl.firstChild.innerHTML = newTitle;
+      
+      splash.remove();
     }
   });
 });

@@ -70,7 +70,7 @@ var appServe = function(tedxid,req,res) {
     "tedxid":tedxid
     
   }
-  console.log(indexTemplate(values));
+  
   res.send(indexTemplate(values));
 };
 
