@@ -125,29 +125,31 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     }
                     //like icon
                     if (ui.app.userSession && ui.app.userSession.mytv && ui.app.userSession.mytv.favorites){
+                       if (!ui.app.data.get('/talks/favorites/')){
+                         //Update my favs
+                          ui.app.data.set('/talks/favorites/', 
+                            _.select(ui.app.data.get('/talks/all/'), 
+                              function (item){
+                                return _.contains(ui.app.userSession.mytv.favorites, item.id);
+                              }
+                            )
+                          );
+                        }
+                      
                       if (_.include(ui.app.userSession.mytv.favorites, ui.data.id)){
                          $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).addClass('liked');
                       }
                       else{
                          $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                       }
-                      //Update my favs
-                      ui.app.data.set('/talks/favorites/', 
-                        _.select(ui.app.data.get('/talks/all/'), 
-                          function (item){
-                            return _.contains(ui.app.userSession.mytv.favorites, item.id);
-                          }
-                        )
-                      );
-
-                      ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
-                    }
+                                          }
                     else{
                        $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
                   }
+                  ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
+                  
                 },
-
                 children:[
                   {
                     id: 'like',
@@ -176,6 +178,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       height: window.innerHeight
                     },
                     onAfterInsert:function(self){
+                      
                       (function timer_daemon(){
                           setTimeout(function(){
                         var video= self.app.ui.element('/main/home/videodetail/player').htmlEl.querySelector('video');
@@ -326,15 +329,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 {
                   id: 'favlist',
                   type: List,
-                  // dataPath: '/talks/favorites/',
-                  onSelect: function(ui, type, data) {
-                    console.warn('do something clever');return;
-                    if (device == 'iphone') {
-                      ui.app.ui.element('/main/home/videodetail').show();
-                      ui.app.ui.element('/main/home/videodetail/close').show();
-                      ui.app.ui.element('/main/home/videolistpanel').hide();
-                    }
-                  },
                   autoShow: true,
                   // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                   itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
@@ -347,11 +341,29 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   scrollBarClass: 'scrollbar',
                   autoScroll: true,
                   onSelect:function(ui,event, data){
-                    var video_id = data[0][0];
+                    var video_id = data[0][0],path='/talks/latest/';
+                    //Change videolist dataPath
+                     var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
+                      videolist.setDataPath('/talks/favorites');
+
                     //Change video dataPath
-                    app.ui.element('/main/home/videodetail').setDataPath('/talks/all/'+video_id);
+                    var video = app.data.get(path+video_id);
+                    if (!video){
+                      path='/talks/all/';
+                      video = app.data.get(path+video_id);
+                    }
+                    if (!video){
+                      alert('An error occured - unable to play video '+video_id);
+                      return false;
+                    }
+
+                    app.ui.element('/main/home/videodetail').setDataPath(path+video_id);
                     //Change main view
-                    app.ui.element('/footer').selectByIndex(0)
+                    app.ui.element('/footer').selectByIndex(0);
+                    
+                    
+                    var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                    videolisttitle.setDataPath('/talks/favorites');
                   }
                 }
               ],
