@@ -16,8 +16,9 @@
     <div id="splashscreen"><!--TED--></div>
     <script>
       Joshfire.debug = true;
-      Joshfire.require(['../src/tedx/app.ios'], function(MyTedTV) {
+      Joshfire.require(['../src/ted.ios'], function(MyTedTV) {
         Joshfire.onReady(function() {
+          TEDXID = "paris";
           device = 'ipad';
           window._app = new MyTedTV();
         });

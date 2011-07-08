@@ -261,6 +261,46 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               }]
             },
             {
+              id: 'tedx',
+              type: Panel,
+              content: '',
+              autoShow:false,
+              onAfterShow: function(ui) {
+                // propagate event to child list for scroller refresh
+                ui.app.ui.element('/main/tedx/tedxlist').publish('afterShow');
+              },
+              children: [{
+                id: 'tedxlist',
+                type: List,
+                dataPath: '/tedx/',
+                incrementalRefresh: true,
+                autoShow: true,
+                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                itemInnerTemplate: '<figure data-id="<%= item.id %>"><img src="<%= item.image ? item.image : "http://placehold.it/208x142" %>"/><figcaption><%= item.label %></figcaption></figure>',
+                scroller: true,
+                scrollOptions: {
+                  // do scroll in only one direction
+                  vScroll: bVerticalList,
+                  hScroll: !bVerticalList
+                },
+                scrollBarClass: 'scrollbar',
+                autoScroll: true,
+                onSelect: function(ui, evt, data) {
+                  var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
+                  videolist.setDataPath('/tedx/' + data[0]);
+            
+                  var token = videolist.subscribe('afterRefresh', function() {
+                    videolist.selectByIndex(0);
+                    videolist.unsubscribe(token);
+                  });
+                  ui.app.ui.element('/footer').selectByIndex(0);
+            
+                  var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
+                  videolisttitle.setDataPath('/tedx/' + data[0]);
+                }
+              }]
+            },
+            {
               id: 'favorites',
               type: Panel,
               content: 'Loading...',
@@ -301,6 +341,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             label: 'Themes'
           },
           {
+            id: 'tedx',
+            label: 'TEDx'
+          },
+          {
             id: 'favorites',
             label: 'My favorites'
           }]
@@ -308,7 +352,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
       ];
       // UI specialization : the video control bar is useless on environments without a mouse
       //console.log(Joshfire.adapter);
-      if(Joshfire.adapter === 'browser') {
+      if (Joshfire.adapter === 'browser') {
         aUITree.push({
           id: 'controls',
           type: 'mediacontrols',

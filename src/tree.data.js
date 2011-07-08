@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './ted.api'], function(Class, DataTree, _, API) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './ted.api','./youtube.api','joshfire/utils/datasource'], function(Class, DataTree, _, API, YoutubeAPI, DataSource) {
   var urlserialize = function(obj) {
     var str = [];
     for (var p in obj) {
@@ -18,6 +18,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
     return str.join('&');
   };
 
+
+  var youtubeAPI = new YoutubeAPI();
+  
+  var ds = new DataSource();
   
   return Class(DataTree, {
     buildTree: function() {
@@ -32,7 +36,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           API.query('Theme?page_size=' + query.limit + '&offset=' + query.skip, function(error, json) {
             if (error) return callback(error);
             childCallback(null, _.map(json.list.Theme, function(theme) {
-              //console.error('WAZAAAAAAAAAA', theme.key);
+
               return {
                 'id': theme.key,
                 'label': theme.name,
@@ -128,7 +132,87 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
             }
           }
         ]
-      }];
+      },
+      {
+        id: 'tedx',
+        children:function(query,callback) {
+          
+          ds.request({
+            "url":"https://spreadsheets.google.com/feeds/list/0ArnpnObxnz4RdHJhSVlURUlFdk9pc09jOHkxLWRHa1E/od6/public/values?hl=fr&alt=json-in-script",
+            "dataType":"jsonp",
+            "cache":3600
+          },function(err,data) {
+            if (err) return callback(err);
+
+            var matches = [];
+            _.each(data.feed.entry,function(tedx,i) {
+              if (tedx.gsx$tedxname.$t==TEDXID || !TEDXID) {
+
+                //Only one TEDx
+                if (!TEDXID) {
+                  var eventlabel = tedx.gsx$formattedname.$t+" "+tedx.gsx$eventname.$t;
+                } else {
+                  var eventlabel = tedx.gsx$eventname.$t;
+                }
+                
+                matches.push({
+                  "id":i,
+                  "image":tedx.gsx$eventimage.$t,
+                  "label":eventlabel,
+                  "children":function(q,cb) {
+
+                    youtubeAPI.getPlaylistVideos(tedx.gsx$youtubeplaylist.$t,function(err,videos) {
+
+                      cb(err,_.map(videos,app.data.formatTEDxData));
+                    });
+
+                  }
+                });
+              }
+            });
+            callback(null,matches);
+          });
+          
+          
+        }
+      }
+      ];
+    
+  },
+  formatTEDxData:function(talk) {
+    
+    
+    //remove event name
+    var label = talk.label;
+    
+    //strip "TEDx XYZ 20xx"
+    label = label.replace(/tedx( )?([a-z0-9]+)( 20[0-9]{2})?/ig,"");
+    
+    //strip dates
+    label = label.replace(/[0-9]{2,4}\/[0-9]{2}\/[0-9]{2,4}/g,"");
+    
+    //Trim
+    label = label.replace(/^[ \-\:]+/,"");
+    label = label.replace(/[ \-\:]+$/,"");
+    
+    //Try to extract talker name, before the first " - "
+    if (label.indexOf(" - ")>0) {
+      talk.talker = {name:label.substring(0,label.indexOf(" - "))};
+      label = label.substring(label.indexOf(" - ")+3);
     }
-  });
+    
+    //Trim again
+    label = label.replace(/^[ \-\:]+/,"");
+    label = label.replace(/[ \-\:]+$/,"");
+    
+    
+    talk.label = label;
+    
+    return talk;
+    
+    
+  }
+}
+  
+  );
 });
