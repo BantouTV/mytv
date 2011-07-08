@@ -46,7 +46,7 @@ var indexTemplate = require(path.join(__dirname,"templates_compiled/commonjs/ind
 var appServe = function(tedxid,req,res) {
   
   //Detect device
-  var device = "ipad";
+  var device = "web";
   if (req.param("device")) {
     device = req.param("device");
   } else {
@@ -56,6 +56,11 @@ var appServe = function(tedxid,req,res) {
     } else if (ua.indexOf("iPhone")>=0 || ua.indexOf("iPod")>=0) {
       device = "iphone";
     }
+  }
+  
+  if (device=="web") {
+    res.send("Sorry, currently you must access this app with an iPad, iPhone or iPod. Check back again soon for the web version.");
+    return;
   }
   
   var values = {
