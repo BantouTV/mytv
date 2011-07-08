@@ -23,7 +23,8 @@ Joshfire.define(['joshfire/class', 'joshfire/utils/datasource'],function(Class,D
            videos[i] = {
              'id': videos[i].id.$t.replace(/^.*\//, ''),
              'type': 'video',
-             'desc': videos[i].content.$t,
+             'source':'youtube',
+             'summary': videos[i].content.$t,
              'label': videos[i].title.$t,
              'image': videos[i].media$group.media$thumbnail ? videos[i].media$group.media$thumbnail[0].url : '',
              'url': videos[i].link[0].href.replace('http://www.youtube.com/watch?v=', '').replace(/\&.*$/, '')
