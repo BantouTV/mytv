@@ -9,7 +9,6 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
 
   return Class(UITree, {     
@@ -35,10 +34,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             //register onclick on login button
             //iPad browser blocks facebook popup when coming from ..subscribe('input') :-(
               
-                //  ui.app.fbLogin();
-                // ... Forget that ...
-                // Works fine in iOS Safari.. but not in a web app = launched from home screen
-                // Let's try direct link
+              //  ui.app.fbLogin();
+              // ... Forget that ...
+              // Works fine in iOS Safari.. but not in a web app = launched from home screen
+              // Let's try direct link
               //ui.htmlEl.onclick = function() {};
           }
         },
@@ -62,7 +61,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolisttitle',
                     type: Panel,
-                    innerTemplate: '<div class="title-wrapper"><p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p></div>'
+                    innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p>'
                   },
                   {
                     id: 'videolist',
@@ -77,7 +76,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           }
                       });
                     },
-
                     onSelect: function(ui, type, data) {
                       if (device == 'iphone') {
                         ui.app.ui.element('/main/home/videodetail').show();
@@ -159,7 +157,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'close',
                     type: 'Button',
-                    label: 'Close',
+                    label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       ui.app.ui.element('/main/home/videodetail/player').pause();
@@ -258,10 +256,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
-                  var token = videolist.subscribe('afterRefresh', function() {
-                    videolist.selectByIndex(0);
-                    videolist.unsubscribe(token);
-                  });
+                  if (device != 'iphone') {
+                    var token = videolist.subscribe('afterRefresh', function() {
+                      videolist.selectByIndex(0);
+                      videolist.unsubscribe(token);
+                    });
+                  }
+
                   ui.app.ui.element('/footer').selectByIndex(0);
                   
                   var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
