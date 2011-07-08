@@ -76,7 +76,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           }
                       });
                     },
-
                     onSelect: function(ui, type, data) {
                       if (device == 'iphone') {
                         ui.app.ui.element('/main/home/videodetail').show();
@@ -135,8 +134,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     else{
                        $('#'+ui.app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
-                    
-                    
                   }
                 },
 
@@ -149,7 +146,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'close',
                     type: 'Button',
-                    label: 'Close',
+                    label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       ui.app.ui.element('/main/home/videodetail/player').pause();
@@ -248,10 +245,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = ui.app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
-                  var token = videolist.subscribe('afterRefresh', function() {
-                    videolist.selectByIndex(0);
-                    videolist.unsubscribe(token);
-                  });
+                  if (device != 'iphone') {
+                    var token = videolist.subscribe('afterRefresh', function() {
+                      videolist.selectByIndex(0);
+                      videolist.unsubscribe(token);
+                    });
+                  }
+
                   ui.app.ui.element('/footer').selectByIndex(0);
                   
                   var videolisttitle = ui.app.ui.element('/main/home/videolistpanel/videolisttitle');
