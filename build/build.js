@@ -30,6 +30,22 @@ var build = {
   		css: {
   		  
   		}
+  	},
+  	{
+  		name: 'iphone',
+  		adapter: 'ios',
+  		js: {
+  			'include': [
+  				'src/ted.ios',
+  				// Dynamically loaded dependencies - not autodetectable
+  				'joshfire/adapters/ios/uielements/video.mediaelement',
+  				'joshfire/adapters/ios/uielements/mediacontrols',
+          
+  			]
+  		},
+  		css: {
+  		  
+  		}
   	}
 
 	]
