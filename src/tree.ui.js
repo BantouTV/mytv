@@ -9,7 +9,7 @@
  * Date: Wed Jun 29 16:25:37 2011
  */
 
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, TEDApi,JoshmeAPI,  _) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _) {
 
   return Class(UITree, {     
     buildTree: function() {
@@ -151,12 +151,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 children:[
                   {
                     id: 'like',
-                    type: 'Button',
+                    type: Button,
                     label: 'Like'
                   },
                   {
                     id: 'close',
-                    type: 'Button',
+                    type: Button,
                     label: 'Back',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {

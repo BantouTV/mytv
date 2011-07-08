@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>myTED.tv</title>
     <% if (compiled) { %>
-      <script src="/js/<%= buildname %>.compiled.<%=compiled%>.js"></script>
+      <script src="/js/<%= buildname %>-<%= adapter %>.<%=compiled%>.js"></script>
     <% } else { %>
       <script data-main="./" src="joshfire/adapters/<%= adapter %>/bootstrap.js"></script>
     <% } %>
@@ -21,9 +21,9 @@
     <div id="splashscreen"><!--TED--></div>
     <script>
       Joshfire.debug = true;
-      Joshfire.require(['../src/ted.<%= adapter %>'], function(MyTedTV) {
+      Joshfire.require(['src/ted.<%= adapter %>'], function(MyTedTV) {
         Joshfire.onReady(function() {
-          TEDXID=false;
+          TEDXID = '<%= tedxid %>';
           device = '<%= buildname %>';
           window._app = new MyTedTV();
         });

@@ -54,7 +54,8 @@ var appServe = function(tedxid,req,res) {
   var values = {
     "buildname":device,
     "adapter":"ios",
-    "compiled":COMPILED
+    "compiled":COMPILED,
+    "tedxid":tedxid
     
   }
   console.log(indexTemplate(values));
@@ -69,7 +70,7 @@ expressApp.get('/tedx:tedxid', function(req, res){
 });
 
 expressApp.get('/', function(req, res){
-  appServe(false,req,res);
+  appServe('',req,res);
 });
 
 

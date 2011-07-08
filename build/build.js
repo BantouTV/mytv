@@ -13,7 +13,7 @@
 var build = {
   baseUrl: '../',
   name: 'mytedtv',
-  dir: '../export/',
+  dir: '../export-optimized/',
   modules: [
     {
   		name: 'ipad',
@@ -22,11 +22,9 @@ var build = {
   			'include': [
   				'src/ted.ios',
   				// Dynamically loaded dependencies - not autodetectable
-  				'joshfire/adapters/browser/uielements/video.youtube.swf',
-  				'joshfire/adapters/browser/uielements/mediacontrols',
-  				'joshfire/adapters/browser/uielements/list',
-  				'joshfire/adapters/browser/inputs/mouse',
-  				'joshfire/adapters/browser/inputs/keyboard'
+  				'joshfire/adapters/ios/uielements/video.mediaelement',
+  				'joshfire/adapters/ios/uielements/mediacontrols',
+          
   			]
   		},
   		css: {
