@@ -23,14 +23,6 @@ var expressApp = express.createServer(),
 
 expressApp.configure(function() {
 //    app.set('views', __dirname + '/views');
-
-  expressApp.use(express.logger({ format : ":method :url"}));
-  expressApp.use(express.bodyParser());
-
-  expressApp.use(expressApp.router);
-
-expressApp.configure(function(){
-//    app.set('views', __dirname + '/views');
     
     expressApp.use(express.logger({ format : ":method :url"}));
     expressApp.use(express.bodyParser());
