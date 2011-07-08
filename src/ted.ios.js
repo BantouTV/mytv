@@ -30,11 +30,6 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
             return false;
           }
 
-          // self.userSession.mytv.favorites could not exist yet FIXME
-          if (!self.userSession.mytv.favorites) {
-            self.userSession.mytv.favorites = [];
-          }
-
           var favorites = _.extend([], self.userSession.mytv.favorites),
               videoid = '' + self.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/)[0];
 
@@ -80,7 +75,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './jos
               if (!err && data) {
                 self.userSession.mytv = data;
               } else {
-                self.userSession.mytv = {};
+                self.userSession.mytv = {'favorites': []};
               }
               console.warn("self.userSession", self.userSession);
             });

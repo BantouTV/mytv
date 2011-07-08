@@ -31,9 +31,9 @@ expressApp.configure(function() {
 var serialize = function(obj) {
   var str = [];
   for(var p in obj) {
-   str.push(p + "=" + encodeURIComponent(obj[p]));
+   str.push(p + '=' + encodeURIComponent(obj[p]));
   }
-  return str.join("&");
+  return str.join('&');
 };
 
 // expressApp.get('/proxy.php', function(req, res) {
@@ -46,10 +46,10 @@ expressApp.options('/proxy/', function(req, res) {
 });
 
 expressApp.all('/proxy/', function(req, res) {
-  // console.warn('received request');
+  console.warn('received request');
   var rq = {'uri': req.body.url, 'method': 'POST'};
 
-  // console.log('requete post via proxy', req.param('url'), req.body);
+  console.log('requete post via proxy', req.param('url'), req.body);
   if (req.body !== undefined) {
     rq['json'] = req.body.data;
     rq['headers'] = {'Content-Type': 'application/x-www-form-urlencoded'};
@@ -57,11 +57,11 @@ expressApp.all('/proxy/', function(req, res) {
     rq['headers'] = {'Content-Length': '0'};
   }
   
-  // console.log('proxy call', rq);
+  console.log('proxy call', rq);
   request(rq, function(error, response, body) {
     res.send(body, { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'X-Requested-With' });
   });
 });
 
 expressApp.listen(40010);
-console.log('Listening on 40010.')
+console.log('Listening on 40010.');
