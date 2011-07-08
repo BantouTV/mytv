@@ -164,7 +164,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                 });
               }
             });
-            callback(null,matches);
+            callback(null,matches,{"cache":3600});
           });
           
           

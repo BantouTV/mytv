@@ -5,16 +5,19 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
     uiClass: UI,
     dataClass: Data,
     setup: function(callback) {
-      var self = this,
-          splash = new Splash(),
-          videolist = self.ui.element('/main/home/videolistpanel/videolist');
-
+      var self = this;
+      
+      this.splash = new Splash();
+          
       if (TEDXID) {
-        setTimeout(function() {
-          self.ui.element('/footer').selectById("tedx");
-        },200);
+        //Load TEDx events. setTitle() will be called.
+        this.data.fetch("/tedx/",false,function() {
+          
+        });
         
       } else {
+        var videolist = self.ui.element('/main/home/videolistpanel/videolist');
+        
         videolist.subscribe('data', function(ev, data, token) {
           videolist.unsubscribe(token);
           self.ui.setState('focus', '/main/home/videolistpanel/videolist');
@@ -29,11 +32,26 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       if (callback)
         callback(null);
     },
+    
+    //Called only in TEDx mode when list of TEDx events has been loaded.
     setTitle:function(newTitle) {
-      document.getElementsByTagName("title")[0].innerHTML = newTitle;
-      app.ui.element("/toolbar").htmlEl.firstChild.innerHTML = newTitle;
+      var self = this;
       
-      splash.remove();
+      document.getElementsByTagName("title")[0].innerHTML = newTitle;
+      this.ui.element("/toolbar").htmlEl.firstChild.innerHTML = newTitle;
+      
+      this.data.fetch("/tedx/",false,function(err,tedxevents) {
+        
+        // Auto-select if only one TEDx event
+        if (tedxevents && tedxevents.length==1) {
+          self.ui.element('/main/tedx/tedxlist').selectByIndex(0);
+        } else {
+          self.ui.element('/footer').selectById("tedx");
+        }
+
+        self.splash.remove();
+      });
+      
     }
   });
 });
