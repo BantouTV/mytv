@@ -10,6 +10,7 @@
  */
 
 Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './ted.api','./joshfire.me.api', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _) {
+  window._ = _;
 
   return Class(UITree, {     
     buildTree: function() {
@@ -138,8 +139,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           }
                         )
                       );
-                     
-                     
+
                       ui.app.ui.element('/main/favorites/favlist').setDataPath('/talks/favorites');
                     }
                     else{
@@ -346,8 +346,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   },
                   scrollBarClass: 'scrollbar',
                   autoScroll: true,
-                  onSelect:function(){
-                    alert('Play!')
+                  onSelect:function(ui,event, data){
+                    var video_id = data[0][0];
+                    //Change video dataPath
+                    app.ui.element('/main/home/videodetail').setDataPath('/talks/all/'+video_id);
+                    //Change main view
+                    app.ui.element('/footer').selectByIndex(0)
                   }
                 }
               ],
