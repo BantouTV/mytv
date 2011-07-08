@@ -277,7 +277,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 {
                   id: 'mytitle',
                   type: Panel,
-                  innerTemplate: '<div class="title-wrapper"><p class="theme-title">My favorites</p></div>'
+                  innerTemplate: '<div class="title-wrapper"><p class="theme-title">My favorites</p></div><div class="fav-not-connected"><h3>You should be connected !</a></h3></div><div class="fav-zero-favs"><h3>No favorites yet !</a></h3></div>'
                 },
                 {
                   id: 'favlist',
@@ -310,8 +310,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               onAfterShow:function(ui){
                   ui.app.ui.element('/main/home/videodetail/player').player.pause();
                   if (!ui.app.getState('auth')) {
+                    $('#'+ui.htmlId+' .fav-zero-favs').hide();
                     ui.app.fbLogin();
                   } else {
+                    $('#'+ui.htmlId+' .fav-not-connected').hide();
+                    if (ui.app.ui.element('/main/favorites/favlist').data.length>0){
+                      $('#'+ui.htmlId+' .fav-zero-favs').hide();
+                    }
                     //OK here come your videos
                    // ui.app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(ui.app.userSession.mytv.favorites);
                   }
