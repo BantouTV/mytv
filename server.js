@@ -59,7 +59,7 @@ var appServe = function(tedxid,req,res) {
   }
   
   if (device=="web") {
-    res.send("Sorry, currently you must access this app with an iPad, iPhone or iPod. Check back again soon for the web version.");
+    res.send("Sorry, currently you must access this app with an iPad, iPhone or iPod. Check back again soon for the web version. (<a href='?device=ipad'>I don't care it's broken, show me the ipad version on the web.</a>)");
     return;
   }
   
