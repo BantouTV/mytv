@@ -67,7 +67,7 @@ def export():
     
 def serve():
     templates()
-    local("node-dev server.js")
+    local("node server.js")
 
 def templates():
     local("node joshfire/adapters/node/bootstrap.js joshfire/adapters/node/utils/templatecompiler.cli.js templates/ "+os.path.join(os.getcwd(),"templates_compiled"))

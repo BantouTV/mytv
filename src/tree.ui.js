@@ -326,7 +326,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 {
                   id: 'favlist',
                   type: List,
-              //    dataPath: '/talks/favorites/',
+                  // dataPath: '/talks/favorites/',
                   onSelect: function(ui, type, data) {
                     console.warn('do something clever');return;
                     if (device == 'iphone') {
