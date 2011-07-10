@@ -175,6 +175,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'like',
                     type: Button,
+                    autoShow:!TEDXID, //no favorites in TEDx mode
                     label: 'Like'
                   },
                   {
@@ -222,10 +223,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: true,
                     controls: true,
                     noAutoPlay: false,
-                    options: {
-                      forceAspectRatio: false,
-                      height: window.innerHeight
-                    },
                     onAfterInsert:function(self){
                       
                     }
