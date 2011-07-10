@@ -1,5 +1,5 @@
 
-Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './joshfire.me.api'], function(App, Class, _, JoshmeAPI) {
+Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api/joshfire.me'], function(App, Class, _, JoshmeAPI) {
   return Class(App, {
 
     id: 'myTED',

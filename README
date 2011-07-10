@@ -1,18 +1,69 @@
+myTED.tv
+--------
+
+Multi-device app for TED and TEDx talks. It uses the Joshfire Framework [http://framework.joshfire.com] to be portable on any device.
+
+It is publicly hosted on http://myted.tv/ but feel free to fork!
+
+
+TEDx mode
+---------
+
+When accessed at http://myted.tv/tedx[location] (for instance http://myted.tv/tedxparis) it generates a TEDx-specific app
+with only the talks for this event.
+
+To enable this feature TEDx events must be registered in this spreadsheet :
+https://spreadsheets0.google.com/spreadsheet/pub?hl=fr&hl=fr&key=0ArnpnObxnz4RdHJhSVlURUlFdk9pc09jOHkxLWRHa1E
+(email sylvain _at_ joshfire.com for write access)
+
+We're impatient to get feedback on this from TEDx organizers! If there's interest we'll discuss:
+ - Features (currently you can only browse and watch videos)
+ - App store publishing (we won't be able to do it ourselves for the thousands of TEDx events but 
+    we want to make it as simple as possible for everyone to do it themselves)
+ - Anything else!
+
+
+Roadmap
+-------
+
+ - Gather feedback from TED and TEDx organizers
+ - Add more adapters :
+   * Web (underway)
+   * Android (underway)
+   * Smart TVs (GoogleTV & SamsungTV underway)
+   * Blackberry
+   * ...
+ - Switch to the official TED API when it's available (Currently we use http://github.com/joshfire/ted-api)
+
+License
+-------
+
+GPLv2 baby!
+
+
 Dependencies
 ------------
 
- - Joshfire framework 0.9+ symlinked in joshfire/ and public/joshfire/
+ - Joshfire framework 0.9+ installed with its lib/ folder symlinked in joshfire/ and public/joshfire/
+ - Node.js, NPM
  - http://fabfile.org
+ 
+To install required NPM modules, launch this command:
 
-Running the app
----------------
+$ npm install
+
+
+Running the app locally
+-----------------------
+
+Launch this command:
 
 $ fab serve
 
-You should map local.myted.tv on your localhost for facebook testing purposes
-
 You can then run these versions:
-http://local.myted.tv:40100/ (user agent detect)
-http://local.myted.tv:40100/?device=ipad
-http://local.myted.tv:40100/?device=iphone
-http://local.myted.tv:40100/tedxparis
+http://localhost:40100/ (user agent detect)
+http://localhost:40100/?device=ipad
+http://localhost:40100/?device=iphone
+http://localhost:40100/tedxparis
+
+You should map local.myted.tv on your localhost for facebook testing purposes
