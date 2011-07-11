@@ -20,11 +20,13 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         
         videolist.subscribe('data', function(ev, data, token) {
           videolist.unsubscribe(token);
-          self.ui.setState('focus', '/main/home/videolistpanel/videolist');
-          if (device != 'iphone')
-            videolist.selectByIndex(0);
-          self.ui.element('/footer').selectById("home");
-          splash.remove();
+
+            self.ui.setState('focus', '/main/home/videolistpanel/videolist');
+            if (device != 'iphone')
+              videolist.selectByIndex(0);
+            self.ui.element('/footer').selectById("home");
+            self.splash.remove();
+
         });
       }
       
