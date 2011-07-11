@@ -24,7 +24,7 @@ var build = {
   				// Dynamically loaded dependencies - not autodetectable
   				'joshfire/adapters/ios/uielements/video.mediaelement',
   				'joshfire/adapters/ios/uielements/mediacontrols',
-          
+  				'joshfire/adapters/ios/uielements/video.youtube'
   			]
   		},
   		css: {
@@ -40,7 +40,7 @@ var build = {
   				// Dynamically loaded dependencies - not autodetectable
   				'joshfire/adapters/ios/uielements/video.mediaelement',
   				'joshfire/adapters/ios/uielements/mediacontrols',
-          
+  				'joshfire/adapters/ios/uielements/video.youtube'
   			]
   		},
   		css: {
