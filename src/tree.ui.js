@@ -75,6 +75,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         app.ui.element('/main/home/videolistpanel').hide();
                       }
                     },
+                    onAfterRefresh: function(ui) {
+                      ui.iScroller.scrollTo(0, 0);
+                      ui.iScroller.refresh();
+                    },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                     itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
@@ -292,9 +296,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   videolist.setDataPath('/themes/' + data[0]);
                   
                   if (device != 'iphone') {
-                    var token = videolist.subscribe('afterRefresh', function() {
-                      videolist.selectByIndex(0);
+                    videolist.subscribe('afterRefresh', function(ev, data, token) {
                       videolist.unsubscribe(token);
+                      videolist.selectByIndex(0);
                     });
                   }
 
@@ -335,9 +339,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   videolist.setDataPath('/tedx/' + data[0]);
             
                   if (device != 'iphone') {
-                    var token = videolist.subscribe('afterRefresh', function() {
-                      videolist.selectByIndex(0);
+                    videolist.subscribe('afterRefresh', function(ev, data, token) {
                       videolist.unsubscribe(token);
+                      videolist.selectByIndex(0);
                     });
                   }
                   
@@ -352,6 +356,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               id: 'favorites',
               type: Panel,
               autoShow:false,
+              onAfterShow: function(ui) {
+                // propagate event to child list for scroller refresh
+                app.ui.element('/main/favorites/favlist').publish('afterShow');
+              },
               children: [
                 {
                   id: 'mytitle',
