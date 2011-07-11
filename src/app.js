@@ -24,7 +24,7 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           if (device != 'iphone')
             videolist.selectByIndex(0);
           self.ui.element('/footer').selectById("home");
-          splash.remove();
+          self.splash.remove();
         });
       }
       
