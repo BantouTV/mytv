@@ -30,30 +30,28 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       }
       
 
-      if (callback)
+      if (callback) {
         callback(null);
+      }
     },
     
     //Called only in TEDx mode when list of TEDx events has been loaded.
-    setTitle:function(newTitle) {
+    setTitle: function(newTitle) {
       var self = this;
       
-      document.getElementsByTagName("title")[0].innerHTML = newTitle;
-      this.ui.element("/toolbar").htmlEl.firstChild.innerHTML = newTitle;
-      console.warn("TITLE",newTitle);
+      document.getElementsByTagName('title')[0].innerText = newTitle;
+      this.ui.element('/toolbar').htmlEl.firstChild.innerText = newTitle;
       
-      this.data.fetch("/tedx/",false,function(err,tedxevents) {
+      this.data.fetch('/tedx/', false, function(err, tedxevents) {
         
         // Auto-select if only one TEDx event
-        if (tedxevents && tedxevents.length==1) {
+        if (tedxevents && tedxevents.length == 1) {
           self.ui.element('/main/tedx/tedxlist').selectByIndex(0);
         } else {
-          self.ui.element('/footer').selectById("tedx");
+          self.ui.element('/footer').selectById('tedx');
         }
-
         self.splash.remove();
       });
-      
     }
   });
 });
