@@ -40,6 +40,7 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       
       document.getElementsByTagName("title")[0].innerHTML = newTitle;
       this.ui.element("/toolbar").htmlEl.firstChild.innerHTML = newTitle;
+      console.warn("TITLE",newTitle);
       
       this.data.fetch("/tedx/",false,function(err,tedxevents) {
         

@@ -146,7 +146,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   var eventlabel = tedx.gsx$formattedname.$t+" "+tedx.gsx$eventname.$t;
                 } else {
                   var eventlabel = tedx.gsx$eventname.$t;
-                  app.setTitle(tedx.gsx$formattedname.$t);
+                  if (tedx.gsx$formattedname.$t) app.setTitle(tedx.gsx$formattedname.$t);
                 }
                 
                 matches.push({
