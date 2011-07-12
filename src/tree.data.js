@@ -1,4 +1,3 @@
-
 Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './api/ted','./api/youtube','joshfire/utils/datasource'], function(Class, DataTree, _, API, YoutubeAPI, DataSource) {
   var urlserialize = function(obj) {
     var str = [];

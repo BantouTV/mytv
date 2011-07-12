@@ -42,6 +42,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             type: Panel,
             onAfterShow: function(ui) {
               // propagate event to child list for scroller refresh
+              app.ui.element('/main/home/videodetail').publish('afterShow');
               app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
             },
             children:[
@@ -57,11 +58,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolist',
                     type: List,
-                    loadingTemplate:"<div style='padding:40px;'>Loading...</div>",
-                    dataPath: TEDXID?false:'/talks/latest/',
+                    loadingTemplate: '<div style="padding:40px;">Loading...</div>',
+                    dataPath: TEDXID ? false : '/talks/latest/',
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
-                    onLastItemSelect:function(me) {
+                    onLastItemSelect: function(me) {
                       $('#' + me.htmlId + '___lastItem button', $('#' + me.htmlId)).html("Loading...");
                       app.data.fetch(me.dataPath, {skip: me.data.length}, function(newData) {
                           if (!newData || newData.length == 0){
@@ -115,16 +116,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 uiDataMaster: '/main/home/videolistpanel/videolist',
                 autoShow: (device != 'iphone'),
                 forceDataPathRefresh: true,
-
+                onAfterShow: function(ui) {
+                  // propagate event to child list for scroller refresh
+                  app.ui.element('/main/home/videodetail/close').publish('afterShow');
+                },
                 onData: function(ui) {
-                  
                   var player = app.ui.element('/main/home/videodetail/player');
                   var playerYT = app.ui.element('/main/home/videodetail/player.youtube');
                   
-                  
                   if (ui.data) {
-                    
-                    
                     if (ui.data.source=="youtube") {
                       playerYT.show();
                       player.hide();
@@ -134,7 +134,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       app.ui.element('/main/home/videodetail/like').hide();
                       
                       playerYT.playWithStaticUrl(ui.data);
-                      
                     } else {
                       var player = app.ui.element('/main/home/videodetail/player'),
                           play = function() {
@@ -180,11 +179,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                          $('#'+app.ui.element('/main/home/videodetail/like').htmlId).addClass('liked');
                       }
                       else{
-                         $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                        $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                       }
-                                          }
-                    else{
-                       $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
+                    } else {
+                      $('#'+app.ui.element('/main/home/videodetail/like').htmlId).removeClass('liked');
                     }
                   }
 
@@ -203,10 +201,23 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: Button,
                     label: 'Back',
                     autoShow: false,
+                    onAfterShow: function() {
+                      var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
+                      console.warn('currentPanel onAfterShow', currentPanel);
+                      if (currentPanel == 'home') {
+                        app.ui.element('/main/home/videodetail/close').hide();
+                        console.warn('hide back button');
+                      } else {
+                        app.ui.element('/main/home/videodetail/close').show();
+                      }
+                    },
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
-                      app.ui.element('/main/home/videodetail').hide();
-                      app.ui.element('/main/home/videolistpanel').show();
+                      var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
+                      console.warn('currentPanel onSelect', currentPanel);
+                      app.ui.element('/main').switchTo(currentPanel);
+                      // app.ui.element('/main/home/videodetail').hide();
+                      // app.ui.element('/main/home/videolistpanel').show();
                     }
                   },
                   {
@@ -215,11 +226,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: true,
                     controls: true,
                     noAutoPlay: false,
-                    onAfterInsert:function(self){
-                      
-                      (function timer_daemon(){
-                          setTimeout(function(){
-                        var video= self.app.ui.element('/main/home/videodetail/player').htmlEl.querySelector('video');
+                    onAfterInsert: function(self) {
+                      (function timer_daemon() {
+                        setTimeout(function() {
+                        var video = self.app.ui.element('/main/home/videodetail/player').htmlEl.querySelector('video');
                         if (self.app.userSession && video && !video.paused){
                            //Do your thing
                            var video_id=self.app.ui.element('/main/home/videodetail').dataPath.match(/[0-9]+$/)[0];
