@@ -169,12 +169,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     if (app.userSession && app.userSession.mytv && app.userSession.mytv.favorites){
                        if (!app.data.get('/talks/favorites/')){
                          //Update my favs
-                          app.data.set('/talks/favorites/', 
-                            _.select(app.data.get('/talks/all/'), 
-                              function (item){
-                                return _.contains(app.userSession.mytv.favorites, item.id);
-                              }
-                            )
+                         var favs=_.select(app.data.get('/talks/all/'), 
+                           function (item){
+                             return _.contains(app.userSession.mytv.favorites, item.id);
+                           }
+                         );
+                          app.data.update('/talks/favorites/', 
+                            favs
                           );
                         }
                       
@@ -369,6 +370,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   id: 'favlist',
                   type: List,
                   autoShow: true,
+                  loadingTemplate: '<div style="padding:40px;">...No favorites yet...</div>',
+                  
                   // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                   itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
                   scroller: true,
@@ -411,7 +414,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     app.fbLogin();
                   } else {
                     $('#'+ui.htmlId+' .fav-not-connected').hide();
-                    if (app.ui.element('/main/favorites/favlist').data.length>0){
+                    if (app.ui.element('/main/favorites/favlist').data && app.ui.element('/main/favorites/favlist').data .length>0){
                       $('#'+ui.htmlId+' .fav-zero-favs').hide();
                     }
                     //OK here come your videos

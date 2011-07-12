@@ -56,6 +56,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           {
             id: 'favorites',
             label:'Favorites',
+            children:function(query, cb){
+              if(!app.userSession || !app.userSession.mytv || !app.userSession.mytv.favorites ||!app.data.get('/talks/favorites/') ||!app.data.get('/talks/favorites/').length){
+                return cb('No favorites yet', null);
+              }
+              cb(null, app.data.get('/talks/favorites/'));
+            }
            /* 'children': function(query, cb) {
               // Fetch ID list from joshfire.me
               var favorites = ['agd0ZWQtYXBpcgsLEgRUYWxrGI9vDA'];
