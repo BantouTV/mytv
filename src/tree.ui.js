@@ -84,6 +84,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                             ui.selectByIndex(0);
                           });
                         }
+                        
+                        // No "show more" for TEDx
+                        if (data[1].match(/^\/tedx/)) {
+                          ui.options.lastItemInnerTemplate = false;
+                        } else {
+                          ui.options.lastItemInnerTemplate = "<button class='more'>Show more!</button>";
+                        }
+                        
                         app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
                       }
                     },
