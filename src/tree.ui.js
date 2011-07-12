@@ -217,21 +217,21 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: Button,
                     label: 'Back',
                     autoShow: false,
-                    onAfterShow: function() {
-                      var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
+                    /*onAfterShow: function() {
+                      var currentPanel = app.ui.element('/main').currentPanelId;
                       if (currentPanel == 'home' && device != 'iphone') {
                         app.ui.element('/main/home/videodetail/close').hide();
                       } else {
                         app.ui.element('/main/home/videodetail/close').show();
                       }
-                    },
+                    },*/
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
                       if (device == 'iphone') {
                         app.ui.element('/main/home/videodetail').hide();
                         app.ui.element('/main/home/videolistpanel').show();
                       }
-                      var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
+                      var currentPanel = app.ui.element('/main').currentPanelId
                       app.ui.element('/main').switchTo(currentPanel);
                     }
                   },
