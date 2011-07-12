@@ -35,13 +35,12 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api
             self.userSession.mytv.favorites = favorites;
 
             //Update my favs
-            var favs=_.select(self.data.get('/talks/all/'), 
-              function (item){
-                return _.contains(self.userSession.mytv.favorites, item.id);
-              }
-            );
               self.data.update('/talks/favorites/', 
-                favs
+              _.select(self.data.get('/talks/all/'), 
+                function (item){
+                  return _.contains(self.userSession.mytv.favorites, item.id);
+                }
+              )
               );
             
           });
