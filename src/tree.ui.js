@@ -222,7 +222,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         app.ui.element('/main/home/videodetail').hide();
                         app.ui.element('/main/home/videolistpanel').show();
                       }
-                      var currentPanel = app.ui.element('/main').currentPanelId
+                      var currentPanel = app.ui.element('/footer').getState('selection')[0];
                       app.ui.element('/main').switchTo(currentPanel);
                     }
                   },
