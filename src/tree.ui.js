@@ -49,6 +49,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               {
                 id: 'videolistpanel',
                 type: Panel,
+                onAfterShow: function(ui) {
+                  // propagate event to child list for scroller refresh
+                  app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
+                },
                 children: [
                   {
                     id: 'videolisttitle',
