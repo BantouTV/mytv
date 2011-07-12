@@ -117,6 +117,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       player.stop();
                       app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="100%";
                       app.ui.element('/main/home/videodetail/info/talkerinfo').hide();
+                      app.ui.element('/main/home/videodetail/like').hide();
                       
                       playerYT.playWithStaticUrl(ui.data);
                       
@@ -132,6 +133,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       playerYT.stop();
                       app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="50%";
                       app.ui.element('/main/home/videodetail/info/talkerinfo').show();
+                      app.ui.element('/main/home/videodetail/like').show();
                       
                       
                       if (ui.data.video) {
