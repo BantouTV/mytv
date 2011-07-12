@@ -57,6 +57,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolist',
                     type: List,
+                    loadingTemplate:"<div style='padding:40px;'>Loading...</div>",
                     dataPath: TEDXID?false:'/talks/latest/',
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
@@ -78,6 +79,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                             ui.selectByIndex(0);
                           });
                         }
+                        app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
                       }
                     },
                     onSelect: function(ui, type, data) {
@@ -306,10 +308,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
-                  app.ui.element('/footer').selectById("home");
+                  app.ui.element('/main').switchTo("home");
                   
-                  var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
-                  videolisttitle.setDataPath('/themes/' + data[0]);
                 }
               }]
             },
@@ -342,10 +342,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/tedx/' + data[0]);
 
-                  app.ui.element('/footer').selectById("home");
+                  app.ui.element('/main').switchTo("home");
             
-                  var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
-                  videolisttitle.setDataPath('/tedx/' + data[0]);
                 }
               }]
             },
@@ -396,11 +394,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
 
                     app.ui.element('/main/home/videodetail').setDataPath(path+video_id);
                     //Change main view
-                    app.ui.element('/footer').selectById("home");
                     
+                    app.ui.element('/main').switchTo("home");
                     
-                    var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
-                    videolisttitle.setDataPath('/talks/favorites');
                   }
                 }
               ],
@@ -427,6 +423,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           hideOnBlur: false,
           content: '',
           onSelect: function(ids) {
+            
+            if (ids[0]!="home") {
+              app.ui.element('/main/home/videolistpanel/videolist').setDataPath("/talks/latest/");
+            }
             
             if (ids[0]!="home") {
               app.ui.element('/main/home/videodetail/player').pause();
