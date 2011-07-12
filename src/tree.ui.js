@@ -8,10 +8,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
 
       var app = this.app;
       
-      if (!TEDXID) {
-        app.mainVideoListDataPath = "/talks/latest/";
-      }
-      
       // our UI definition
       var aUITree = [
         {
@@ -67,7 +63,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'videolist',
                     type: List,
                     loadingTemplate: '<div style="padding:40px;">Loading...</div>',
-                    dataPath: app.mainVideoListDataPath,
+                    dataPath: TEDXID ? false : '/talks/latest/',
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                     onLastItemSelect: function(me) {
@@ -88,14 +84,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                             ui.selectByIndex(0);
                           });
                         }
-                        
-                        // No "show more" for TEDx
-                        if (data[1].match(/^\/tedx/)) {
-                          ui.options.lastItemInnerTemplate = false;
-                        } else {
-                          ui.options.lastItemInnerTemplate = "<button class='more'>Show more!</button>";
-                        }
-                        
                         app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
                       }
                     },
@@ -105,10 +93,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         app.ui.element('/main/home/videodetail/close').show();
                         app.ui.element('/main/home/videolistpanel').hide();
                       }
-                    },
-                    onAfterRefresh: function(ui) {
-                      ui.iScroller.scrollTo(0, 0);
-                      ui.iScroller.refresh();
                     },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
@@ -133,8 +117,15 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 autoShow: (device != 'iphone'),
                 forceDataPathRefresh: true,
                 onAfterShow: function(ui) {
-                  // propagate event to child list for scroller refresh
-                  app.ui.element('/main/home/videodetail/close').publish('afterShow');
+                  var selected = app.ui.element('/footer').htmlEl.querySelector('.selected');
+                  if (selected) {
+                    var currentPanel = selected.getAttribute('id').replace(/(.*)_/, '');
+                    if (currentPanel == 'home' && device != 'iphone') {
+                      app.ui.element('/main/home/videodetail/close').hide();
+                    } else {
+                      app.ui.element('/main/home/videodetail/close').show();
+                    }
+                  }
                 },
                 onData: function(ui) {
                   var player = app.ui.element('/main/home/videodetail/player');
@@ -164,7 +155,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       app.ui.element('/main/home/videodetail/info/talkerinfo').show();
                       app.ui.element('/main/home/videodetail/like').show();
                       
-                      
                       if (ui.data.video) {
                         play();
                       } else {
@@ -174,9 +164,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         });
                       }
                     }
-                    
-                    
-                
                     
                     //like icon
                     if (app.userSession && app.userSession.mytv && app.userSession.mytv.favorites){
@@ -217,14 +204,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     type: Button,
                     label: 'Back',
                     autoShow: false,
-                    /*onAfterShow: function() {
-                      var currentPanel = app.ui.element('/main').currentPanelId;
-                      if (currentPanel == 'home' && device != 'iphone') {
-                        app.ui.element('/main/home/videodetail/close').hide();
-                      } else {
-                        app.ui.element('/main/home/videodetail/close').show();
-                      }
-                    },*/
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
                       if (device == 'iphone') {
@@ -449,8 +428,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           content: '',
           onSelect: function(ids) {
             
-            if (ids[0]!="home" && app.mainVideoListDataPath) {
-              app.ui.element('/main/home/videolistpanel/videolist').setDataPath(app.mainVideoListDataPath);
+            if (ids[0]!="home") {
+              app.ui.element('/main/home/videolistpanel/videolist').setDataPath("/talks/latest/");
             }
             
             if (ids[0]!="home") {
