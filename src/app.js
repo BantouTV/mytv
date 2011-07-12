@@ -44,6 +44,11 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       
       this.data.fetch('/tedx/', false, function(err, tedxevents) {
         
+        if (tedxevents.length) {
+          self.ui.element("/main/home/videolistpanel/videolist").setDataPath("/tedx/"+tedxevents[0].id+"/");
+        }
+        
+        
         // Auto-select if only one TEDx event
         if (tedxevents && tedxevents.length == 1) {
           self.ui.element('/main/tedx/tedxlist').selectByIndex(0);

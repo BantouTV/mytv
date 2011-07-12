@@ -68,6 +68,18 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           }
                       });
                     },
+                    onState:function(ui,ev,data) {
+                      
+                      //When dataPath changes, select the first item.
+                      if (data[0]=="dataPath") {
+                        if (device != 'iphone') {
+                          var token = ui.subscribe("data",function() {
+                            ui.unsubscribe(token);
+                            ui.selectByIndex(0);
+                          });
+                        }
+                      }
+                    },
                     onSelect: function(ui, type, data) {
                       if (device == 'iphone') {
                         app.ui.element('/main/home/videodetail').show();
@@ -201,10 +213,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: true,
                     controls: true,
                     noAutoPlay: false,
-                    options: {
-                      forceAspectRatio: false,
-                      height: window.innerHeight
-                    },
                     onAfterInsert:function(self){
                       
                       (function timer_daemon(){
@@ -229,6 +237,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: true,
                     controls: true,
                     noAutoPlay: false,
+                    width:(device=='ipad')?460:false,
                     onAfterInsert:function(self){
                       
                     }
@@ -297,13 +306,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/themes/' + data[0]);
                   
-                  if (device != 'iphone') {
-                    videolist.subscribe('afterRefresh', function(ev, data, token) {
-                      videolist.unsubscribe(token);
-                      videolist.selectByIndex(0);
-                    });
-                  }
-
                   app.ui.element('/footer').selectById("home");
                   
                   var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
@@ -339,14 +341,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onSelect: function(ui, evt, data) {
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/tedx/' + data[0]);
-            
-                  if (device != 'iphone') {
-                    videolist.subscribe('afterRefresh', function(ev, data, token) {
-                      videolist.unsubscribe(token);
-                      videolist.selectByIndex(0);
-                    });
-                  }
-                  
+
                   app.ui.element('/footer').selectById("home");
             
                   var videolisttitle = app.ui.element('/main/home/videolistpanel/videolisttitle');
