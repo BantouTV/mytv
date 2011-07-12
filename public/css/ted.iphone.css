@@ -68,6 +68,11 @@
 #myTED__main__home__videodetail {
   width: 300px;
   margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 50%;
+  margin-left: -150px;
 }
 
 #myTED__main__home__videodetail__like {

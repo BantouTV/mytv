@@ -203,21 +203,20 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: false,
                     onAfterShow: function() {
                       var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
-                      console.warn('currentPanel onAfterShow', currentPanel);
-                      if (currentPanel == 'home') {
+                      if (currentPanel == 'home' && device != 'iphone') {
                         app.ui.element('/main/home/videodetail/close').hide();
-                        console.warn('hide back button');
                       } else {
                         app.ui.element('/main/home/videodetail/close').show();
                       }
                     },
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
+                      if (device == 'iphone') {
+                        app.ui.element('/main/home/videodetail').hide();
+                        app.ui.element('/main/home/videolistpanel').show();
+                      }
                       var currentPanel = app.ui.element('/footer').htmlEl.querySelector('.selected').getAttribute('id').replace(/(.*)_/, '');
-                      console.warn('currentPanel onSelect', currentPanel);
                       app.ui.element('/main').switchTo(currentPanel);
-                      // app.ui.element('/main/home/videodetail').hide();
-                      // app.ui.element('/main/home/videolistpanel').show();
                     }
                   },
                   {
