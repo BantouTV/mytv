@@ -38,7 +38,7 @@ Joshfire.define(['joshfire/class', 'joshfire/utils/datasource'],function(Class,D
       getPlaylistVideos:function(playlistId,callback) {
         var self = this;
         
-        this.request("playlists/"+playlistId+"?alt=json-in-script",function(error,data) {
+        this.request("playlists/"+playlistId+"?alt=json-in-script&max-results=50",function(error,data) { //start-index
           if (error) return callback(error,data);
           
           callback(null, self.formatVideos(data.feed.entry));
@@ -48,7 +48,7 @@ Joshfire.define(['joshfire/class', 'joshfire/utils/datasource'],function(Class,D
        getUserVideos:function(userName,callback) {
          var self = this;
          
-         this.request('/users/' + userName + '/uploads?alt=json-in-script',function(error,data) {
+         this.request('/users/' + userName + '/uploads?alt=json-in-script&max-results=50',function(error,data) {
            if (error) return callback(error,data);
 
            callback(null, self.formatVideos(data.feed.entry));

@@ -45,12 +45,14 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       this.data.fetch('/tedx/', false, function(err, tedxevents) {
         
         if (tedxevents.length) {
-          self.ui.element("/main/home/videolistpanel/videolist").setDataPath("/tedx/"+tedxevents[0].id+"/");
+          self.mainVideoListDataPath = "/tedx/"+tedxevents[0].id+"/";
+          self.ui.element("/main/home/videolistpanel/videolist").setDataPath(self.mainVideoListDataPath);
         }
         
         
         // Auto-select if only one TEDx event
         if (tedxevents && tedxevents.length == 1) {
+          self.ui.element('/footer').selectById('home');
           self.ui.element('/main/tedx/tedxlist').selectByIndex(0);
         } else {
           self.ui.element('/footer').selectById('tedx');

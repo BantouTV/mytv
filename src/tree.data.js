@@ -155,7 +155,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   "children":function(q,cb) {
 
                     youtubeAPI.getPlaylistVideos(tedx.gsx$youtubeplaylist.$t,function(err,videos) {
-
                       cb(err,_.map(videos,app.data.formatTEDxData));
                     });
 
