@@ -8,6 +8,10 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
 
       var app = this.app;
       
+      if (!TEDXID) {
+        app.mainVideoListDataPath = "/talks/latest/";
+      }
+
       // our UI definition
       var aUITree = [
         {
@@ -63,7 +67,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'videolist',
                     type: List,
                     loadingTemplate: '<div style="padding:40px;">Loading...</div>',
-                    dataPath: TEDXID ? false : '/talks/latest/',
+                    dataPath: app.mainVideoListDataPath,
                     incrementalRefresh: true,
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                     onLastItemSelect: function(me) {
@@ -84,6 +88,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                             ui.selectByIndex(0);
                           });
                         }
+
+                        // No "show more" for TEDx
+                        if (data[1].match(/^\/tedx/)) {
+                          ui.options.lastItemInnerTemplate = false;
+                        } else {
+                          ui.options.lastItemInnerTemplate = "<button class='more'>Show more!</button>";
+                        }
+
                         app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
                       }
                     },
@@ -428,8 +440,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           content: '',
           onSelect: function(ids) {
             
-            if (ids[0]!="home") {
-              app.ui.element('/main/home/videolistpanel/videolist').setDataPath("/talks/latest/");
+            if (ids[0]!="home" && app.mainVideoListDataPath) {
+              app.ui.element('/main/home/videolistpanel/videolist').setDataPath(app.mainVideoListDataPath);
             }
             
             if (ids[0]!="home") {
