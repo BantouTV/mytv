@@ -94,10 +94,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         app.ui.element('/main/home/videolistpanel').hide();
                       }
                     },
-                    onAfterRefresh: function(ui) {
-                      ui.iScroller.scrollTo(0, 0);
-                      ui.iScroller.refresh();
-                    },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
                     itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
