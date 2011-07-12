@@ -12,6 +12,14 @@
   overflow: visible;
 }
 
+#splashscreen .logo {
+  background: url(../images/logo-ted/logoted-iPhone.png) no-repeat center center;
+}
+
+#splashscreen .powered {
+  background: url(../images/powered/powered-iPhone.png) no-repeat center center;
+}
+
 /* @end */
 
 /* @group Toolbar (header) */

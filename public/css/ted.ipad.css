@@ -34,6 +34,25 @@ a{text-decoration:none;}
   background: #000 url(../images/loading.gif) no-repeat 50% 50%;
 }
 
+#splashscreen .logo,
+#splashscreen .powered {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#splashscreen .logo {
+  top: 20%;
+  height: 96px;
+  background: url(../images/logo-ted/logoted-iPad.png) no-repeat center center;
+}
+
+#splashscreen .powered {
+  bottom: 10px;
+  height: 32px;
+  background: url(../images/powered/powered-iPad.png) no-repeat center center;
+}
+
 ul, figure {
   margin: 0;
   padding: 0;
