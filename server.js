@@ -57,7 +57,7 @@ var appServe = function(tedxid,req,res) {
       device = 'iphone';
     } else if (ua.indexOf('Android') >= 0 && ua.indexOf('Mobile') >= 0) {
       device = 'androidphone';
-    } else if (ua.indexOf('Android') >= 0 && ua.indexOf('Mobile') == 0) {
+    } else if (ua.indexOf('Android') >= 0 && ua.indexOf('Mobile') == -1) {
       device = 'androidtablet';
     }
     
