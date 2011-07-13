@@ -68,7 +68,8 @@ var appServe = function(tedxid,req,res) {
   
   var values = {
     "buildname":device,
-    "adapter":device=='android' ? 'android' : "ios",
+    //"adapter":device=='android' ? 'android' : "ios",
+    adapter:'ios',
     "compiled":COMPILED,
     "tedxid":tedxid
     
