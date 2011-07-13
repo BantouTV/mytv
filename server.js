@@ -55,8 +55,10 @@ var appServe = function(tedxid,req,res) {
       device = 'ipad';
     } else if (ua.indexOf('iPhone') >= 0 || ua.indexOf('iPod') >= 0) {
       device = 'iphone';
-    } else if (ua.indexOf('Android') >= 0) {
-      device = 'android';
+    } else if (ua.indexOf('Android') >= 0 && ua.indexOf('Mobile') >= 0) {
+      device = 'androidphone';
+    } else if (ua.indexOf('Android') >= 0 && ua.indexOf('Mobile') == 0) {
+      device = 'androidtablet';
     }
   }
   

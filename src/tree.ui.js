@@ -82,7 +82,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       
                       //When dataPath changes, select the first item.
                       if (data[0] == 'dataPath') {
-                        if (device != 'iphone' && device != 'android') {
+                        if (device != 'iphone' && device != 'androidphone') {
                           var token = ui.subscribe("data",function() {
                             ui.unsubscribe(token);
                             ui.selectByIndex(0);
@@ -100,7 +100,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       }
                     },
                     onSelect: function(ui, type, data) {
-                      if (device == 'iphone' || device == 'android') {
+                      if (device == 'iphone' || device == 'androidphone') {
                         app.ui.element('/main/home/videodetail').show();
                         app.ui.element('/main/home/videodetail/close').show();
                         app.ui.element('/main/home/videolistpanel').hide();
@@ -126,13 +126,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 hideOnBlur: true,
                 template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
                 uiDataMaster: '/main/home/videolistpanel/videolist',
-                autoShow: (device != 'iphone' && device != 'android'),
+                autoShow: (device != 'iphone' && device != 'androidphone'),
                 forceDataPathRefresh: true,
                 onAfterShow: function(ui) {
                   var selected = app.ui.element('/footer').htmlEl.querySelector('.selected');
                   if (selected) {
                     var currentPanel = selected.getAttribute('id').replace(/(.*)_/, '');
-                    if (currentPanel == 'home' && (device != 'iphone' && device != 'android')) {
+                    if (currentPanel == 'home' && (device != 'iphone' && device != 'androidphone')) {
                       app.ui.element('/main/home/videodetail/close').hide();
                     } else {
                       app.ui.element('/main/home/videodetail/close').show();
@@ -218,7 +218,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
-                      if (device == 'iphone' || device == 'android') {
+                      if (device == 'iphone' || device == 'androidphone') {
                         app.ui.element('/main/home/videodetail').hide();
                         app.ui.element('/main/home/videolistpanel').show();
                       }
