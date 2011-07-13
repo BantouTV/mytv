@@ -23,6 +23,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
           {
             id: 'loginButton',
             type: Panel,
+            autoShow:!TEDXID,
             content:'Wait...'
           }],
           onAfterInsert: function(ui) {

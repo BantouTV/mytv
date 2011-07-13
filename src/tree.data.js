@@ -167,7 +167,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   "label":eventlabel,
                   "children":function(q,cb) {
 
-                    youtubeAPI.getPlaylistVideos(tedx.gsx$youtubeplaylist.$t,function(err,videos) {
+                    var playlistId = tedx.gsx$youtubeplaylist.$t;
+                    
+                    var wasAnUrl = playlistId.match(/list\=PL([0-9A-Z]+)/);
+                    if (wasAnUrl) {
+                      playlistId = wasAnUrl[1];
+                    }
+                    
+                    youtubeAPI.getPlaylistVideos(playlistId,function(err,videos) {
                       cb(err,_.map(videos,app.data.formatTEDxData));
                     });
 

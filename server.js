@@ -84,8 +84,12 @@ expressApp.get('/tedx:tedxid', function(req, res){
   appServe(req.param("tedxid"),req,res);
 });
 
-expressApp.get('/', function(req, res){
+expressApp.get('/ted', function(req, res){
   appServe('',req,res);
+});
+
+expressApp.get('/', function(req, res){
+  res.redirect("https://github.com/joshfire/mytv");
 });
 
 // Allow CORS

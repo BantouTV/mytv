@@ -14,7 +14,6 @@ with only the talks for this event.
 
 To enable this feature TEDx events must be registered in this spreadsheet :
 https://spreadsheets0.google.com/spreadsheet/pub?hl=fr&hl=fr&key=0ArnpnObxnz4RdHJhSVlURUlFdk9pc09jOHkxLWRHa1E
-(email sylvain _at_ joshfire.com for write access)
 
 We're impatient to get feedback on this from TEDx organizers! If there's interest we'll discuss:
  - Features (currently you can only browse and watch videos)
@@ -61,9 +60,18 @@ Launch this command:
 $ fab serve
 
 You can then run these versions:
-http://localhost:40100/ (user agent detect)
-http://localhost:40100/?device=ipad
-http://localhost:40100/?device=iphone
-http://localhost:40100/tedxparis
+http://localhost:40100/tedxparis (user agent detect)
+http://localhost:40100/tedxparis?device=ipad
+http://localhost:40100/tedxparis?device=iphone
 
-You should map local.myted.tv on your localhost for facebook testing purposes
+Repeat with any TEDx in the google spreadsheet
+http://localhost:40100/tedxamsterdam
+
+You should map local.myted.tv on your localhost for facebook testing purposes.
+
+
+Bundling the app
+----------------
+
+The app works well as a web app but you can use Phonegap [http://phonegap.com] to build native versions
+for each mobile devices that you can then post on any app store.
