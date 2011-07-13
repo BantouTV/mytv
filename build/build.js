@@ -44,7 +44,7 @@ var build = {
       css: {}
     },
     {
-      name: 'android',
+      name: 'androidphone',
       adapter: 'ios',
       js: {
         'include': [
