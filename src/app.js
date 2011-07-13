@@ -10,7 +10,7 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
       this.splash = new Splash();
           
       if (TEDXID) {
-        //Load TEDx events. setTitle() will be called.
+        //Load TEDx events. setTEDxMode() will be called.
         this.data.fetch("/tedx/",false,function() {
           
         });
@@ -36,11 +36,14 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
     },
     
     //Called only in TEDx mode when list of TEDx events has been loaded.
-    setTitle: function(newTitle) {
+    setTEDxMode: function(tedxinfos) {
       var self = this;
       
-      document.getElementsByTagName('title')[0].innerText = newTitle;
-      this.ui.element('/toolbar').htmlEl.firstChild.innerText = newTitle;
+      if (this.tedxmeta) return;
+      this.tedxmeta = tedxinfos;
+      
+      document.getElementsByTagName('title')[0].innerText = tedxinfos.title;
+      this.ui.element('/toolbar').htmlEl.firstChild.innerText = tedxinfos.title;
       
       this.data.fetch('/tedx/', false, function(err, tedxevents) {
         
@@ -50,6 +53,26 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         }
         
         
+        var footerData = [{
+            id: 'home',
+            label: 'Videos'
+        },{
+            id: 'tedx',
+            label: 'Events'
+        }];
+        /*
+        if (tedxinfos.twitter) {
+          footerData.push({
+            id: 'twitter',
+            label: 'Twitter'
+          });
+          
+          self.ui.element('/main/twitter/twitterlist').setDataPath("/twitter/");
+          
+        }
+        */
+        self.ui.element('/footer').setData(footerData);
+        
         // Auto-select if only one TEDx event
         if (tedxevents && tedxevents.length == 1) {
           self.ui.element('/footer').selectById('home');
@@ -57,6 +80,11 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         } else {
           self.ui.element('/footer').selectById('tedx');
         }
+        
+
+        
+        
+        
         self.splash.remove();
       });
     }

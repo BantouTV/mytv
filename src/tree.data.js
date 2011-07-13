@@ -1,4 +1,4 @@
-Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './api/ted','./api/youtube','joshfire/utils/datasource'], function(Class, DataTree, _, API, YoutubeAPI, DataSource) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/underscore', './api/ted','./api/youtube','./api/twitter','joshfire/utils/datasource'], function(Class, DataTree, _, API, YoutubeAPI, TwitterAPI, DataSource) {
   var urlserialize = function(obj) {
     var str = [];
     for (var p in obj) {
@@ -9,6 +9,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
 
 
   var youtubeAPI = new YoutubeAPI();
+  
+  var twitterAPI = new TwitterAPI();
   
   var ds = new DataSource();
   
@@ -62,13 +64,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               }
               cb(null, app.data.get('/talks/favorites/'));
             }
-           /* 'children': function(query, cb) {
-              // Fetch ID list from joshfire.me
-              var favorites = ['agd0ZWQtYXBpcgsLEgRUYWxrGI9vDA'];
-              if (!query.filter) query.filter = {};
-              query.filter.id = favorites;
-              me.fetch('/talks/all/', query, cb);
-            }*/
           },
           {
             'id': 'all',
@@ -129,6 +124,14 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
           }
         ]
       },
+      
+      {
+        id: 'twitter',
+        children:function(query,callback) {
+          twitterAPI.tweetsFromUser(app.tedxmeta.twitter,query,callback);
+        }
+      },
+      
       {
         id: 'tedx',
         children:function(query,callback) {
@@ -151,7 +154,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
                   var eventlabel = tedx.gsx$formattedname.$t+" "+tedx.gsx$eventname.$t;
                 } else {
                   var eventlabel = tedx.gsx$eventname.$t;
-                  if (tedx.gsx$formattedname.$t) app.setTitle(tedx.gsx$formattedname.$t);
+                  app.setTEDxMode({
+                    "title":tedx.gsx$formattedname.$t,
+                    "website":tedx.gsx$website.$t,
+                    "twitter":tedx.gsx$twitteraccount.$t
+                  });
                 }
                 
                 matches.push({

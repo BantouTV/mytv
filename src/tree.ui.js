@@ -363,6 +363,35 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 }
               }]
             },
+            
+            {
+              id: 'twitter',
+              type: Panel,
+              content: '',
+              autoShow:false,
+              onAfterShow: function(ui) {
+                // propagate event to child list for scroller refresh
+                app.ui.element('/main/tedx/tedxlist').publish('afterShow');
+              },
+              children: [{
+                id: 'twitterlist',
+                type: List,
+                dataPath: false,
+                incrementalRefresh: true,
+                autoShow: true,
+                // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
+                //itemInnerTemplate: '<figure data-id="<%= item.id %>"><img src="<%= item.image ? item.image : "http://placehold.it/208x142" %>"/><figcaption><%= item.label %></figcaption></figure>',
+                scroller: true,
+                scrollOptions: {
+                  // do scroll in only one direction
+                  vScroll: bVerticalList,
+                  hScroll: !bVerticalList
+                },
+                scrollBarClass: 'scrollbar',
+                autoScroll: true
+              }]
+            },
+            
             {
               id: 'favorites',
               type: Panel,
@@ -451,21 +480,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             }
             
           },
-          data: TEDXID?
-          
-            //TEDx mode
-            [{
+          data: [{
               id: 'home',
-              label: 'Videos'
-            },{
-              id: 'tedx',
-              label: 'Events'
-            }]:
-          
-            //Global mode
-            [{
-              id: 'home',
-              label: 'Videos'
+              label: 'Latest'
             },
             {
               id: 'themes',
