@@ -16,37 +16,46 @@ var build = {
   dir: '../export-optimized/',
   modules: [
     {
-  		name: 'ipad',
-  		adapter: 'ios',
-  		js: {
-  			'include': [
-  				'src/ted.ios',
-  				// Dynamically loaded dependencies - not autodetectable
-  				'joshfire/adapters/ios/uielements/video.mediaelement',
-  				'joshfire/adapters/ios/uielements/mediacontrols',
-  				'joshfire/adapters/ios/uielements/video.youtube'
-  			]
-  		},
-  		css: {
-  		  
-  		}
-  	},
-  	{
-  		name: 'iphone',
-  		adapter: 'ios',
-  		js: {
-  			'include': [
-  				'src/ted.ios',
-  				// Dynamically loaded dependencies - not autodetectable
-  				'joshfire/adapters/ios/uielements/video.mediaelement',
-  				'joshfire/adapters/ios/uielements/mediacontrols',
-  				'joshfire/adapters/ios/uielements/video.youtube'
-  			]
-  		},
-  		css: {
-  		  
-  		}
-  	}
-
-	]
+      name: 'ipad',
+      adapter: 'ios',
+      js: {
+        'include': [
+          'src/ted.ios',
+          // Dynamically loaded dependencies - not autodetectable
+          'joshfire/adapters/ios/uielements/video.mediaelement',
+          'joshfire/adapters/ios/uielements/mediacontrols',
+          'joshfire/adapters/ios/uielements/video.youtube'
+        ]
+      },
+      css: {}
+    },
+    {
+      name: 'iphone',
+      adapter: 'ios',
+      js: {
+        'include': [
+          'src/ted.ios',
+          // Dynamically loaded dependencies - not autodetectable
+          'joshfire/adapters/ios/uielements/video.mediaelement',
+          'joshfire/adapters/ios/uielements/mediacontrols',
+          'joshfire/adapters/ios/uielements/video.youtube'
+        ]
+      },
+      css: {}
+    },
+    {
+      name: 'androidphone',
+      adapter: 'ios',
+      js: {
+        'include': [
+          'src/ted.ios',
+          // Dynamically loaded dependencies - not autodetectable
+          'joshfire/adapters/ios/uielements/video.mediaelement',
+          'joshfire/adapters/ios/uielements/mediacontrols',
+          'joshfire/adapters/ios/uielements/video.youtube'
+        ]
+      },
+      css: {}
+    }
+  ]
 };
