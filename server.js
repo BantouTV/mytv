@@ -55,7 +55,10 @@ var appServe = function(tedxid,req,res) {
       device = "ipad";
     } else if (ua.indexOf("iPhone")>=0 || ua.indexOf("iPod")>=0) {
       device = "iphone";
+    }else if (ua.indexOf('Android')>=0){
+      devide = 'android';
     }
+    
   }
   
   if (device=="web") {
@@ -65,7 +68,7 @@ var appServe = function(tedxid,req,res) {
   
   var values = {
     "buildname":device,
-    "adapter":"ios",
+    "adapter":device=='android' ? 'android' : "ios",
     "compiled":COMPILED,
     "tedxid":tedxid
     
