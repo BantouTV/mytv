@@ -499,3 +499,31 @@ color:#fff;
   width: 5px;
 }
 /* @end */
+
+
+@media only screen and (orientation:portrait){
+
+  #myTED__main__home__videolistpanel__videolisttitle .theme-title {
+    width:216px;
+  }
+
+  .myTED__main__home__videolistpanel__videolist_scroller ul {
+    width: 230px;
+  }
+
+  .myTED__main__themes__themeslist_scroller ul,
+  .myTED__main__tedx__tedxlist_scroller ul,
+  .myTED__main__favorites__favlist_scroller ul {
+    width: 750px;
+  }
+
+  #myTED__detailswrapper {
+    width:64%;
+  }
+  #myTED__main__home__videolistpanel {
+    width:35%;
+    left:64%;
+  }
+  
+}
+

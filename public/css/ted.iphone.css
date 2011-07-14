@@ -220,3 +220,21 @@ display: none !important;
 }
 
 /* @end */
+
+
+
+
+@media only screen and (orientation:landscape){
+  
+  #myTED__main__home {
+    width:480px;
+  }
+
+  .myTED__main__themes__themeslist_scroller ul,
+  .myTED__main__tedx__tedxlist_scroller ul,
+  .myTED__main__home__videolistpanel__videolist_scroller ul,
+  .myTED__main__favorites__favlist_scroller ul {
+    width:480px;
+  }
+}
+
