@@ -1,11 +1,26 @@
 
-Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api/joshfire.me'], function(App, Class, _, JoshmeAPI) {
+Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api/joshfire.me','./vendor/add2home'], function(App, Class, _, JoshmeAPI,addToHome) {
   return Class(App, {
 
     id: 'myTED',
 
+
+    fullscreenCheck:function() {
+      if (!addToHome.needed) return;
+      
+      Joshfire.onReady(function() {
+        console.warn("ADD");
+        addToHome.ready();
+        
+        //TODO catch load / already loaded
+        addToHome.loaded();
+      });
+    },
+    
     setup: function(callback) {
       var self = this;
+      
+      self.fullscreenCheck();
 
       this.__super(function() {
 
