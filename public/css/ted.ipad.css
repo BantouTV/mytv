@@ -1,4 +1,4 @@
-@import url("./add2home.css");
+@import url('./add2home.css');
 
 /* @group General */
 html,
@@ -104,7 +104,7 @@ li {
   right: 7px;
 }
 #myTED__toolbar__loginButton a{
-color:#fff;
+  color: #fff;
 }
 /* @end */
 
@@ -232,7 +232,6 @@ color:#fff;
 
 /* @group Videodetail */
 #myTED__detailswrapper {
-  overflow: hidden;
   -webkit-box-shadow: 1px 0 0 #383739, 2px 0 0 #181a1b;
   overflow: visible;
 }
