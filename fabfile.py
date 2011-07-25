@@ -1,5 +1,5 @@
 from fabric.api import *
-import os,sys,time,re
+import os,sys,time,re,subprocess,urllib2
 sys.path.append("../joshfire-framework/build")
 from joshfabric import *
 
@@ -35,6 +35,40 @@ def node_restart():
     run(env.restartcmd)
     
     
+   
+def iphone_xcode():
+  
+    export()
+    
+    #create a index.html for iphone version
+    p = subprocess.Popen(["node","export/server.js"])
+    time.sleep(2)
+    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=iphone")
+    open("export/public/index.html","w").write(u.read())
+    u.close()
+    p.kill()
+    
+    local("rm -rf xcode/tedxparis/www/*")
+    local("cp -R export/public/* xcode/tedxparis/www/")
+    
+    
+def iphone_build():
+    
+    #doesn't work yet :/
+    
+    local("cd phonegap/ && rm -rf tmp/ios && ./bin/create/ios")
+  
+    templates()
+    
+    #create a index.html for iphone version
+    p = subprocess.Popen(["node","server.js"])
+    time.sleep(2)
+    u = urllib2.urlopen("http://127.0.0.1:40010/?device=iphone")
+    open("phonegap/tmp/ios/www/index.html","w").write(u.read())
+    u.close()
+    p.kill()
+    
+    local("cd phonegap/ && ./bin/build/ios")
     
 def export():
     templates()
