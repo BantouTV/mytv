@@ -17,6 +17,25 @@
 
 @synthesize invokeString;
 
++ (BOOL) isIPad 
+{
+#ifdef UI_USER_INTERFACE_IDIOM
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+#else
+    return NO;
+#endif
+}
+
++ (NSString*) startPage
+{
+    if ([[self class] isIPad]) {
+        return @"index.ipad.html";
+    } else {
+        return @"index.iphone.html";
+    }
+}
+
+
 - (id) init
 {	
 	/** If you need to do any extra app-specific initialization, you can do it here

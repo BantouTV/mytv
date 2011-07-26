@@ -20,7 +20,7 @@ var build = {
       adapter: 'ios',
       js: {
         'include': [
-          'src/ted.ios',
+          'src/app.ios',
           // Dynamically loaded dependencies - not autodetectable
           'joshfire/adapters/ios/uielements/video.mediaelement',
           'joshfire/adapters/ios/uielements/mediacontrols',
@@ -34,7 +34,7 @@ var build = {
       adapter: 'ios',
       js: {
         'include': [
-          'src/ted.ios',
+          'src/app.ios',
           // Dynamically loaded dependencies - not autodetectable
           'joshfire/adapters/ios/uielements/video.mediaelement',
           'joshfire/adapters/ios/uielements/mediacontrols',
@@ -48,7 +48,7 @@ var build = {
       adapter: 'ios',
       js: {
         'include': [
-          'src/ted.ios',
+          'src/app.ios',
           // Dynamically loaded dependencies - not autodetectable
           'joshfire/adapters/ios/uielements/video.mediaelement',
           'joshfire/adapters/ios/uielements/mediacontrols',

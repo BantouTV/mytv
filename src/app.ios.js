@@ -67,7 +67,10 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api
 
     fbInit: function(callback) {
       var self = this;
-
+      
+      //No FB support yet in TEDx mode
+      if (TEDXID) return callback();
+      
       window.fbAsyncInit = function() {
         FB.init({appId: 214358631942957, status: true, cookie: true, xfbml: true});
 

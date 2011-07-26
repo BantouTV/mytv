@@ -1,4 +1,4 @@
-Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './api/ted','./api/joshfire.me', 'joshfire/vendor/underscore'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _) {
+Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list', 'joshfire/uielements/panel', 'joshfire/uielements/panel.manager', 'joshfire/uielements/button', './api/ted','./api/joshfire.me', 'joshfire/vendor/underscore','templates_compiled/js/about'], function(Class, UITree, List, Panel, PanelManager, Button, TEDApi,JoshmeAPI,  _, TemplateAbout) {
   window._ = _;
 
   return Class(UITree, {     
@@ -83,7 +83,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       
                       //When dataPath changes, select the first item.
                       if (data[0] == 'dataPath') {
-                        if (device != 'iphone' && device != 'androidphone') {
+                        if (BUILDNAME != 'iphone' && BUILDNAME != 'androidphone') {
                           var token = ui.subscribe("data",function() {
                             ui.unsubscribe(token);
                             ui.selectByIndex(0);
@@ -101,7 +101,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       }
                     },
                     onSelect: function(ui, type, data) {
-                      if (device == 'iphone' || device == 'androidphone') {
+                      if (BUILDNAME == 'iphone' || BUILDNAME == 'androidphone') {
                         app.ui.element('/main/home/videodetail').show();
                         app.ui.element('/main/home/videodetail/close').show();
                         app.ui.element('/main/home/videolistpanel').hide();
@@ -127,13 +127,13 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 hideOnBlur: true,
                 template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
                 uiDataMaster: '/main/home/videolistpanel/videolist',
-                autoShow: (device != 'iphone' && device != 'androidphone'),
+                autoShow: (BUILDNAME != 'iphone' && BUILDNAME != 'androidphone'),
                 forceDataPathRefresh: true,
                 onAfterShow: function(ui) {
                   var selected = app.ui.element('/footer').htmlEl.querySelector('.selected');
                   if (selected) {
                     var currentPanel = selected.getAttribute('id').replace(/(.*)_/, '');
-                    if (currentPanel == 'home' && (device != 'iphone' && device != 'androidphone')) {
+                    if (currentPanel == 'home' && (BUILDNAME != 'iphone' && BUILDNAME != 'androidphone')) {
                       app.ui.element('/main/home/videodetail/close').hide();
                     } else {
                       app.ui.element('/main/home/videodetail/close').show();
@@ -219,7 +219,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
-                      if (device == 'iphone' || device == 'androidphone') {
+                      if (BUILDNAME == 'iphone' || BUILDNAME == 'androidphone') {
                         app.ui.element('/main/home/videodetail').hide();
                         app.ui.element('/main/home/videolistpanel').show();
                       }
@@ -256,7 +256,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     autoShow: true,
                     controls: true,
                     noAutoPlay: false,
-                    width:(device == 'ipad') ? 460 : false,
+                    width:(BUILDNAME == 'ipad') ? 460 : false,
                     onAfterInsert:function(self){}
                   },
                   {
@@ -356,7 +356,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 onSelect: function(ui, evt, data) {
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
                   videolist.setDataPath('/tedx/' + data[0]);
-
+                  
                   app.ui.element('/main').switchTo("home");
             
                 }
@@ -460,6 +460,11 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                    // app.ui.element('/main/favorites').htmlEl.innerHTML = '<h3>Favs to show</h3>'+JSON.stringify(app.userSession.mytv.favorites);
                   }
               }
+            },
+            {
+              id:"about",
+              type:Panel,
+              content:TemplateAbout()
             }
           ]//fin children main
         },//main
@@ -479,22 +484,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
             }
             
           },
-          data: [{
-              id: 'home',
-              label: 'Latest'
-            },
-            {
-              id: 'themes',
-              label: 'Themes'
-            },
-            {
-              id: 'tedx',
-              label: 'TEDx'
-            },
-            {
-              id: 'favorites',
-              label: 'My favorites'
-            }]
+          data: []
         }
       ];
       // UI specialization : the video control bar is useless on environments without a mouse

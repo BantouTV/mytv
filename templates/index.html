@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>myTED.tv</title>
+    <script src="config.js"></script>
     <% if (compiled) { %>
       <script src="js/<%= buildname %>-<%= adapter %>.compiled.<%=compiled%>.js"></script>
     <% } else { %>
@@ -30,8 +31,8 @@
       <% } %>
       Joshfire.require(['src/app.<%= adapter %>'], function(MyTedTV) {
         Joshfire.onReady(function() {
-          TEDXID = '<%= tedxid %>';
-          device = '<%= buildname %>';
+          if (!TEDXID) TEDXID = '<%= tedxid %>';
+          BUILDNAME = '<%= buildname %>';
           window._app = new MyTedTV();
         });
       });

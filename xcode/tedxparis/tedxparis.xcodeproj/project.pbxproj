@@ -422,6 +422,7 @@
 				B855DB0613DA0064007F3387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

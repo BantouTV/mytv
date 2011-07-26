@@ -44,7 +44,10 @@ def iphone_xcode():
     p = subprocess.Popen(["node","export/server.js"])
     time.sleep(2)
     u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=iphone")
-    open("export/public/index.html","w").write(u.read())
+    open("export/public/index.iphone.html","w").write(u.read())
+    u.close()
+    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=ipad")
+    open("export/public/index.ipad.html","w").write(u.read())
     u.close()
     p.kill()
     
@@ -64,7 +67,10 @@ def iphone_build():
     p = subprocess.Popen(["node","server.js"])
     time.sleep(2)
     u = urllib2.urlopen("http://127.0.0.1:40010/?device=iphone")
-    open("phonegap/tmp/ios/www/index.html","w").write(u.read())
+    open("phonegap/tmp/ios/www/index.iphone.html","w").write(u.read())
+    u.close()
+    u = urllib2.urlopen("http://127.0.0.1:40010/?device=ipad")
+    open("phonegap/tmp/ios/www/index.ipad.html","w").write(u.read())
     u.close()
     p.kill()
     

@@ -84,9 +84,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
         id: 'tedx',
         children:function(query,callback) {
           
-          var matches = [];
-
-          TEDxAPI.getTEDxList(TEDXID?{"filter":{"id":TEDXID}}:{},function(err,data) {
+          
+          var gotList = function(err,data) {
             if (err) return callback(err,data);
             
             if (!data.length) return callback("no TEDx event");
@@ -106,7 +105,16 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               
             }),{"cache":3600});
             
-          });
+          };
+
+          // Static TEDx list provided in config.js
+          if (TEDXLIST) {
+            gotList(null,TEDXLIST);
+          } else {
+            TEDxAPI.getTEDxList(TEDXID?{"filter":{"id":TEDXID}}:{},gotList);
+          }
+
+          
           
           
         }
