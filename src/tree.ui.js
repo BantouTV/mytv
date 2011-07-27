@@ -102,9 +102,18 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     },
                     onSelect: function(ui, type, data) {
                       if (BUILDNAME == 'iphone' || BUILDNAME == 'androidphone') {
-                        app.ui.element('/main/home/videodetail').show();
-                        app.ui.element('/main/home/videodetail/close').show();
-                        app.ui.element('/main/home/videolistpanel').hide();
+                          app.ui.element('/main/home/videodetail/videoshortdesc').hide();
+                          app.ui.element('/main/home/videodetail').show();
+                          app.ui.element('/main/home/videodetail/close').show();
+                          app.ui.element('/main/home/videolistpanel').hide();
+                         
+                          //Wait for data to update. TODO remove the setTimeout with a more precise event.
+                          setTimeout(function() {
+                            app.ui.element('/main/home/videodetail/videoshortdesc').onState("fresh",true,function() {
+                              app.ui.element('/main/home/videodetail/videoshortdesc').show();
+                            });
+                          },250);
+                        
                       }
                     },
                     autoShow: true,
@@ -166,7 +175,8 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                       playerYT.stop();
                       app.ui.element('/main/home/videodetail/info/videoinfo').htmlEl.style.width="50%";
                       app.ui.element('/main/home/videodetail/info/talkerinfo').show();
-                      app.ui.element('/main/home/videodetail/like').show();
+                      
+                      if (!TEDXID) app.ui.element('/main/home/videodetail/like').show();
                       
                       if (ui.data.video) {
                         play();
