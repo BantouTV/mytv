@@ -22,7 +22,6 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
               app.ui.element('/main/home/videolistpanel/videolist').publish('afterShow');
             },
             children:[
-<<<<<<< HEAD
               {
                 id: 'videolistpanel',
                 type: Panel,
@@ -274,10 +273,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   }
                 ]//fin children videodetail
               }//fin video detail
-=======
-                
-                
->>>>>>> 27b82241225eb5987aeff07997368e0ddea6eefc
+
             ]//fin children home
             },//fin home
             {
