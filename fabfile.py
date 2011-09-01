@@ -43,16 +43,20 @@ def iphone_xcode():
     #create a index.html for iphone version
     p = subprocess.Popen(["node","export/server.js"])
     time.sleep(2)
-    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=iphone")
+    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=iphone&phonegap=1")
     open("export/public/index.iphone.html","w").write(u.read())
     u.close()
-    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=ipad")
+    u = urllib2.urlopen("http://127.0.0.1:40010/tedxparis?device=ipad&phonegap=1")
     open("export/public/index.ipad.html","w").write(u.read())
     u.close()
     p.kill()
     
     local("rm -rf xcode/tedxparis/www/*")
     local("cp -R export/public/* xcode/tedxparis/www/")
+    
+    #icons
+    local("cp public/icons-tedxparis/* xcode/tedxparis/tedxparis/Resources/icons/")
+    local("cp public/splash-tedxparis/* xcode/tedxparis/tedxparis/Resources/splash/")
     
     
 def iphone_build():
@@ -62,17 +66,7 @@ def iphone_build():
     local("cd phonegap/ && rm -rf tmp/ios && ./bin/create/ios")
   
     templates()
-    
-    #create a index.html for iphone version
-    p = subprocess.Popen(["node","server.js"])
-    time.sleep(2)
-    u = urllib2.urlopen("http://127.0.0.1:40010/?device=iphone")
-    open("phonegap/tmp/ios/www/index.iphone.html","w").write(u.read())
-    u.close()
-    u = urllib2.urlopen("http://127.0.0.1:40010/?device=ipad")
-    open("phonegap/tmp/ios/www/index.ipad.html","w").write(u.read())
-    u.close()
-    p.kill()
+    return
     
     local("cd phonegap/ && ./bin/build/ios")
     

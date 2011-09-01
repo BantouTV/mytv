@@ -9,7 +9,7 @@ Joshfire.define(['./app', 'joshfire/class', 'joshfire/vendor/underscore', './api
       if (!addToHome.needed) return;
       
       Joshfire.onReady(function() {
-        console.warn("ADD");
+        
         addToHome.ready();
         
         //TODO catch load / already loaded

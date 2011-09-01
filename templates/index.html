@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>myTED.tv</title>
+    <% if (phonegap) { %>
+       <script src="phonegap-0.9.6.js"></script>
+    <% } %>
     <script src="config.js"></script>
     <% if (compiled) { %>
       <script src="js/<%= buildname %>-<%= adapter %>.compiled.<%=compiled%>.js"></script>
@@ -21,10 +24,11 @@
     <% } else { %>
       <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-iphone.png">
     <% } %>
+    
   </head>
   <body>
     <div id="fb-root"></div>
-    <div id="splashscreen"><span class="logo"></span><span class="powered"></span></div>
+    <div id="splashscreen"><!--<span class="logo"></span><span class="powered"></span>--></div>
     <script>
       <% if (!compiled) { %>
         Joshfire.debug = true;

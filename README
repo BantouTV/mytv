@@ -70,8 +70,16 @@ http://localhost:40100/tedxamsterdam
 You should map local.myted.tv on your localhost for facebook testing purposes.
 
 
+
+
 Bundling the app
 ----------------
 
 The app works well as a web app but you can use Phonegap [http://phonegap.com] to build native versions
 for each mobile devices that you can then post on any app store.
+
+To build a phonegap native version for iPad+iOS, launch
+
+$ fab iphone_xcode
+
+and open the xcode project in xcode/
