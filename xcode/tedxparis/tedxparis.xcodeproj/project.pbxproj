@@ -240,6 +240,9 @@
 /* Begin PBXProject section */
 		B855DAB413DA0063007F3387 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = B855DAB713DA0063007F3387 /* Build configuration list for PBXProject "tedxparis" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

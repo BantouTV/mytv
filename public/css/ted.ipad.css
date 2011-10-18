@@ -12,9 +12,11 @@ body {
 }
 
 body {
-  font: 12px 'Lucida Grande', 'Trebuchet MS', Verdana, sans-serif;
-  background: #333132;
-  color: #fff;
+  font: 12px Helvetica, 'Lucida Grande', 'Trebuchet MS', Verdana, sans-serif;
+/*  background: #333132; */
+  background-color:#fff;
+/*  color: #fff;*/
+  color:#ff2b06;
 }
 
 h1 {
@@ -29,7 +31,7 @@ a{text-decoration:none;}
   line-height: 3em;
   background: #000;
   font-weight: bold;
-  color: red;
+  color: #ff2b06;
   text-align: center;
   font-size: 10em;
   z-index: 200;
@@ -67,13 +69,26 @@ li {
 
 /* @group Toolbar (header) */
 #myTED__toolbar {
-  height: 42px;
-  color: white;
-  text-align: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#232323), color-stop(9%,#1c1c1c), color-stop(18%,#1c1c1c), color-stop(67%,#000000), color-stop(80%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
-  -webkit-box-shadow: #333434 0 1px 0;
-}
+ height: 42px;
+ color: white;
+ text-align: center;
+ background-image: -webkit-linear-gradient(bottom, rgb(178,30,4) 1%, rgb(235,41,6) 50%, rgb(255,43,6) 52%, rgb(253,95,67) 96%, rgb(252,162,146) 98%);
 
+background-image: -webkit-gradient(
+ linear,
+ left bottom,
+ left top,
+ color-stop(0, rgb(178,30,4)),
+ color-stop(0.5, rgb(235,41,6)),
+ color-stop(0.52, rgb(255,43,6)),
+ color-stop(0.96, rgb(253,95,67)),
+ color-stop(0.98, rgb(252,162,146))
+);
+ 
+ 
+ /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#232323), color-stop(9%,#1c1c1c), color-stop(18%,#1c1c1c), color-stop(67%,#000000), color-stop(80%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+ -webkit-box-shadow: #812110 0 1px 0;
+}
 #myTED__toolbar .josh-type-Button,
 #myTED__toolbar__loginButton {
   position: absolute;
@@ -81,7 +96,8 @@ li {
   border-radius: 6px;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1))); /* Chrome,Safari4+ */
   border: #171717 1px solid;
-  color: #fff;
+/*  color: #fff;*/
+  color:#ff2b06;
   line-height: 29px;
   padding: 0 10px;
   -webkit-background-clip: padding;
@@ -104,7 +120,8 @@ li {
   right: 7px;
 }
 #myTED__toolbar__loginButton a{
-  color: #fff;
+/*  color: #fff;*/
+  color:#ff2b06;
 }
 /* @end */
 
@@ -122,7 +139,8 @@ li {
   top: 0;
   bottom: 0;
   width: 50%;
-  background: #333132;
+/*  background: #333132; */
+  background-color:#fff;
   overflow: visible;
 }
 
@@ -130,31 +148,27 @@ li {
 #myTED__main__home__videolistpanel {
   left: 50%;
 }
-
 #myTED__main__home__videolistpanel__videolist {
-  position: absolute;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+position: absolute;
+top: 74px;
+left: 0;
+right: 0;
+bottom: 0;
 }
-
 #myTED__main__home__videolistpanel__videolisttitle {
-  margin-top: 20px;
-  margin-left: 20px;
+ margin-top: 15px;
+ margin-left: 20px;
 }
-
 #myTED__main__home__videolistpanel__videolisttitle .theme-title {
-  width: 463px;
-  text-align: center;
-  padding-bottom: 6px;
-  font-size: 15px;
-  color: #797675;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-  margin: 0;
-  -webkit-box-shadow: 0 1px 0px rgba(23, 23, 23, 0.8);
+width: 463px;
+text-align: center;
+padding-bottom: 12px;
+font-size: 18px;
+color: #888;
+margin: 0;
+-webkit-box-shadow: 0 1px 0px rgba(23, 23, 23, 0.8);
+border-bottom: solid 1px #BBB;
 }
-
 .myTED__main__home__videolistpanel__videolist_scroller,
 .myTED__main__themes__themeslist_scroller,
 .myTED__main__tedx__tedxlist_scroller,
@@ -190,19 +204,25 @@ li {
   height: 142px;
   overflow: hidden;
 }
+#myTED__main__home__videolistpanel__videolist .josh-List figure{
+  -webkit-margin-
+}
 
 #myTED__main__home__videolistpanel__videolist .josh-List figcaption {
-  -webkit-box-sizing: border-box;
-  color: #fff;
-  font-size: 12px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+-webkit-box-sizing: border-box;
+color: #FF2B06;
+font-weight: bold;
+font-size: 12px;
+word-spacing: 0;
+line-height: 16px;
+margin-right:-8px;
+box-sizing: border-box;
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List .talker {
-  font-size: 11px;
-  color: #989998;
+font-size: 12px;
+color: #888;
 }
-
 #myTED__main__home__videolistpanel__videolist___lastItem {
   line-height: 100px !important;
   height: 100px !important;
@@ -212,7 +232,8 @@ li {
 #myTED__main__home__videolistpanel__videolist___lastItem button {
   -webkit-background-clip: padding-box;
   -webkit-background-clip: padding;
-  color: #fff;
+/*  color: #fff;*/
+  color:#ff2b06;
   text-shadow: 0 1px 0 #000;
   font-size: 12px;
   border: 1px solid rgba(0, 0, 0, 0.7);
@@ -237,14 +258,14 @@ li {
 }
 
 #myTED__main__home__videodetail {
-  width: 460px;
-  margin: 20px auto 0;
-  background: #383838;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 50%;
-  margin-left: -230px;
+ width: 460px;
+ margin: 20px auto 0;
+ background: #eee;
+ position: absolute;
+ bottom: 0;
+ top: 0;
+ left: 50%;
+ margin-left: -230px;
 }
 
 #myTED__main__home__videodetail__player {
@@ -258,6 +279,13 @@ li {
 #myTED__main__home__videodetail__player video {
   height: 260px;
   z-index: 100;
+} 
+#myTED__main__home__videodetail__player\.youtube
+{
+  border-top:1px solid #bbb;
+  padding-top:15px;
+  background-color:#fff;
+  height:258px;
 }
 
 #myTED__main__home__videodetail__close {
@@ -265,13 +293,15 @@ li {
   top: -56px;
   left: -22px;
   height: 30px;
-  border-radius: 6px;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));
-  border: #171717 1px solid;
-  color: #fff;
+/*  border-radius: 6px;*/
+  /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));*/
+  /*border: #171717 1px solid;*/
+  background:no-repeat transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAeCAYAAABnuu2GAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABLNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wUmlnaHRzOk1hcmtlZD0iVHJ1ZSIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjA1ODAxMTc0MDcyMDY4MTE4MEI0REI2RkNEQzZGMUE5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjI5NEY0QTg3RUVCMzExRTBCMEVCQTk5QUJGNEE2MDkwIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI5NEY0QTg2RUVCMzExRTBCMEVCQTk5QUJGNEE2MDkwIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzQgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODI5MjEzQTEwQzIwNjgxMThGNjJCQjkxRTUxNTJDNzkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDU4MDExNzQwNzIwNjgxMTgwQjREQjZGQ0RDNkYxQTkiLz4gPGRjOmNyZWF0b3I+IDxyZGY6U2VxPiA8cmRmOmxpPkdlb2ZmIFRlZWhhbjwvcmRmOmxpPiA8cmRmOmxpPlRlZWhhbitMYXg8L3JkZjpsaT4gPC9yZGY6U2VxPiA8L2RjOmNyZWF0b3I+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+aVBhZCBHVUkgUFNEIFZlcnNpb24gMjwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+i9vFRAAAAtlJREFUeNrUmMuLUnEUx3/X9/s1aiqSgRYUJAjaLnRR0aqVO3fCbFw4GREzQRPMpsVQtBcGogEd6P+YYHDTSlBEodmYlJRWvvuea1fM8THt7u/AF+c+lN/nfs859/xGmEwmLBQKsUtGEtqHbjN5xVfoFHpZrVZLdEL4D7Bdi8Xyyuv1MqfTyQRBkA1Vr9djzWaTNRqNEQ73AHcoggWDwU3f3XE4HG/pPpvNxhQKhazAxuMxG41GrN1us3K5zLrdbkJFFwhuTTyEXgcCAWY2m8V76UfkFvSgrVYr8/l8rF6vP98EdhVfOEGqKgmKngxJzmG32xlSMbYOTIk4drvdFpfLJbokR6eWBXjUK8FQR3tw6a7f7+fCKSmGw6GYmSqp+BbiDmD3PR6PeG0wGDBegsBozcscM8GtY0CpEdIT4AqMeC6AAeoNUvA6FSFPdbUUbC4VH2k0mm3emsV80JoXU9EDt47oXcBbXS2+rP9JRbT2dwaDYUun03FXVyvBcLCj1WofSG7x0tpXgYmpiIH2FqaLQ5PJNKPlOWaOxWIxoVQq/cIYoua1rhZnRtp9KCuVyo9arfYTn/f7/b7Au2MEptfrB6JtkCMejx+hcRAV1wLYBFusjgj2dztyDVP8KZoI92AYLjoKqd0Drp7P55+gM57TKMVzEI9ivkUmEomzbDb7DK71aJfMc2cU6VBsM+HYmEwmDzBacZuKyL5pjdG0MS+cuxKJRD4gJbmEwzt5CgZ3Lgjt/ya2Lp8wanEHhtFwCkbNYlE4rygUCvdg6xfUG29g36bjh0q1VLimyeVy23BwQLnLS435fL6Pa/9LBbg+Jv2TVqvlLBaLB/hbJffJhCaPaDT6ftrz0drXCfc40+n0U4D+lqtztC5SOBwuYL1bIhhRbhKNXZlM5rHRaPws/YhchFL57na7z1Kp1AusMygySY5d8sVnx8cNSC+zDKRtSQc6h1p04o8AAwDhjR4KrO2blQAAAABJRU5ErkJggg==);
+  border:none;
+  color:#fff;
   line-height: 20px;
   padding: 0 10px;
-  -webkit-background-clip: padding;
+ /* -webkit-background-clip: padding;*/
   font-size: 12px;
 }
 
@@ -293,63 +323,66 @@ li {
 }
 
 #myTED__main__home__videodetail .josh-type-Video video {
-  display: inline-block;
-  width: 100%;
-  z-index: 20;
+ display: inline-block;
+ width: 100%;
+ z-index: 20;
+ border-top: 1px solid #BBB;
+ padding-top: 20px;
+ background: white;
 }
-
-#myTED__main__home__videodetail__videoshortdesc {
-  -webkit-box-sizing: border-box;
-  width: 100%;
-  padding: 18px;
-  margin: auto;
-  background: #383838;
+ 
+ #myTED__main__home__videodetail__videoshortdesc {
+ -webkit-box-sizing: border-box;
+ width: 100%;
+ padding: 18px 18px 0px 18px;
+ margin: auto;
+ background: #eee;
 }
-
 #myTED__main__home__videodetail__videoshortdesc h1,
 #myTED__main__home__videodetail__videoshortdesc h2 {
-  text-shadow: 0 1px 0 #000;
-  font-weight: normal;
+/*  text-shadow: 0 1px 0 #000;*/
+  font-weight: bold;
   margin: 0;
 }
 
 #myTED__main__home__videodetail__videoshortdesc h1 {
-  color: #cf1613;
+/* text-shadow: 0 1px 0 #000;*/
+ font-weight: bold;
+ font-size:1.9em;
+ color: #ff2b06;
 }
 
 #myTED__main__home__videodetail__videoshortdesc h2 {
-  color: #959595;
+ color: #888888;
+ margin: 0;
 }
-
 #myTED__main__home__videodetail__info {
-  overflow: hidden;
-  background: #383838;
-  max-height: 270px;
+overflow: hidden;
+background-color: #EEE;
+color: #888;
+max-height: 270px;
 }
-
 #myTED__main__home__videodetail__info__videoinfo,
 #myTED__main__home__videodetail__info__talkerinfo {
-  -webkit-box-sizing: border-box;
-  float: left;
-  width: 50%;
-  padding: 18px;
-  font-size: 11px;
+ -webkit-box-sizing: border-box;
+ float: left;
+ width: 50%;
+ padding: 18px;
+ font-size: 12px;
 }
-
-#myTED__main__home__videodetail__info__videoinfo h1,
-#myTED__main__home__videodetail__info__talkerinfo h1 {
-  padding-left: 25px;
-  color: #fff;
-  font-weight: normal;
-  border-bottom: 1px solid #484848;
-  font-size: 14px;
-  padding-bottom: 8px;
+#myTED__main__home__videodetail__info__videoinfo h1, #myTED__main__home__videodetail__info__talkerinfo h1 {
+padding-left: 25px;
+color: #FF2B06;
+font-weight: normal;
+border-bottom: 1px solid #BBB;
+font-size: 14px;
+padding-bottom: 8px;
 }
 
 #myTED__main__home__videodetail__info__videoinfo h1 {
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAACUElEQVR42n1UTWvUUBSNFsZ2Jpl8vEw+XjLTdNqZTCOtUFeWajdVXLi1CKIiVuqmFkGF+oFQsAVhQEE3urBLEV1qBZFCEXSloAupUtSFILwfMZ4bEwjNTAOXybx3z7nnnnuJ1Ol0esZAqdSHCHfL6XlRlOVJpVx+r6iqkBVlGUT93QnywCEA1zRdF2alIizLEgZjoqyqH3A30YsAcvEoyg1V0/4w0xS2bQuXc8ERjuuKCshA+ldGDnILOQJUXaZKFgEB8DwvGzjjMSnloK1NqAl3tqBMjI+dRvIWAbpFrMZxKJ4OBwGPCYql0nFIYgnJvuuLC63BWu1lN4JatbpxdPrIDPI0xN6YQNeN25C0jf7P00FyoY9F0QJAvwnoe9638Siax7mBKKCoj/z7aGNW8rl30YRpumEI+LCBwwMJ0cCZ2ZMHW43G0pNHDwP6DyCDiatkNAqTsZeloFo7RuZQb+Z/p2nubSSXAepDlAw8qHhHVbVfLDGawrHtW1KjXh8lcNZpxkzMXfsONYcBPIX3bbhPO0ETIjPplwja0szUlEygrNNuMnfDYPdQ8QHeU2BmrC4Ve0y97oGC3OiQQBWfuY670mUvUgXPiYCMfAH23OKAYNPj/FpKkL+312OCr58/sSgMr2JcP7OtVCzrh8/5nJMnoPsv4cjIuewmFhcvzUdDg8FaqoZMg4KzqcnJTmztb7WuvHuzzoHpzxKkS6RNTx46UfX9jxgVEVwgAlI32mzeTHaiSN7t9j0ovH39ym3W60ukAHu/2l65O0w7kQLT+Af3PdFa/1r8EgAAAABJRU5ErkJggg==);
+  /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAACUElEQVR42n1UTWvUUBSNFsZ2Jpl8vEw+XjLTdNqZTCOtUFeWajdVXLi1CKIiVuqmFkGF+oFQsAVhQEE3urBLEV1qBZFCEXSloAupUtSFILwfMZ4bEwjNTAOXybx3z7nnnnuJ1Ol0esZAqdSHCHfL6XlRlOVJpVx+r6iqkBVlGUT93QnywCEA1zRdF2alIizLEgZjoqyqH3A30YsAcvEoyg1V0/4w0xS2bQuXc8ERjuuKCshA+ldGDnILOQJUXaZKFgEB8DwvGzjjMSnloK1NqAl3tqBMjI+dRvIWAbpFrMZxKJ4OBwGPCYql0nFIYgnJvuuLC63BWu1lN4JatbpxdPrIDPI0xN6YQNeN25C0jf7P00FyoY9F0QJAvwnoe9638Siax7mBKKCoj/z7aGNW8rl30YRpumEI+LCBwwMJ0cCZ2ZMHW43G0pNHDwP6DyCDiatkNAqTsZeloFo7RuZQb+Z/p2nubSSXAepDlAw8qHhHVbVfLDGawrHtW1KjXh8lcNZpxkzMXfsONYcBPIX3bbhPO0ETIjPplwja0szUlEygrNNuMnfDYPdQ8QHeU2BmrC4Ve0y97oGC3OiQQBWfuY670mUvUgXPiYCMfAH23OKAYNPj/FpKkL+312OCr58/sSgMr2JcP7OtVCzrh8/5nJMnoPsv4cjIuewmFhcvzUdDg8FaqoZMg4KzqcnJTmztb7WuvHuzzoHpzxKkS6RNTx46UfX9jxgVEVwgAlI32mzeTHaiSN7t9j0ovH39ym3W60ukAHu/2l65O0w7kQLT+Af3PdFa/1r8EgAAAABJRU5ErkJggg==);*/
 }
 
 #myTED__main__home__videodetail__info__talkerinfo h1 {
@@ -381,7 +414,8 @@ li {
   z-index: 1;
   top: 42px;
   bottom: 48px;
-  background: #333132;
+/*  background: #333132; */
+  background-color:#fff;
   width: 100%;
 }
 
@@ -393,7 +427,8 @@ li {
   top: 0; right: 0; bottom: 0; left: 0;
   z-index: 1;
   height: 100%;
-  background: #333132;
+/*  background: #333132; */
+  background-color:#fff;
 }
 
 #myTED__main__themes .josh-List,
@@ -420,13 +455,14 @@ li {
 #myTED__main__themes .josh-List figcaption,
 #myTED__main__tedx .josh-List figcaption,
 #myTED__main__favorites .josh-List figcaption {
-  -webkit-box-sizing: border-box;
-  color: #fff;
-  font-size: 12px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
-}
+ -webkit-box-sizing: border-box;
+ /*color: #fff; */
+ color: #ff2b06;
+ font-size: 13px;
+ font-weight:bold;
+ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 
-/* @end */
+}/* @end */
 
 /* @group Footer */
 
@@ -443,15 +479,16 @@ li {
 
 #myTED__footer .josh-List {
   display: inline-block !important;
-  width: 65px;
+  width: 90px;
   height: 48px;
   border: 0;
   color: #fff;
   line-height: 75px;
-  font-size: 10px;
+  font-size: 12px;
   text-shadow: 0 1px 0 #000;
   background-color: transparent;
   background-repeat: no-repeat;
+  text-shadow: 0 0 1px #000;
 }
 
 #myTED__footer .josh-List.selected {
@@ -531,3 +568,16 @@ li {
   
 }
 
+#myTED__main__about{
+  color:#000;
+}
+#myTED__main__about a{
+  color:#ff2b06;
+}
+
+#video-logo-ted{
+  background:url(data:image/png;base64,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) no-repeat #fff;
+  width:100%;
+  height:55px;
+ /* margin-bottom:8px;*/
+}

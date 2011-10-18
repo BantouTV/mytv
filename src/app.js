@@ -86,14 +86,14 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
             } else {
               footerData.push({
                   id: 'tedx',
-                  label: 'Events'
+                  label: 'Évènements'
               });
             }
           }
 
           footerData.push({
               id: 'about',
-              label: 'About'
+              label: 'À propos'
           });
 
           

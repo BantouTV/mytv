@@ -67,10 +67,8 @@
 /* @group Video details */
 
 #myTED__detailswrapper {
-  -webkit-box-shadow: none;
-  width: 100%;
-  margin: auto;
-  overflow: visible;
+-webkit-box-shadow: 1px 0 0 #bbb, 2px 0 0 #888;
+overflow: visible;
 }
 
 #myTED__main__home__videodetail {

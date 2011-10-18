@@ -118,7 +118,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     },
                     autoShow: true,
                     // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
+                    itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"par "+item.talker.name:"" %></span></figcaption></figure>',
                     scroller: true,
                     scrollOptions: {
                       // do scroll in only one direction
@@ -134,7 +134,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 id: 'videodetail',
                 type: Panel,
                 hideOnBlur: true,
-                template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><%= htmlOuter %></div></div>",
+                template: "<div id='myTED__detailswrapper'><div style='display:none;' class='josh-type-<%=type%> josh-id-<%=id%>' id='<%= htmlId %>' data-josh-ui-path='<%= path %>'><div id='video-logo-ted'></div><%= htmlOuter %></div></div>",
                 uiDataMaster: '/main/home/videolistpanel/videolist',
                 autoShow: (BUILDNAME != 'iphone' && BUILDNAME != 'androidphone'),
                 forceDataPathRefresh: true,
@@ -225,7 +225,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'close',
                     type: Button,
-                    label: 'Back',
+                    label: 'Retour',
                     autoShow: false,
                     onSelect: function(ui, type, data, token) {
                       app.ui.element('/main/home/videodetail/player').pause();
@@ -275,7 +275,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     uiDataSync: '/main/home/videodetail',
                     innerTemplate:
                       '<h1><%= data.label %></h1>'+
-                      '<%= data.talker ? "<h2>by "+data.talker.name+"</h2>" : "" %>'
+                      '<%= data.talker ? "<h2>par "+data.talker.name+"</h2>" : "" %>'
                   },
                   {
                     id: 'info',
@@ -287,7 +287,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                         type: Panel,
                         uiDataSync:'/main/home/videodetail',
                         innerTemplate:
-                          '<h1 class="label">Summary</h1>'+
+                          '<h1 class="label"></h1>'+
                           '<p class="description"><%= data.summary %></p>'
                       },
                       {
@@ -422,7 +422,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   loadingTemplate: '<div style="padding:40px;">...No favorites yet...</div>',
                   
                   // modify default content of the <li>. item correspond to the childrens of videos/ in the data tree
-                  itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"by "+item.talker.name:"" %></span></figcaption></figure>',
+                  itemInnerTemplate: '<figure><img src="<%= item.image %>"/><figcaption><%= item.label %><br><span class="talker"><%= item.talker?"par "+item.talker.name:"" %></span></figcaption></figure>',
                   scroller: true,
                   scrollOptions: {
                     // do scroll in only one direction

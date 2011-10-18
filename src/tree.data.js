@@ -98,7 +98,12 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.data', 'joshfire/vendor/unders
               
               talk.children = function(q,cb) {
                 youtubeAPI.getPlaylistVideos(talk.meta.youtube,function(err,videos) {
-                  cb(err,_.map(videos,TEDxAPI.formatTalkDataFromYoutube));
+                  cb(err,_.sortBy(
+                    _.map(videos,TEDxAPI.formatTalkDataFromYoutube),
+                    function (t){ return t.weight||99}
+                    )
+                  );
+                  
                 });
               }
               return talk;

@@ -93,7 +93,22 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
     
     
       talk.label = label;
-    
+
+
+      /* Dirty fixes for apple commercial */
+      //Fix Vinvin
+      talk.summary = talk.summary.replace(/Vinvin \(alias Cyrille Delasteyrie\)/, 'Cyrille de Lasteyrie, alias Vinvin, ');
+      
+      //Fix order by
+      var weights = {
+          'Vinvin':1,
+          'Jean-Louis Servan-Schreiber':2,
+          'Bruno Giussani':3,
+          'Etienne Klein':4,
+          'Etienne Parizot':5,
+          'Djazia Satour':6
+        };
+        talk.weight = weights[talk.talker ? talk.talker.name : talk.label]
       return talk;
     
     
