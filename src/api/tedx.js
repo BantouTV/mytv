@@ -106,7 +106,7 @@ Joshfire.define(['joshfire/utils/datasource','joshfire/vendor/underscore'], func
           'Bruno Giussani':3,
           'Etienne Klein':4,
           'Etienne Parizot':5,
-          'Djazia Satour':6
+          'Jacques Dupriez':6
         };
         talk.weight = weights[talk.talker ? talk.talker.name : talk.label]
       return talk;

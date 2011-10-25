@@ -27,7 +27,7 @@
   height: 35px;
   color: white;
   text-align: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #232323), color-stop(9%, #1c1c1c), color-stop(18%, #1c1c1c), color-stop(67%, #000), color-stop(80%, #000), color-stop(100%, #000)); /* Chrome,Safari4+ */
+/*  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%, #232323), color-stop(9%, #1c1c1c), color-stop(18%, #1c1c1c), color-stop(67%, #000), color-stop(80%, #000), color-stop(100%, #000)); /* Chrome,Safari4+ */*/
   -webkit-box-shadow: #333434 0 1px 0;
 }
 
@@ -91,17 +91,17 @@ overflow: visible;
 
 #myTED__main__home__videodetail__close {
   position: absolute;
-  top: -35px;
+  top: -38px;
   left: -7px;
-  height: 22px;
+  height: 29px;
   border-radius: 6px;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));
-  border: #171717 1px solid;
+/*  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));
+*//*  border: #171717 1px solid;
   color: #fff;
-  line-height: 20px;
+  line-height: 20px;*/
   padding: 0 10px;
-  -webkit-background-clip: padding;
-  font-size: 12px;
+/*  -webkit-background-clip: padding;
+  font-size: 12px;*/
 }
 
 #myTED__main__home__videodetail__player {
@@ -155,7 +155,7 @@ display: none !important;
 }
 
 #myTED__main__home__videolistpanel__videolist {
-  top: 25px;
+  top: 25px;@
   padding-top: 5px;
   padding-left: 13px;
 }
@@ -169,25 +169,27 @@ display: none !important;
   margin: 0;
   font-size: 15px;
   -webkit-box-shadow: 0 4px 10px rgba(23, 23, 23, 0.8);
-  z-index: 10000;
-  position: relative;
+/*  z-index: 10000;
+*/  position: relative;
   width: 100%;
   display: inline-block;
   padding-bottom: 6px;
-  color: #797675;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  /*color: #797675;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);*/
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List {
   width: 125px;
-  height: 130px;
+  height: 150px;
   margin-left: 5px;
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List img {
   height: auto;
 }
+#myTED__main__home__videolistpanel__videolist .josh-List figcaption {
 
+}
 /* @end */
 
 /* @end */
@@ -219,8 +221,14 @@ display: none !important;
 
 /* @end */
 
-
-
+#myTED__main__home__videodetail__player\.youtube{
+  border-top:none;
+  height:175px;
+}
+#video-logo-ted{
+  background:none;
+  display:none;
+}
 
 @media only screen and (orientation:landscape){
   

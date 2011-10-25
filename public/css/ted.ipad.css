@@ -72,8 +72,8 @@ li {
  height: 42px;
  color: white;
  text-align: center;
- background-image: -webkit-linear-gradient(bottom, rgb(178,30,4) 1%, rgb(235,41,6) 50%, rgb(255,43,6) 52%, rgb(253,95,67) 96%, rgb(252,162,146) 98%);
-
+/* background-image: -webkit-linear-gradient(bottom, rgb(178,30,4) 1%, rgb(235,41,6) 50%, rgb(255,43,6) 52%, rgb(253,95,67) 96%, rgb(252,162,146) 98%);
+*/
 background-image: -webkit-gradient(
  linear,
  left bottom,
@@ -218,6 +218,7 @@ word-spacing: 0;
 line-height: 16px;
 margin-right:-20px;
 box-sizing: border-box;
+text-shadow:0 0 1px white;
 }
 
 #myTED__main__home__videolistpanel__videolist .josh-List .talker {
@@ -292,7 +293,7 @@ color: #888;
 #myTED__main__home__videodetail__close {
   position: absolute;
   top: -56px;
-  left: -22px;
+  left: -15px;
   height: 30px;
 /*  border-radius: 6px;*/
   /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(50,51,51,1)), color-stop(48%,rgba(35,34,33,1)), color-stop(100%,rgba(50,51,51,1)));*/
@@ -461,7 +462,7 @@ padding-bottom: 8px;
  color: #ff2b06;
  font-size: 13px;
  font-weight:bold;
- text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+ text-shadow: 0 0 1px rgba(255, 255, 255, 0.75);
 
 }/* @end */
 
