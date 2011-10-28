@@ -33,6 +33,9 @@
 		B855DAFB13DA0064007F3387 /* PhoneGap.plist in Resources */ = {isa = PBXBuildFile; fileRef = B855DAFA13DA0064007F3387 /* PhoneGap.plist */; };
 		B855DAFF13DA0064007F3387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B855DAFE13DA0064007F3387 /* AppDelegate.m */; };
 		B855DB0F13DA029D007F3387 /* www in Resources */ = {isa = PBXBuildFile; fileRef = B855DB0E13DA029D007F3387 /* www */; };
+		FDF1D1D71457143A003A29AC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF1D1D61457143A003A29AC /* Default@2x.png */; };
+		FDF1D1D914571443003A29AC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF1D1D814571443003A29AC /* Default-Portrait~ipad.png */; };
+		FDF1D1DB1457145B003A29AC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = FDF1D1DA1457145B003A29AC /* Default-Landscape~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,9 @@
 		B855DAFE13DA0064007F3387 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		B855DB0113DA0064007F3387 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
 		B855DB0E13DA029D007F3387 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		FDF1D1D61457143A003A29AC /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FDF1D1D814571443003A29AC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		FDF1D1DA1457145B003A29AC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		FDF5697613E2BEA40079541E /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +111,9 @@
 		B855DAB213DA0063007F3387 = {
 			isa = PBXGroup;
 			children = (
+				FDF1D1DA1457145B003A29AC /* Default-Landscape~ipad.png */,
+				FDF1D1D814571443003A29AC /* Default-Portrait~ipad.png */,
+				FDF1D1D61457143A003A29AC /* Default@2x.png */,
 				B855DB0E13DA029D007F3387 /* www */,
 				B855DADE13DA0064007F3387 /* tedxparis */,
 				B855DAC313DA0063007F3387 /* Frameworks */,
@@ -275,6 +284,9 @@
 				B855DAF913DA0064007F3387 /* Capture.bundle in Resources */,
 				B855DAFB13DA0064007F3387 /* PhoneGap.plist in Resources */,
 				B855DB0F13DA029D007F3387 /* www in Resources */,
+				FDF1D1D71457143A003A29AC /* Default@2x.png in Resources */,
+				FDF1D1D914571443003A29AC /* Default-Portrait~ipad.png in Resources */,
+				FDF1D1DB1457145B003A29AC /* Default-Landscape~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +345,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sandrine Lesconnec (ZEDB2JJ8SS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sandrine Lesconnec (ZEDB2JJ8SS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -347,7 +360,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "02C68B85-F91A-46C2-BCAE-A1C2DE9BE549";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F643AD59-9B8B-4D1D-9060-9EF737EB2F28";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -358,14 +373,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshfire";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshfire";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "05A19B54-F2A5-4D22-89F8-498F30307B89";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BC0B5EB-658A-4E88-A2E8-23F9BFAA1485";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -416,15 +434,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshfire";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshfire";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "05A19B54-F2A5-4D22-89F8-498F30307B89";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BC0B5EB-658A-4E88-A2E8-23F9BFAA1485";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
