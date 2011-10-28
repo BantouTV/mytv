@@ -11,9 +11,9 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
           
       if (TEDXID) {
         //Load TEDx events. setTEDxMode() will be called.
-        this.data.fetch("/tedx/",false,function() {
-          
-        });
+        // this.data.fetch("/tedx/",false,function() {
+        // 
+        //        });
         
       } else {
         var videolist = self.ui.element('/main/home/videolistpanel/videolist');
@@ -69,13 +69,12 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
         
         document.getElementsByTagName('title')[0].innerText = tedxinfos.title;
         self.ui.element('/toolbar').htmlEl.firstChild.innerText = tedxinfos.title;
-
         self.data.fetch('/tedx/', false, function(err, tedxevents) {
 
           var footerData = [];
           if (tedxevents.length) {
             self.mainVideoListDataPath = "/tedx/"+tedxevents[0].id+"/";
-            self.ui.element("/main/home/videolistpanel/videolist").setDataPath(self.mainVideoListDataPath);
+            // self.ui.element("/main/home/videolistpanel/videolist").setDataPath(self.mainVideoListDataPath);
           
           
             if (tedxevents.length==1) {
