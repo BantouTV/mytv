@@ -68,8 +68,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                     id: 'videolist',
                     type: List,
                     loadingTemplate: '<div style="padding:40px;">Loading...</div>',
-                    dataPath: app.mainVideoListDataPath,
-                    incrementalRefresh: true,
+                    // dataPath: app.mainVideoListDataPath,
+                    incrementalRefresh: false,
+                    itemInnerTemplate:'ok',
                     lastItemInnerTemplate: "<button class='more'>Show more!</button>",
                     onLastItemSelect: function(me) {
                       $('#' + me.htmlId + '___lastItem button', $('#' + me.htmlId)).html("Loading...");
@@ -97,7 +98,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                           ui.options.lastItemInnerTemplate = "<button class='more'>Show more!</button>";
                         }
 
-                        app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
+                        //app.ui.element("/main/home/videolistpanel/videolisttitle").setDataPath(data[1].substring(0,data[1].length-1));
                       }
                     },
                     onSelect: function(ui, type, data) {
@@ -364,8 +365,9 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                 scrollBarClass: 'scrollbar',
                 autoScroll: true,
                 onSelect: function(ui, evt, data) {
+
                   var videolist = app.ui.element('/main/home/videolistpanel/videolist');
-                  videolist.setDataPath('/tedx/' + data[0]);
+                  if (videolist.dataPath!=data[0]) videolist.setDataPath('/tedx/' + data[0]);
                   
                   app.ui.element('/main').switchTo("home");
             
