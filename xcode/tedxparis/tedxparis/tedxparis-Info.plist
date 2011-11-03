@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>fr_FR</string>
 	<key>CFBundleDisplayName</key>
 	<string>TEDxParis</string>
 	<key>CFBundleExecutable</key>
@@ -51,6 +51,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv6</string>
+		<string>armv7</string>
 	</array>
 </dict>
 </plist>

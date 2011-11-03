@@ -360,8 +360,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "02C68B85-F91A-46C2-BCAE-A1C2DE9BE549";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "F643AD59-9B8B-4D1D-9060-9EF737EB2F28";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F643AD59-9B8B-4D1D-9060-9EF737EB2F28";
 				SDKROOT = iphoneos;
 			};
@@ -373,17 +373,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshfire";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshfire";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "05A19B54-F2A5-4D22-89F8-498F30307B89";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BC0B5EB-658A-4E88-A2E8-23F9BFAA1485";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -394,6 +394,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sandrine Lesconnec (ZEDB2JJ8SS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sandrine Lesconnec (ZEDB2JJ8SS)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -401,8 +403,10 @@
 				GCC_PREFIX_HEADER = "tedxparis/tedxparis-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "tedxparis/tedxparis-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F643AD59-9B8B-4D1D-9060-9EF737EB2F28";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F643AD59-9B8B-4D1D-9060-9EF737EB2F28";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -413,6 +417,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
@@ -420,8 +426,10 @@
 				GCC_PREFIX_HEADER = "tedxparis/tedxparis-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "tedxparis/tedxparis-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -434,17 +442,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joshfire";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joshfire";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PROVISIONING_PROFILE = "05A19B54-F2A5-4D22-89F8-498F30307B89";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5BC0B5EB-658A-4E88-A2E8-23F9BFAA1485";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -455,6 +463,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_ENTITLEMENTS = "~/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
@@ -462,8 +472,10 @@
 				GCC_PREFIX_HEADER = "tedxparis/tedxparis-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
 				INFOPLIST_FILE = "tedxparis/tedxparis-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
