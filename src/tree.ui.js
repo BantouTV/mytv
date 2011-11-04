@@ -62,7 +62,7 @@ Joshfire.define(['joshfire/class', 'joshfire/tree.ui','joshfire/uielements/list'
                   {
                     id: 'videolisttitle',
                     type: Panel,
-                    innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Latest videos"  %></p>'
+                    innerTemplate: '<p class="theme-title"><%= data.label ? data.label : "Dernières vidéos"  %></p>'
                   },
                   {
                     id: 'videolist',

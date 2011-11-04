@@ -80,12 +80,12 @@ Joshfire.define(['joshfire/app', 'joshfire/class', './tree.data', './tree.ui', '
             if (tedxevents.length==1) {
                footerData.push({
                   id: 'home',
-                  label: 'Videos'
+                  label: 'Vidéos'
               });
             } else {
               footerData.push({
                   id: 'tedx',
-                  label: 'Évènements'
+                  label: 'Événements'
               });
             }
           }
