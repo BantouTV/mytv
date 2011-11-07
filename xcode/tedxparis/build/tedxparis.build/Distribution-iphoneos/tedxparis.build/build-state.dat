@@ -1,744 +1,0 @@
-Ttedxparis
-v7
-r0
-t337194545.475407
-cCheck dependencies
-cCpResource build/Distribution-iphoneos/tedxparis.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist
-cProcessInfoPlistFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Info.plist tedxparis/tedxparis-Info.plist
-cProcessPCH /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-getousbeurvobuchkmjguswbncoq/tedxparis-Prefix.pch.gch tedxparis/tedxparis-Prefix.pch normal armv6 objective-c com.apple.compilers.llvmgcc42
-cProcessPCH /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-dfntaotdjqacjfegaodkuavzrfgp/tedxparis-Prefix.pch.gch tedxparis/tedxparis-Prefix.pch normal armv7 objective-c com.apple.compilers.llvmgcc42
-cCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/main.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m normal armv6 objective-c com.apple.compilers.llvmgcc42
-cCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/AppDelegate.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m normal armv6 objective-c com.apple.compilers.llvmgcc42
-cLd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis normal armv6
-cCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/main.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m normal armv7 objective-c com.apple.compilers.llvmgcc42
-cCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/AppDelegate.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvmgcc42
-cLd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis normal armv7
-cCreateUniversalBinary /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis normal "armv6 armv7"
-cGenerateDSYMFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-cCopyStringsFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/en.lproj/InfoPlist.strings tedxparis/en.lproj/InfoPlist.strings
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon.png tedxparis/Resources/icons/icon.png
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon@2x.png tedxparis/Resources/icons/icon@2x.png
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon-72.png tedxparis/Resources/icons/icon-72.png
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default.png tedxparis/Resources/splash/Default.png
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default@2x.png tedxparis/Resources/splash/Default@2x.png
-cCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default~ipad.png tedxparis/Resources/splash/Default~ipad.png
-cCpResource build/Distribution-iphoneos/tedxparis.app/Capture.bundle tedxparis/Resources/Capture.bundle
-cCopyPlistFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PhoneGap.plist tedxparis/PhoneGap.plist
-cCpResource build/Distribution-iphoneos/tedxparis.app/www www
-cGenerateDSYMFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-cPhaseScriptExecution "Run Script" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Script-B855DABE13DA0063007F3387.sh
-cProcessProductPackaging "/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision
-cTouch /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-cProcessProductPackaging /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-cCodeSign /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-cValidate /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk
-c000000004D7401890000000000000110
-t1299448201
-s272
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/Entitlements.plist
-c000000004D4F6A4700000000000001A7
-t1297050183
-s423
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist
-c000000004D4F6A4700000000000001E5
-t1297050183
-s485
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
-c000000004D5EBED1000000000022E2B0
-t1298054865
-s2286256
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.h
-c000000004D5EBEC500000000000007D0
-t1298054853
-s2000
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
-c000000004D54D36E00000000000CE260
-t1297404782
-s844384
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
-c000000004D5B4D19000000000026B860
-t1297829145
-s2537568
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
-c000000004D5A25CF00000000003FF380
-t1297753551
-s4191104
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioServices.h
-c000000004D5A259E0000000000010AD5
-t1297753502
-s68309
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004D54D18C00000000003532A0
-t1297404300
-s3486368
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
-c000000004D5DE7AF00000000000FD4D0
-t1297999791
-s1037520
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreLocation.framework/Headers/CoreLocation.h
-c000000004D5DE7A400000000000001D0
-t1297999780
-s464
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
-c000000004D5C99E400000000000EBFA0
-t1297914340
-s966560
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004D54D1F500000000003E22F0
-t1297404405
-s4072176
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c000000004D54D1DD0000000000001466
-t1297404381
-s5222
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
-c000000004D5DEAE900000000003A84E0
-t1298000617
-s3835104
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
-c000000004D54D32D0000000000094C50
-t1297404717
-s609360
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c000000004D54D608000000000026CB10
-t1297405448
-s2542352
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
-c000000004D54D0E700000000000B0CA0
-t1297404135
-s724128
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.h
-c000000004D5A28AB0000000000000AA1
-t1297754283
-s2721
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework/Headers/UINavigationController.h
-c000000004D5A28AB00000000000019AC
-t1297754283
-s6572
-
-N/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004D5A292A0000000000CA2AE0
-t1297754410
-s13249248
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/DebugConsole.h
-c000000004DE4FD330000000000000170
-t1306852659
-s368
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i"PhoneGapCommand.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/JSON.h
-c000000004DE4FD3300000000000008F9
-t1306852659
-s2297
-i"SBJSON.h"
-i"NSObject+SBJSON.h"
-i"NSString+SBJSON.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/Location.h
-c000000004DE4FD3300000000000005D0
-t1306852659
-s1488
-i<UIKit/UIKit.h>
-i<CoreLocation/CoreLocation.h>
-i"PhoneGapCommand.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/NSObject+SBJSON.h
-c000000004DE4FD330000000000000A01
-t1306852659
-s2561
-i<Foundation/Foundation.h>
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/NSString+SBJSON.h
-c000000004DE4FD330000000000000916
-t1306852659
-s2326
-i<Foundation/Foundation.h>
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/PhoneGapCommand.h
-c000000004DE4FD330000000000000404
-t1306852659
-s1028
-i<Foundation/Foundation.h>
-i<UIKit/UIKit.h>
-i"PluginResult.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/PhoneGapDelegate.h
-c000000004DE4FD3300000000000008C4
-t1306852659
-s2244
-i<UIKit/UIKit.h>
-i<CoreLocation/CoreLocation.h>
-i<UIKit/UINavigationController.h>
-i"JSON.h"
-i"Location.h"
-i"Sound.h"
-i"DebugConsole.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/PhoneGapViewController.h
-c000000004DE4FD33000000000000021A
-t1306852659
-s538
-i<UIKit/UIKit.h>
-i<Foundation/Foundation.h>
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/PluginResult.h
-c000000004DE4FD330000000000000924
-t1306852659
-s2340
-i<Foundation/Foundation.h>
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/SBJSON.h
-c000000004DE4FD330000000000000AED
-t1306852659
-s2797
-i<Foundation/Foundation.h>
-i"SBJsonParser.h"
-i"SBJsonWriter.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/SBJsonBase.h
-c000000004DE4FD330000000000000B82
-t1306852659
-s2946
-i<Foundation/Foundation.h>
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/SBJsonParser.h
-c000000004DE4FD330000000000000C0B
-t1306852659
-s3083
-i<Foundation/Foundation.h>
-i"SBJsonBase.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/SBJsonWriter.h
-c000000004DE4FD330000000000001140
-t1306852659
-s4416
-i<Foundation/Foundation.h>
-i"SBJsonBase.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/Headers/Sound.h
-c000000004DE4FD330000000000000704
-t1306852659
-s1796
-i<Foundation/Foundation.h>
-i<AudioToolbox/AudioServices.h>
-i<AVFoundation/AVFoundation.h>
-i"PhoneGapCommand.h"
-
-N/Users/Shared/PhoneGap/Frameworks/PhoneGap.framework/PhoneGap
-c000000004DE4FD330000000000109220
-t1306852659
-s1085984
-
-N/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision
-c000000004E326B830000000000001D49
-t1311927171
-s7497
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist
-c000000004E3287240000000000000221
-t1311934244
-s545
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-t1315501744
-s646
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM
-t1311934158
-s102
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Capture.bundle
-t1311934158
-s578
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default.png
-t1311934158
-s7110
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default@2x.png
-t1311934158
-s15433
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default~ipad.png
-t1311934158
-s16513
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Info.plist
-t1315501741
-s1339
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PhoneGap.plist
-t1311934158
-s403
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PkgInfo
-t1315501741
-s8
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/ResourceRules.plist
-t1311934157
-s485
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision
-t1311934158
-s7497
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/en.lproj/InfoPlist.strings
-t1311934158
-s42
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon-72.png
-t1311934158
-s4784
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon.png
-t1311934158
-s3516
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon@2x.png
-t1311934158
-s9267
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-t1311934157
-s459152
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/www
-t1311934158
-s714
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/AppDelegate.o
-t1311934157
-s52792
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/main.o
-t1311934157
-s4364
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis
-t1311934157
-s220020
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis.LinkFileList
-c000000004E3286CD0000000000000133
-t1311934157
-s307
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/AppDelegate.o
-t1311934157
-s52968
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/main.o
-t1311934157
-s4508
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis
-t1311934157
-s218792
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis.LinkFileList
-c000000004E3286CD0000000000000133
-t1311934157
-s307
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Script-B855DABE13DA0063007F3387.sh
-c000000004E3286CD0000000000000270
-t1311934157
-s624
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/com.apple.build-tools.platform.validate
-t2
-s0
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-t1315501741
-s419
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.h
-c000000004E2ECB4D0000000000000294
-t1311689549
-s660
-i<UIKit/UIKit.h>
-i<PhoneGap/PhoneGapDelegate.h>
-i"PhoneGapDelegate.h"
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m
-c000000004E3155590000000000000E24
-t1311855961
-s3620
-i"AppDelegate.h"
-i<PhoneGap/PhoneGapViewController.h>
-i"PhoneGapViewController.h"
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/PhoneGap.plist
-c000000004E2ECB4D00000000000004CD
-t1311689549
-s1229
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/Capture.bundle
-c000000004E2ECB4D0000000000000242
-t1311689549
-s578
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon-72.png
-c000000004E3282490000000000000FC3
-t1311933001
-s4035
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon.png
-c000000004E3282490000000000000C0C
-t1311933001
-s3084
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon@2x.png
-c000000004E3282490000000000001BF2
-t1311933001
-s7154
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default.png
-c000000004E32824900000000000014BC
-t1311933001
-s5308
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default@2x.png
-c000000004E328249000000000000300B
-t1311933001
-s12299
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default~ipad.png
-c000000004E32824900000000000033B9
-t1311933001
-s13241
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/en.lproj/InfoPlist.strings
-c000000004E2ECB4D000000000000002D
-t1311689549
-s45
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m
-c000000004E2ECB4D0000000000000178
-t1311689549
-s376
-i<UIKit/UIKit.h>
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/tedxparis-Prefix.pch
-c000000004E2ECB4D0000000000000095
-t1311689549
-s149
-i<UIKit/UIKit.h>
-
-N/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/www
-c000000004E3283FB00000000000002CA
-t1311933435
-s714
-
-N/var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-dfntaotdjqacjfegaodkuavzrfgp/tedxparis-Prefix.pch.gch
-t1311932511
-s8239004
-
-N/var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-getousbeurvobuchkmjguswbncoq/tedxparis-Prefix.pch.gch
-t1311932511
-s7743388
-
-Ntedxparis/tedxparis-Info.plist
-c000000004E32870600000000000006E8
-t1311934214
-s1768
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies337194541#337194541#0(0"0(0#1#0"8611868672#0"0#
-
-CCodeSign /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-s337194541.576720
-e337194544.067949
-r1
-xCodeSign
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-o/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app: replacing invalid existing signature
-lSLF07#2@50"CodeSign build/Distribution-iphoneos/tedxparis.app337194541#337194544#0(142"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app: replacing invalid existing signature0(0#0#103"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app8614740768#757"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Distribution: Joshfire" --resource-rules=/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/ResourceRules.plist --entitlements /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/AppDelegate.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m normal armv6 objective-c com.apple.compilers.llvmgcc42
-s333626957.473894
-e333626957.660402
-r1
-xCompileC
-xbuild/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/AppDelegate.o
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@101"Compile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m333626957#333626957#0(0"0(0#0#93"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m8620266880#1702"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wmissing-prototypes -Wreturn-type -Wunused-variable -DPHONEGAP_FRAMEWORK=YES -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.hmap -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/include -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources/armv6 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources -include /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-getousbeurvobuchkmjguswbncoq/tedxparis-Prefix.pch -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/AppDelegate.o0#
-
-CCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/main.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m normal armv6 objective-c com.apple.compilers.llvmgcc42
-s333626957.472955
-e333626957.554083
-r1
-xCompileC
-xbuild/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/main.o
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m
-xnormal
-xarmv6
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@86"Compile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m333626957#333626957#0(0"0(0#0#78"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m8621813312#1680"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv6 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wmissing-prototypes -Wreturn-type -Wunused-variable -DPHONEGAP_FRAMEWORK=YES -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.hmap -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/include -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources/armv6 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources -include /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-getousbeurvobuchkmjguswbncoq/tedxparis-Prefix.pch -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/main.o0#
-
-CCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/AppDelegate.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m normal armv7 objective-c com.apple.compilers.llvmgcc42
-s333626957.475748
-e333626957.661552
-r1
-xCompileC
-xbuild/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/AppDelegate.o
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@101"Compile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m333626957#333626957#0(0"0(0#0#93"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m8617923264#1702"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wmissing-prototypes -Wreturn-type -Wunused-variable -DPHONEGAP_FRAMEWORK=YES -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.hmap -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/include -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources/armv7 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources -include /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-dfntaotdjqacjfegaodkuavzrfgp/tedxparis-Prefix.pch -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Classes/AppDelegate.m -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/AppDelegate.o0#
-
-CCompileC build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/main.o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m normal armv7 objective-c com.apple.compilers.llvmgcc42
-s333626957.474678
-e333626957.555448
-r1
-xCompileC
-xbuild/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/main.o
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m
-xnormal
-xarmv7
-xobjective-c
-xcom.apple.compilers.llvmgcc42
-lSLF07#2@86"Compile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m333626957#333626957#0(0"0(0#0#78"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m8601291296#1680"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wmissing-prototypes -Wreturn-type -Wunused-variable -DPHONEGAP_FRAMEWORK=YES -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=4.1 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.hmap -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/include -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources/armv7 -I/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources -include /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-dfntaotdjqacjfegaodkuavzrfgp/tedxparis-Prefix.pch -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/main.m -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/main.o0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default.png tedxparis/Resources/splash/Default.png
-s333626958.388596
-e333626958.579749
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default.png
-xtedxparis/Resources/splash/Default.png
-lSLF07#2@104"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/Default.png tedxparis/Resources/splash/Default.png333626958#333626958#0(0"0(0#0#100"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default.png8625059008#567"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default.png0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default@2x.png tedxparis/Resources/splash/Default@2x.png
-s333626958.527705
-e333626958.728680
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default@2x.png
-xtedxparis/Resources/splash/Default@2x.png
-lSLF07#2@110"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/Default@2x.png tedxparis/Resources/splash/Default@2x.png333626958#333626958#0(0"0(0#0#103"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default@2x.png8624677792#573"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default@2x.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default@2x.png0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default~ipad.png tedxparis/Resources/splash/Default~ipad.png
-s333626958.529562
-e333626958.845885
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default~ipad.png
-xtedxparis/Resources/splash/Default~ipad.png
-lSLF07#2@114"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/Default~ipad.png tedxparis/Resources/splash/Default~ipad.png333626958#333626958#0(0"0(0#0#105"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default~ipad.png8624512256#577"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/splash/Default~ipad.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Default~ipad.png0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon-72.png tedxparis/Resources/icons/icon-72.png
-s333626957.874611
-e333626958.529457
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon-72.png
-xtedxparis/Resources/icons/icon-72.png
-lSLF07#2@103"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/icon-72.png tedxparis/Resources/icons/icon-72.png333626957#333626958#0(0"0(0#0#99"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon-72.png8624408864#566"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon-72.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon-72.png0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon.png tedxparis/Resources/icons/icon.png
-s333626957.873362
-e333626958.527597
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon.png
-xtedxparis/Resources/icons/icon.png
-lSLF07#2@97"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/icon.png tedxparis/Resources/icons/icon.png333626957#333626958#0(0"0(0#0#96"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon.png8624522432#560"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon.png0#
-
-CCopyPNGFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon@2x.png tedxparis/Resources/icons/icon@2x.png
-s333626957.873893
-e333626958.536089
-r1
-xCopyPNGFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon@2x.png
-xtedxparis/Resources/icons/icon@2x.png
-lSLF07#2@103"CopyPNGFile build/Distribution-iphoneos/tedxparis.app/icon@2x.png tedxparis/Resources/icons/icon@2x.png333626957#333626958#0(0"0(0#0#99"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon@2x.png8624438624#566"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/icons/icon@2x.png /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/icon@2x.png0#
-
-CCopyPlistFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PhoneGap.plist tedxparis/PhoneGap.plist
-s333626958.537106
-e333626958.581736
-r1
-xCopyPlistFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PhoneGap.plist
-xtedxparis/PhoneGap.plist
-lSLF07#2@29"Copy tedxparis/PhoneGap.plist333626958#333626958#0(0"0(0#0#86"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/PhoneGap.plist8624034080#440"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copyplist --convert binary1 tedxparis/PhoneGap.plist --outdir /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CCopyStringsFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/en.lproj/InfoPlist.strings tedxparis/en.lproj/InfoPlist.strings
-s333626957.872717
-e333626958.388512
-r1
-xCopyStringsFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/en.lproj/InfoPlist.strings
-xtedxparis/en.lproj/InfoPlist.strings
-lSLF07#2@41"Copy tedxparis/en.lproj/InfoPlist.strings333626957#333626958#0(0"0(0#0#98"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/en.lproj/InfoPlist.strings8624690496#534"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv ICONV /usr/bin/iconv    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding binary tedxparis/en.lproj/InfoPlist.strings --outdir /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/en.lproj0#
-
-CCpResource build/Distribution-iphoneos/tedxparis.app/Capture.bundle tedxparis/Resources/Capture.bundle
-s333626958.536237
-e333626958.587580
-r1
-xCpResource
-xbuild/Distribution-iphoneos/tedxparis.app/Capture.bundle
-xtedxparis/Resources/Capture.bundle
-lSLF07#2@39"Copy tedxparis/Resources/Capture.bundle333626958#333626958#0(0"0(0#0#96"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/Capture.bundle8624416672#577"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/Resources/Capture.bundle /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CCpResource build/Distribution-iphoneos/tedxparis.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist
-s333626957.298677
-e333626957.472688
-r1
-xCpResource
-xbuild/Distribution-iphoneos/tedxparis.app/ResourceRules.plist
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist
-lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist333626957#333626957#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist8621108480#570"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/ResourceRules.plist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CCpResource build/Distribution-iphoneos/tedxparis.app/www www
-s333626958.581836
-e333626958.860623
-r1
-xCpResource
-xbuild/Distribution-iphoneos/tedxparis.app/www
-xwww
-lSLF07#2@8"Copy www333626958#333626958#0(0"0(0#0#65"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/www8620731520#546"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -strip-debug-symbols -resolve-src-symlinks /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/www /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CCreateUniversalBinary /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis normal "armv6 armv7"
-s333626957.712109
-e333626957.714723
-r1
-xCreateUniversalBinary
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-xnormal
-xarmv6 armv7
-lSLF07#2@94"CreateUniversalBinary build/Distribution-iphoneos/tedxparis.app/tedxparis normal "armv6 armv7"333626957#333626957#0(0"0(0#0#73"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/armv6 armv78621816992#647"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/lipo -create /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis -output /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis0#
-
-CGenerateDSYMFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-s333626958.860705
-e333626958.876860
-r1
-xGenerateDSYMFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis
-lSLF07#2@115"GenerateDSYMFile build/Distribution-iphoneos/tedxparis.app.dSYM build/Distribution-iphoneos/tedxparis.app/tedxparis333626958#333626958#0(0"0(0#0#113"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis8624707200#451"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/tedxparis -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app.dSYM0#
-
-CLd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis normal armv6
-s333626957.660512
-e333626957.711721
-r1
-xLd
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis
-xnormal
-xarmv6
-lSLF07#2@157"Link /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis333626957#333626957#0(0"0(0#0#0"8624187456#1331"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -arch armv6 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -L/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -filelist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis.LinkFileList -dead_strip -miphoneos-version-min=4.1 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -framework AVFoundation -framework CoreLocation -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -framework MobileCoreServices -framework CoreMedia -framework PhoneGap -prebind -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis0#
-
-CLd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis normal armv7
-s333626957.661646
-e333626957.712044
-r1
-xLd
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis
-xnormal
-xarmv7
-lSLF07#2@157"Link /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis333626957#333626957#0(0"0(0#0#0"8624001504#1331"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc-4.2 -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk -L/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos -F/Users/Shared/PhoneGap/Frameworks -filelist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis.LinkFileList -dead_strip -miphoneos-version-min=4.1 -framework Foundation -framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -framework AVFoundation -framework CoreLocation -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -framework MobileCoreServices -framework CoreMedia -framework PhoneGap -prebind -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis0#
-
-CPhaseScriptExecution "Run Script" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Script-B855DABE13DA0063007F3387.sh
-s337194541.512631
-e337194541.542120
-r1
-xPhaseScriptExecution
-xRun Script
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Script-B855DABE13DA0063007F3387.sh
-o		B855DB0E13DA029D007F3387 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
-lSLF07#2@36"Run custom shell script 'Run Script'337194541#337194541#0(131"		B855DB0E13DA029D007F3387 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };1(13@131"		B855DB0E13DA029D007F3387 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };337194541#0#131#0(1@0"0(0#0#0"8612482176#19267"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv ACTION build    setenv AD_HOC_CODE_SIGNING_ALLOWED NO    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER nicolaslesconnec    setenv ALWAYS_SEARCH_USER_PATHS YES    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS "armv6 armv7"    setenv ARCHS_STANDARD_32_64_BIT "armv6 armv7"    setenv ARCHS_STANDARD_32_BIT "armv6 armv7"    setenv ARCHS_UNIVERSAL_IPHONE_OS armv7    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build    setenv BUILD_ROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build    setenv BUILD_STYLE Distribution    setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos    setenv CACHE_ROOT /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501    setenv CCHROOT /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLANG_ENABLE_OBJC_ARC YES    setenv CLASS_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app    setenv CODE_SIGNING_ALLOWED YES    setenv CODE_SIGNING_REQUIRED YES    setenv CODE_SIGN_CONTEXT_CLASS XCiPhoneOSCodeSignContext    setenv CODE_SIGN_ENTITLEMENTS "~/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist"    setenv CODE_SIGN_IDENTITY "iPhone Distribution"    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Distribution    setenv CONFIGURATION_BUILD_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos    setenv CONFIGURATION_TEMP_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos    setenv CONTENTS_FOLDER_PATH tedxparis.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP YES    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH armv7    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING YES    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Developer/Applications    setenv DEVELOPER_BIN_DIR /Developer/usr/bin    setenv DEVELOPER_DIR /Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Developer/Library    setenv DEVELOPER_SDK_DIR /Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Developer/Tools    setenv DEVELOPER_USR_DIR /Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH tedxparis.app/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/tedxparis.dst    setenv DWARF_DSYM_FILE_NAME tedxparis.app.dSYM    setenv DWARF_DSYM_FOLDER_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos    setenv EFFECTIVE_PLATFORM_NAME -iphoneos    setenv EMBEDDED_PROFILE_NAME embedded.mobileprovision    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv ENABLE_OPENMP_SUPPORT NO    setenv ENTITLEMENTS_ALLOWED YES    setenv ENTITLEMENTS_REQUIRED YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".svn .git CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) CVS .svn .git *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH tedxparis.app/Executables    setenv EXECUTABLE_FOLDER_PATH tedxparis.app    setenv EXECUTABLE_NAME tedxparis    setenv EXECUTABLE_PATH tedxparis.app/tedxparis    setenv FILE_LIST /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH tedxparis.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos\" /Users/Shared/PhoneGap/Frameworks"    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME tedxparis.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD gnu99    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER tedxparis/tedxparis-Prefix.pch    setenv GCC_PREPROCESSOR_DEFINITIONS PHONEGAP_FRAMEWORK=YES    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_THUMB_SUPPORT YES    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvmgcc42    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvmgcc42    setenv GCC_WARN_ABOUT_MISSING_PROTOTYPES YES    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/include\" "    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE tedxparis/tedxparis-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH tedxparis.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH tedxparis.app/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/tedxparis.dst/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER nicolaslesconnec    setenv INSTALL_PATH /Applications    setenv INSTALL_ROOT /tmp/tedxparis.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 4.1    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH tedxparis.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis-LinkMap-normal-armv7.txt    setenv LD_OPENMP_FLAGS -fopenmp    setenv LEX /Developer/usr/bin/lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_armv6 /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv6/tedxparis.LinkFileList    setenv LINK_FILE_LIST_normal_armv7 /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal/armv7/tedxparis.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH tedxparis.app/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 10K549    setenv MAC_OS_X_VERSION_ACTUAL 1068    setenv MAC_OS_X_VERSION_MAJOR 1060    setenv MAC_OS_X_VERSION_MINOR 0608    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJECT_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Objects-normal    setenv OBJROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Developer/Headers /Developer/SDKs /Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH tedxparis.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS objective-c    setenv PHONEGAPLIB /Users/nicolaslesconnec/Documents/PhoneGapLib    setenv PKGINFO_FILE_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/PkgInfo    setenv PKGINFO_PATH tedxparis.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Developer/Platforms/iPhoneOS.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Developer/Platforms/iPhoneOS.platform/Developer/usr    setenv PLATFORM_DIR /Developer/Platforms/iPhoneOS.platform    setenv PLATFORM_NAME iphoneos    setenv PLATFORM_PRODUCT_BUILD_VERSION 8F192    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH tedxparis.app/PlugIns    setenv PREBINDING YES    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH tedxparis.app/PrivateHeaders    setenv PRODUCT_NAME tedxparis    setenv PRODUCT_SETTINGS_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/tedxparis-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT tedxparis    setenv PROJECT_DERIVED_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/DerivedSources    setenv PROJECT_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PROJECT_FILE_PATH /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis.xcodeproj    setenv PROJECT_NAME tedxparis    setenv PROJECT_TEMP_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build    setenv PROVISIONING_PROFILE_REQUIRED YES    setenv PUBLIC_HEADERS_FOLDER_PATH tedxparis.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv RESOURCE_RULES_REQUIRED YES    setenv REZ_COLLECTOR_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH tedxparis.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk    setenv SDK_DIR /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk    setenv SDK_NAME iphoneos4.3    setenv SDK_PRODUCT_BUILD_VERSION 8F191m    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH tedxparis.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH tedxparis.app/SharedSupport    setenv SKIP_INSTALL YES    setenv SOURCE_ROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv SRCROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv STANDARD_C_PLUS_PLUS_LIBRARY_TYPE dynamic    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES 1,2    setenv SYMBOL_REPOSITORY_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/SymbolRepositories    setenv SYMROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1,2    setenv TARGETNAME tedxparis    setenv TARGET_BUILD_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos    setenv TARGET_NAME tedxparis    setenv TARGET_TEMP_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build    setenv TEMP_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build    setenv TEMP_FILES_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build    setenv TEMP_FILE_DIR /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build    setenv TEMP_ROOT /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH tedxparis.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER nicolaslesconnec    setenv USER_APPS_DIR /Users/nicolaslesconnec/Applications    setenv USER_LIBRARY_DIR /Users/nicolaslesconnec/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT YES    setenv VALID_ARCHS "armv6 armv7"    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH tedxparis.app/version.plist    setenv VERSION_INFO_BUILDER nicolaslesconnec    setenv VERSION_INFO_FILE tedxparis_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:tedxparis  PROJECT:tedxparis-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME tedxparis.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 10M2518    setenv XCODE_VERSION_ACTUAL 0400    setenv XCODE_VERSION_MAJOR 0400    setenv XCODE_VERSION_MINOR 0400    setenv YACC /Developer/usr/bin/yacc    setenv _REAL_SDKROOT iphoneos    /bin/sh -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/Script-B855DABE13DA0063007F3387.sh0#
-
-CProcessInfoPlistFile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Info.plist tedxparis/tedxparis-Info.plist
-s337194541.481018
-e337194541.511377
-r1
-xProcessInfoPlistFile
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Info.plist
-xtedxparis/tedxparis-Info.plist
-lSLF07#2@38"Process tedxparis/tedxparis-Info.plist337194541#337194541#0(0"0(0#0#92"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/tedxparis/tedxparis-Info.plist8613845440#693"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    builtin-infoPlistUtility tedxparis/tedxparis-Info.plist -genpkginfo /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/ResourceRules.plist -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/Info.plist0#
-
-CProcessPCH /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-dfntaotdjqacjfegaodkuavzrfgp/tedxparis-Prefix.pch.gch tedxparis/tedxparis-Prefix.pch normal armv7 objective-c com.apple.compilers.llvmgcc42
-r0
-
-CProcessPCH /var/folders/fC/fCPe5vYTEHWgXZe+vIMHsU+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/tedxparis-Prefix-getousbeurvobuchkmjguswbncoq/tedxparis-Prefix.pch.gch tedxparis/tedxparis-Prefix.pch normal armv6 objective-c com.apple.compilers.llvmgcc42
-r0
-
-CProcessProductPackaging "/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision" /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision
-s333626958.963860
-e333626958.975049
-r1
-xProcessProductPackaging
-x/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision
-lSLF07#2@212"ProcessProductPackaging "/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision" build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision333626958#333626958#0(0"0(0#0#128"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision8623880768#489"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> "/Users/nicolaslesconnec/Library/MobileDevice/Provisioning Profiles/8142FDE5-4FA4-4206-996B-999CDDBBC8A5.mobileprovision" -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app/embedded.mobileprovision0#
-
-CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/Entitlements.plist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-s333626958.977629
-e333626958.992277
-r1
-xProcessProductPackaging
-x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/Entitlements.plist
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-lSLF07#2@188"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/Entitlements.plist build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent333626958#333626958#0(0"0(0#0#137"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent8622827488#491"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/Entitlements.plist -entitlements -format xml -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent0#
-
-CProcessProductPackaging /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-s337194541.575499
-e337194541.576643
-r1
-xProcessProductPackaging
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent
-lSLF07#2@118"ProcessProductPackaging Entitlements.plist build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent337194541#337194541#0(0"0(0#0#137"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent8614851456#483"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    <com.apple.tools.product-pkg-utility> /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/Entitlements.plist -entitlements -format xml -o /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/tedxparis.build/Distribution-iphoneos/tedxparis.build/tedxparis.xcent0#
-
-CTouch /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-s337194541.542335
-e337194541.575405
-r1
-xTouch
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-lSLF07#2@109"Touch /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app337194541#337194541#0(0"0(0#0#0"8615332480#319"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-
-CValidate /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-s337194544.068078
-e337194545.475351
-r1
-xValidate
-x/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app
-o2011-09-08 19:09:04.770 Validation[12610:607] *** Warning: Defaulting to the standard codesign tool
-lSLF07#2@50"Validate build/Distribution-iphoneos/tedxparis.app337194544#337194545#0(100"2011-09-08 19:09:04.770 Validation[12610:607] *** Warning: Defaulting to the standard codesign tool0(0#0#103"/Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app8611502592#428"    cd /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    setenv PRODUCT_TYPE com.apple.product-type.application    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/Validation /Users/nicolaslesconnec/Projets/Joshfire/mytv/xcode/tedxparis/build/Distribution-iphoneos/tedxparis.app0#
-

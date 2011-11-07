@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.joshfire.tedxparis"
+	version 	= "1.1">
+
+	<name>TEDxParis</name>
+
+	<description>
+		An application for viewing TEDxParis talks
+	</description>
+
+	<author href="http://joshfire.com"
+		email="contact@joshfire.com">
+ 		Joshfire
+	</author>
+
+	<gap:platforms>
+		<gap:platform name="ios" minVersion="4.3" />
+	</gap:platforms>
+
+	<icon src="public/apple-touch-icon.png" gap:role="default" />
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+
+	<!-- sample preference specification -->
+	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
+</widget>

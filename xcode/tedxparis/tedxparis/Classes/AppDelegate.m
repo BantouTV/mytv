@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  tedxparis
 //
-//  Created by Sylvain Zimmer on 7/22/11.
+//  Created by Sylvain Zimmer on 11/7/11.
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
@@ -16,25 +16,6 @@
 @implementation AppDelegate
 
 @synthesize invokeString;
-
-+ (BOOL) isIPad 
-{
-#ifdef UI_USER_INTERFACE_IDIOM
-    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#else
-    return NO;
-#endif
-}
-
-+ (NSString*) startPage
-{
-    if ([[self class] isIPad]) {
-        return @"index.ipad.html";
-    } else {
-        return @"index.iphone.html";
-    }
-}
-
 
 - (id) init
 {	

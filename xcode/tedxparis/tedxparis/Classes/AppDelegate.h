@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  tedxparis
 //
-//  Created by Sylvain Zimmer on 7/22/11.
+//  Created by Sylvain Zimmer on 11/7/11.
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
